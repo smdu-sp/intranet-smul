@@ -93,6 +93,10 @@ if ( ! function_exists( 'generate_scripts' ) ) {
 			wp_enqueue_script( 'generate-dropdown-click', $dir_uri . "/assets/js/dropdown-click{$suffix}.js", array(), GENERATE_VERSION, true );
 		}
 
+		if ( apply_filters( 'generate_enable_modal_script', false ) ) {
+			wp_enqueue_script( 'generate-modal', $dir_uri . '/assets/dist/modal.js', array(), GENERATE_VERSION, true );
+		}
+
 		if ( 'enable' === generate_get_option( 'nav_search' ) ) {
 			wp_enqueue_script( 'generate-navigation-search', $dir_uri . "/assets/js/navigation-search{$suffix}.js", array(), GENERATE_VERSION, true );
 
@@ -241,15 +245,33 @@ if ( ! function_exists( 'generate_resource_hints' ) ) {
 	 */
 	function generate_resource_hints( $urls, $relation_type ) {
 		$handle = generate_is_using_dynamic_typography() ? 'generate-google-fonts' : 'generate-fonts';
+		$hint_type = apply_filters( 'generate_google_font_resource_hint_type', 'preconnect' );
+		$has_crossorigin_support = version_compare( $GLOBALS['wp_version'], '4.7-alpha', '>=' );
 
-		if ( wp_style_is( $handle, 'queue' ) && 'preconnect' === $relation_type ) {
-			if ( version_compare( $GLOBALS['wp_version'], '4.7-alpha', '>=' ) ) {
-				$urls[] = array(
-					'href' => 'https://fonts.gstatic.com',
-					'crossorigin',
-				);
-			} else {
-				$urls[] = 'https://fonts.gstatic.com';
+		if ( wp_style_is( $handle, 'queue' ) ) {
+			if ( $relation_type === $hint_type ) {
+				if ( $has_crossorigin_support && 'preconnect' === $hint_type ) {
+					$urls[] = array(
+						'href' => 'https://fonts.gstatic.com',
+						'crossorigin',
+					);
+
+					$urls[] = array(
+						'href' => 'https://fonts.googleapis.com',
+						'crossorigin',
+					);
+				} else {
+					$urls[] = 'https://fonts.gstatic.com';
+					$urls[] = 'https://fonts.googleapis.com';
+				}
+			}
+
+			if ( 'dns-prefetch' !== $hint_type ) {
+				$googleapis_index = array_search( 'fonts.googleapis.com', $urls );
+
+				if ( false !== $googleapis_index ) {
+					unset( $urls[ $googleapis_index ] );
+				}
 			}
 		}
 
