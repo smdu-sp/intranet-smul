@@ -1,38 +1,33 @@
 <?php 
 
-$fields = get_fields();
+$arraySecao =  $fields[$key];
 
-echo '<pre>';
-print_r( $fields );
-echo '</pre>';
+$titulo = $arraySecao['titulo'];
+$urlImagem = $arraySecao['imagem']['url'];
+$subtitulo = $arraySecao['subtitulo'];
+$conteudo = $arraySecao['texto'];
+$url = $arraySecao['url'];
+$tipoSecao = $arraySecao['tipo_de_secao'];
 
-$tituloACF = $fields['titulo'];
-$imagemACF = $fields['imagem']['url'];
-$subtituloACF = $fields['postagem']['titulo'];
-$conteudoACF = $fields['postagem']['conteudo'];
+if ( ! array_key_exists( $tipoSecao, $countSecoes ) )
+{
+    $countSecoes[$tipoSecao] = 0;
+}
+
+$countSecoes[$tipoSecao]++;
 
 ?>
-<section #id="secao-TIPO-NUM">
+<section #id="secao-<?= "{$tipoSecao}-{$countSecoes[$tipoSecao]}" ?>">
     <div class="inside-article">
-        <h2><?= $tituloACF ?></h2>
-        <a href="#">
+        <h2><?= $titulo ?></h2>
+        <a href="<?= $url ?>">
             <div>
-                <div style="background-color: #ddd;"><img src="<?= $imagemACF ?>" alt=""></div>
+                <div style="background-color: #ddd;"><img src="<?= $urlImagem ?>" alt=""></div>
                 <div>
-                    <h3><?= $subtituloACF ?></h3>
-                    <p><?= $conteudoACF ?></p>
+                    <h3><?= $subtitulo ?></h3>
+                    <p><?= $conteudo ?></p>
                 </div>
             </div>
         </a>
     </div>
-    <!-- <h2>Papo Urbano</h2>
-    <div>
-        <div>
-            <img src="" alt="">
-        </div>
-        <div>
-            <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean pulvinar luctus metus, vitae rutrum neque consectetur quis. Aliquam posuere, augue a mollis faucibus, ligula dolor volutpat turpis, in suscipit est ex lobortis massa. Fusce commodo nunc, lacinia ultricies ex luctus. Nunc in pellentesque urna. Vestibulum at ultricies orci, eget euismod orci. </p>
-        </div>
-    </div> -->
 </section>

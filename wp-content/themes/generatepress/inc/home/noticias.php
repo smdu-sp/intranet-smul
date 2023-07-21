@@ -18,10 +18,10 @@ foreach ( $posts as $index => $value ) {
 
     <a href="<?= get_post_permalink($postId) ?>">
         <article id="post-<?= $postId ?>" class="post-<?= $postId ?>">
-        <div class="inside-article">
-            <h3><?= $postTitle ?></h3>
-            <p><?= $postExcerpt ?></p>
-        </div>
+            <div class="inside-article">
+                <h3><?= $postTitle ?></h3>
+                <p><?= $postExcerpt ?></p>
+            </div>
         </article>
     </a>
 

@@ -1,5 +1,13 @@
 <?php
-    include_once 'secao.php';
+    $fields = get_fields();
+    $countSecoes = Array();
+
+    foreach ( $fields as $key => $value ) {
+        if ( substr( $key, 0, 5 ) === 'secao' && trim($fields[$key]['ativado']) === '1') {
+            include 'secao.php';            
+        };
+    }
+
 ?>
 
 <style>
