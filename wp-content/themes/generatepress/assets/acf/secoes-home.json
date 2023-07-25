@@ -211,6 +211,23 @@
                         "rows": "",
                         "placeholder": "",
                         "new_lines": ""
+                    },
+                    {
+                        "key": "field_64b7ed3586371",
+                        "label": "Link",
+                        "name": "url",
+                        "aria-label": "",
+                        "type": "url",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": ""
                     }
                 ]
             },
@@ -422,6 +439,23 @@
                         "rows": "",
                         "placeholder": "",
                         "new_lines": ""
+                    },
+                    {
+                        "key": "field_64b7ee4b86372",
+                        "label": "Link",
+                        "name": "url",
+                        "aria-label": "",
+                        "type": "url",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": ""
                     }
                 ]
             },
@@ -633,6 +667,23 @@
                         "rows": "",
                         "placeholder": "",
                         "new_lines": ""
+                    },
+                    {
+                        "key": "field_64b7ee8c86373",
+                        "label": "Link",
+                        "name": "url",
+                        "aria-label": "",
+                        "type": "url",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": ""
                     }
                 ]
             },
@@ -844,6 +895,23 @@
                         "rows": "",
                         "placeholder": "",
                         "new_lines": ""
+                    },
+                    {
+                        "key": "field_64b7ef3186374",
+                        "label": "Link",
+                        "name": "url",
+                        "aria-label": "",
+                        "type": "url",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": ""
                     }
                 ]
             },
@@ -1055,6 +1123,23 @@
                         "rows": "",
                         "placeholder": "",
                         "new_lines": ""
+                    },
+                    {
+                        "key": "field_64b7ef4d86375",
+                        "label": "Link",
+                        "name": "url",
+                        "aria-label": "",
+                        "type": "url",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": ""
                     }
                 ]
             }

@@ -22,10 +22,7 @@ get_header(); ?>
 
             <?php 
 				include_once 'inc/home/noticias.php';
-				include_once 'inc/home/papo-urbano.php';
-				include_once 'inc/home/boletim.php';
-				include_once 'inc/home/galeria.php';
-				include_once 'inc/home/comunicados.php';
+				include_once 'inc/home/secoes.php';
 			?>
 
             <?php
