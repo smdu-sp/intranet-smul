@@ -19,15 +19,10 @@ $countSecoes[$tipoSecao]++;
 ?>
 <section #id="secao-<?= "{$tipoSecao}-{$countSecoes[$tipoSecao]}" ?>">
     <div class="inside-article">
-        <h2><?= $titulo ?></h2>
-        <a href="<?= $url ?>">
-            <div>
-                <div style="background-color: #ddd;"><img src="<?= $urlImagem ?>" alt=""></div>
-                <div>
-                    <h3><?= $subtitulo ?></h3>
-                    <p><?= $conteudo ?></p>
-                </div>
-            </div>
-        </a>
+        <?php
+            if ( $tipoSecao === 'conteudo' ) include 'conteudo.php';
+            if ( $tipoSecao === 'galeria' ) include 'galeria.php';
+            if ( $tipoSecao === 'comunicados' ) include 'comunicados.php';
+        ?>
     </div>
 </section>
