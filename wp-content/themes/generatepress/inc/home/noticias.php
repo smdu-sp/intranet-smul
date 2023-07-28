@@ -16,14 +16,14 @@ foreach ( $posts as $index => $value ) {
     $postsPageId = get_option( 'page_for_posts' );
 ?>
 
-    <a href="<?= get_post_permalink($postId) ?>">
-        <article id="post-<?= $postId ?>" class="post-<?= $postId ?>">
-            <div class="inside-article">
-                <h3><?= $postTitle ?></h3>
-                <p><?= $postExcerpt ?></p>
-            </div>
-        </article>
-    </a>
+<a href="<?= get_post_permalink($postId) ?>">
+    <article id="post-<?= $postId ?>" class="post-<?= $postId ?>">
+        <div class="inside-article article">
+            <h3 class="sub-title mais-font menos-font"> <?= $postTitle ?></h3>
+            <p class="text mais-font menos-font"><?= $postExcerpt ?></p>
+        </div>
+    </article>
+</a>
 
 <?php
 }
