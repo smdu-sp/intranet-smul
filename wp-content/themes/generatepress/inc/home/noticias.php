@@ -5,12 +5,7 @@ $posts = wp_get_recent_posts( array( 'numberposts' => 3 ) );
 ?>
 
 <section id="ultimas-noticias">
-    
-<div class="section-title">
-    <h2 class="sub-title-home">Últimas noticias</h2>
-    <div class="linha">
-    </div>
-</div>
+    <h2>Últimas notícias</h2>
 
 <?php
 
