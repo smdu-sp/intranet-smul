@@ -14,7 +14,7 @@
     <div class="conteudo-<?= $tipoSecao ?> ">
         <p class="text mais-font menos-font"><?= $conteudo ?></p>
     </div>
-    <a  class="botao-<?= $tipoSecao ?> section-bnt " href="<?= $url ?>">
+    <a  class="botao-<?= $tipoSecao ?> section-bnt" href="<?= $url ?>">
         <div class="botao-<?= $tipoSecao ?> button-home1 mais-font menos-font">Ver Mais</div>
     </a>
 </div>
