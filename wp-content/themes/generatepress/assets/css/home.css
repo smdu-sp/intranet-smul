@@ -1,3 +1,15 @@
+.button-home1{
+    text-decoration: none;
+    color: white;
+    background: #0A3399;
+    padding: 15px 50px;
+    border-radius: 7px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    display: inline-block;
+}
+
 .button-home{
     text-decoration: none;
     color: white;
@@ -92,16 +104,6 @@ html{
     word-break: break-all;
     color: #000;
     font-weight: 400;
-}
-
-.button-home{
-    text-decoration: none;
-    color: white;
-    background: #0A3399;
-    padding: 15px 50px;
-    border-radius: 7px;
-    font-size: 14px;
-    text-transform: uppercase;
 }
 
 .section-bnt{
