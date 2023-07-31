@@ -1,3 +1,9 @@
+
+body{
+    font-family: 'Open Sans';
+    scroll-behavior: "smooth";
+}
+
 .button-home1{
     text-decoration: none;
     color: white;
@@ -28,10 +34,6 @@
 
 .button-home:hover{
     color: #fff;
-}
-
-body{
-    font-family: 'Open Sans';
 }
 
 html{
@@ -149,9 +151,6 @@ html{
 /* Menu principal/home */
 
 /* tira o botao nativo de voltar ao topo */
-.generate-back-to-top{
-    display: none;
-}
 
 @media only screen and (max-width: 768px) {
         #menu-menu-cabecalho{

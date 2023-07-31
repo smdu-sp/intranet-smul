@@ -1,7 +1,7 @@
 <div class="container-acess-geral">
     <div class="container-controle">
         <ul class="controle-esquerda">
-            <li class="funcoes-controle esquerda"><a href="#teste" accesskey="1">Ir para conteúdo [1]</a></li>
+            <li class="funcoes-controle esquerda"><a href="#ultimas-noticias" accesskey="1">Ir para conteúdo [1]</a></li>
             <li class="funcoes-controle esquerda"><a href="#primary-menu" accesskey="2">Ir para menu [2]</a></li>
             <li class="funcoes-controle esquerda"><a href="#footer">Ir para rodapé [3]</a></li>
         </ul>
@@ -11,13 +11,30 @@
             <li><a onclick="diminuirFonte()" class="funcoes-controle tm-font"><img src="wp-content\themes\generatepress\assets\img\acess-diminuir-fonte.svg" alt=""></a></li>
             <li><a href="#" class="funcoes-controle"><img class="img-center" src="wp-content\themes\generatepress\assets\img\acess-alto-contraste.svg" alt="logo"><span class="text-header">Alto contraste</span></a></li>
             <li><a href="#" class="funcoes-controle"><img class="img-center" src="wp-content\themes\generatepress\assets\img\acess-acessibilidade.svg" alt=""><span class="text-header">Acessibilidade</span></a></li>
-            <li><a href="#" class="funcoes-controle"><img class="img-center" src="wp-content\themes\generatepress\assets\img\acess-idioma.svg" alt=""><span class="text-header">Idioma</span></a></li>
+            <li><a id="google_translate_element" class="funcoes-controle"><img class="img-center" src="wp-content\themes\generatepress\assets\img\acess-idioma.svg" alt=""></a></li>
         </ul>
     </div>
 </div>
 
 <style>
-    
+
+    .goog-te-gadget-simple{
+        background-color: #494949;
+        border: none;
+    }
+
+    .goog-te-gadget-simple span{
+        color: #fff;
+        font-weight: normal;
+    }
+
+    .goog-te-gadget-simple span:hover{
+        color: rgb(246,246,246, 0.8);
+    }
+
+    .goog-te-gadget-icon{
+        display: none;
+    }
     
     #primary-menu{
         display: flex;
@@ -105,7 +122,7 @@
 <script>
 
     function scrolldiv() {
-        var elem = document.getElementById("teste");
+        var elem = document.getElementById("ultimas-noticias");
         elem.scrollIntoView();
     }
 
@@ -207,4 +224,27 @@
 
     }
 
+
 </script>
+
+<div id="google_translate_element" style="display: none;"></div>
+
+ 
+
+<script type="text/javascript">
+
+ 
+
+function googleTranslateElementInit() {
+
+ 
+
+  new google.translate.TranslateElement({pageLanguage: 'pt', layout: google.translate.TranslateElement.FloatPosition.TOP_RIGHT}, 'google_translate_element');
+
+ 
+
+}
+
+ 
+
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
