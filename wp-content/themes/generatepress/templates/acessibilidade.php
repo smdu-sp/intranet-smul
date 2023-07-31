@@ -229,22 +229,31 @@
 
 <div id="google_translate_element" style="display: none;"></div>
 
- 
-
+<!-- Google Translate -->
 <script type="text/javascript">
-
- 
-
 function googleTranslateElementInit() {
-
- 
-
   new google.translate.TranslateElement({pageLanguage: 'pt', layout: google.translate.TranslateElement.FloatPosition.TOP_RIGHT}, 'google_translate_element');
-
- 
-
 }
 
- 
+function corrigeTextoIdioma() {
+    const elemGoogleTranslate = document
+        .getElementsByClassName('goog-te-gadget-simple')[0];
 
-</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    if (elemGoogleTranslate !== undefined) {
+                const elemIdiomaTexto = elemGoogleTranslate
+                    .getElementsByTagName('span')[0]
+                    .getElementsByTagName('a')[0];
+                
+                const span = document.createElement('span');
+                const spanText = document.createTextNode('Idioma');
+                span.appendChild(spanText);
+        
+                elemIdiomaTexto.replaceChildren(span);
+    } else {
+        setTimeout(corrigeTextoIdioma, 100);
+    }
+}
+
+corrigeTextoIdioma();
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
