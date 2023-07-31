@@ -1,5 +1,6 @@
-html:root{
-    font-size: 10pxpx;
+body{
+    font-family: 'Roboto';
+    scroll-behavior: "smooth";
 }
 
 .button-home1{

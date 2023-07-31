@@ -17,7 +17,6 @@
 </div>
 
 <style>
-
     .goog-te-gadget-simple{
         background-color: #494949;
         border: none;
@@ -120,7 +119,6 @@
 </style>
 
 <script>
-
     function scrolldiv() {
         var elem = document.getElementById("ultimas-noticias");
         elem.scrollIntoView();
@@ -136,50 +134,24 @@
         footer.scrollIntoView();
     }
 
-    function aumentarFonte() {
- 
-                
-        /*guarda a classse dentro da variavel*/
-        var elementosTexto = document.getElementsByTagName('html');
+    function aumentarFonte() {                
+        const elemRoot = document.documentElement;
+        const estiloComputado = window.getComputedStyle(elemRoot);
+        const tamanhoFonteTexto = estiloComputado.fontSize;
 
-        /* pega o valor numerico de px do texto */
-
-        var classe = "text";
-
-        var elemento = document.querySelector("." + classe);
-
-        var estiloComputado = window.getComputedStyle(elemento);
-
-        var tamanhoFonte = parseFloat(estiloComputado.fontSize);
-
-
-
-        for (let i = 0; i < elementosTexto.length; i++) {
-
-            
-
-            var elemento = elementosTexto[i];
-
-            var tamanhoFonteAtual = window.getComputedStyle(elemento, null).getPropertyValue('font-size');
-
-            var novoTamanhoFonte = parseFloat(tamanhoFonteAtual);
-
-            var tamanhoFonteMaximo = 25;
-
-
-            if (tamanhoFonte <= tamanhoFonteMaximo) {
-
-                var limitfont = novoTamanhoFonte + 1;
-
-                elemento.style.fontSize = limitfont + "px";
-
-            }
-
+        // Cancela a operação caso tamanhoFonte não seja definido em px
+        if ( ! tamanhoFonteTexto.includes('px')) {
+            return;
         }
+        
+        let tamanhoFonteAtual = parseFloat(tamanhoFonteTexto);
+        const tamanhoFonteMaximo = 25;
 
-    }
-
-    
+        if (tamanhoFonteAtual < tamanhoFonteMaximo) {
+            tamanhoFonteAtual++;
+            elemRoot.style.fontSize = tamanhoFonteAtual + "px";
+        }
+    }    
 
     function diminuirFonte() {
                 
@@ -234,7 +206,7 @@ function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'pt', layout: google.translate.TranslateElement.FloatPosition.TOP_RIGHT}, 'google_translate_element');
 }
 
-function corrigeTextoIdioma() {
+(function corrigeTextoIdioma() {
     const elemGoogleTranslate = document
         .getElementsByClassName('goog-te-gadget-simple')[0];
 
@@ -251,8 +223,6 @@ function corrigeTextoIdioma() {
     } else {
         setTimeout(corrigeTextoIdioma, 100);
     }
-}
-
-corrigeTextoIdioma();
+})();
 </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
