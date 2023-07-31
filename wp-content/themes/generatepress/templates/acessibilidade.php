@@ -140,7 +140,7 @@
  
                 
         /*guarda a classse dentro da variavel*/
-        var elementosTexto = document.getElementsByClassName("mais-font");
+        var elementosTexto = document.getElementsByTagName('html');
 
         /* pega o valor numerico de px do texto */
 
@@ -182,10 +182,9 @@
     
 
     function diminuirFonte() {
- 
                 
         /*guarda a classse dentro da variavel*/
-        var elementosTexto = document.getElementsByClassName("menos-font");
+        var elementosTexto = document.getElementsByTagName('html');
 
         /* pega o valor numerico de px do texto */
 
