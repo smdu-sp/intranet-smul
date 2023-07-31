@@ -18,6 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <body <?php body_class(); ?> <?php generate_do_microdata( 'body' ); ?>>
 	<?php
+	include_once 'templates/acessibilidade.php';
 	/**
 	 * wp_body_open hook.
 	 *
