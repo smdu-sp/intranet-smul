@@ -7,8 +7,8 @@
         </ul>
 
         <ul class="controle-direita">
-            <li><a onclick="aumentarFonte()" class="funcoes-controle tm-font"><img src="wp-content\themes\generatepress\assets\img\acess-aumentar-fonte.svg" alt=""></a></li>
-            <li><a onclick="diminuirFonte()" class="funcoes-controle tm-font"><img src="wp-content\themes\generatepress\assets\img\acess-diminuir-fonte.svg" alt=""></a></li>
+            <li><a onclick="tamanhoFonte('mais')" id="mais" class="funcoes-controle tm-font"><img src="wp-content\themes\generatepress\assets\img\acess-aumentar-fonte.svg" alt=""></a></li>
+            <li><a onclick="tamanhoFonte('menos')" id="menos" class="funcoes-controle tm-font"><img src="wp-content\themes\generatepress\assets\img\acess-diminuir-fonte.svg" alt=""></a></li>
             <li><a href="#" class="funcoes-controle"><img class="img-center" src="wp-content\themes\generatepress\assets\img\acess-alto-contraste.svg" alt="logo"><span class="text-header">Alto contraste</span></a></li>
             <li><a href="#" class="funcoes-controle"><img class="img-center" src="wp-content\themes\generatepress\assets\img\acess-acessibilidade.svg" alt=""><span class="text-header">Acessibilidade</span></a></li>
             <li><a id="google_translate_element" class="funcoes-controle"><img class="img-center" src="wp-content\themes\generatepress\assets\img\acess-idioma.svg" alt=""></a></li>
@@ -136,93 +136,37 @@
         footer.scrollIntoView();
     }
 
-    function aumentarFonte() {
- 
-                
-        /*guarda a classse dentro da variavel*/
-        var elementosTexto = document.getElementsByTagName('html');
+    function tamanhoFonte(click){
+        
+        const elemRoot = document.documentElement;
+        const estiloComputado = window.getComputedStyle(elemRoot);
+        const tamanhoFonteTexto = estiloComputado.fontSize;
+        // Cancela a operação caso tamanhoFonte não seja definido em px
+        if ( ! tamanhoFonteTexto.includes('px')) {
+            return;
+        }
+        
+        let tamanhoFonteAtual = parseFloat(tamanhoFonteTexto);
+        const tamanhoFonteMaximo = 25;
+        const tamanhoFonteMinimo = 5;
 
-        /* pega o valor numerico de px do texto */
-
-        var classe = "text";
-
-        var elemento = document.querySelector("." + classe);
-
-        var estiloComputado = window.getComputedStyle(elemento);
-
-        var tamanhoFonte = parseFloat(estiloComputado.fontSize);
-
-
-
-        for (let i = 0; i < elementosTexto.length; i++) {
-
+        if (click === "mais") {
             
+            if (tamanhoFonteAtual < tamanhoFonteMaximo) {
+                tamanhoFonteAtual++;
+                elemRoot.style.fontSize = tamanhoFonteAtual + "px";
+            }
 
-            var elemento = elementosTexto[i];
+        } else if (click === "menos") {
 
-            var tamanhoFonteAtual = window.getComputedStyle(elemento, null).getPropertyValue('font-size');
-
-            var novoTamanhoFonte = parseFloat(tamanhoFonteAtual);
-
-            var tamanhoFonteMaximo = 25;
-
-
-            if (tamanhoFonte <= tamanhoFonteMaximo) {
-
-                var limitfont = novoTamanhoFonte + 1;
-
-                elemento.style.fontSize = limitfont + "px";
-
+            if (tamanhoFonteAtual > tamanhoFonteMinimo) {
+                tamanhoFonteAtual--;
+                elemRoot.style.fontSize = tamanhoFonteAtual + "px";
             }
 
         }
 
     }
-
-    
-
-    function diminuirFonte() {
-                
-        /*guarda a classse dentro da variavel*/
-        var elementosTexto = document.getElementsByTagName('html');
-
-        /* pega o valor numerico de px do texto */
-
-        var classe = "text";
-
-        var elemento = document.querySelector("." + classe);
-
-        var estiloComputado = window.getComputedStyle(elemento);
-
-        var tamanhoFonte = parseFloat(estiloComputado.fontSize);
-
-
-
-        for (let i = 0; i < elementosTexto.length; i++) {
-
-            
-
-            var elemento = elementosTexto[i];
-
-            var tamanhoFonteAtual = window.getComputedStyle(elemento, null).getPropertyValue('font-size');
-
-            var novoTamanhoFonte = parseFloat(tamanhoFonteAtual);
-
-            var tamanhoFonteMinima = 10;
-
-
-            if (tamanhoFonte >= tamanhoFonteMinima) {
-
-                var limitfont = novoTamanhoFonte - 1;
-
-                elemento.style.fontSize = limitfont + "px";
-
-            }
-
-        }
-
-    }
-
 
 </script>
 

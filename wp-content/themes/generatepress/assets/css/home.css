@@ -1,10 +1,10 @@
-html:root{
-    font-size: 10pxpx;
+:root{
+    --color-text-text-botao:#fff;
 }
 
 .button-home1{
     text-decoration: none;
-    color: white;
+    color: var(--color-text-text-botao);
     background: #0A3399;
     padding: 15px 50px;
     border-radius: 7px;
