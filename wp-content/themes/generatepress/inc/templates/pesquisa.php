@@ -4,7 +4,8 @@
     <div class="container-search">
         <div id="divBusca">
             <input type="text" id="txtBusca" placeholder="O que deseja Buscar?" />
-            <input class="button" type="submit" src="C:\xampp\htdocs\git\intranet-smul-main\intranet-smul\wp-content\themes\generatepress\assets\img\barra-pesquisa-icone.svg">
+            <button class="button" type="submit"><img class="lupa"src="wp-content\themes\generatepress\assets\img\barra-pesquisa-icone.svg"></button>
+
         </div>
     </div>
 </div>
@@ -37,7 +38,9 @@
         border-radius: 5px;
         border: 1px solid #E3E3E3;
         background: #F5F5F5;
-        width: 200px;
+   
+        width: 152px;
+            height: 61px;
         margin-left: -7px;
     }
 
@@ -47,7 +50,8 @@
     }
 
     .lupa {
-        width: 0%;
+        width: 100%;
+       height: 43px;
     }
 
     @media only screen and (max-width: 1210px) {
