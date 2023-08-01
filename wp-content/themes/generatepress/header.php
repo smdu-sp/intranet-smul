@@ -15,8 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<?php wp_head(); ?>
 </head>
-
 <body <?php body_class(); ?> <?php generate_do_microdata( 'body' ); ?>>
+
 	<?php
 	/**
 	 * wp_body_open hook.
@@ -34,6 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * @hooked generate_top_bar - 5
 	 * @hooked generate_add_navigation_before_header - 5
 	 */
+	
 	do_action( 'generate_before_header' );
 
 	/**
@@ -52,10 +53,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 *
 	 * @hooked generate_featured_page_header - 10
 	 */
+	
 	do_action( 'generate_after_header' );
+	include_once 'wp-content\themes\generatepress\inc\templates\pesquisa.php';
 	?>
-
-	<div <?php generate_do_attr( 'page' ); ?>>
+	
+<div <?php generate_do_attr( 'page' ); ?>>
 		<?php
 		/**
 		 * generate_inside_site_container hook.
