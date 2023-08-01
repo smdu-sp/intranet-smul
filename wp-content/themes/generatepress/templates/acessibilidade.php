@@ -5,7 +5,7 @@
             <li class="funcoes-controle esquerda"><a href="#primary-menu" accesskey="2">Ir para menu [2]</a></li>
             <li class="funcoes-controle esquerda"><a href="#footer">Ir para rodapé [3]</a></li>
         </ul>
-
+0
         <ul class="controle-direita">
             <li><a onclick="tamanhoFonte('mais')" id="mais" class="funcoes-controle tm-font"><img src="wp-content\themes\generatepress\assets\img\acess-aumentar-fonte.svg" alt=""></a></li>
             <li><a onclick="tamanhoFonte('menos')" id="menos" class="funcoes-controle tm-font"><img src="wp-content\themes\generatepress\assets\img\acess-diminuir-fonte.svg" alt=""></a></li>
@@ -24,7 +24,8 @@
 
     .goog-te-gadget-simple span{
         color: #fff;
-        font-weight: normal;
+        font-weight: unset;
+        font-family: 'Roboto';
     }
 
     .goog-te-gadget-simple span:hover{
@@ -64,7 +65,7 @@
         width: 100%;
         display: flex;
         justify-content: center;  
-
+        font-family: 'Roboto';
     }
 
     .container-controle{
@@ -134,12 +135,12 @@
         footer.scrollIntoView();
     }
 
-<<<<<<< HEAD
     function tamanhoFonte(click){
         
         const elemRoot = document.documentElement;
         const estiloComputado = window.getComputedStyle(elemRoot);
         const tamanhoFonteTexto = estiloComputado.fontSize;
+        console.log(tamanhoFonteTexto);
         // Cancela a operação caso tamanhoFonte não seja definido em px
         if ( ! tamanhoFonteTexto.includes('px')) {
             return;
@@ -165,7 +166,6 @@
         }
     }
 
->>>>>>> 70c46bc3dc244a69852667cc8fbf9438c590dea4
 </script>
 
 <div id="google_translate_element" style="display: none;"></div>
