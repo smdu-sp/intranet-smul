@@ -16,7 +16,6 @@
         display: flex;
         justify-content: center;
         
-    
     }
 
     .container-search {
