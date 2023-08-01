@@ -17,7 +17,6 @@
 </div>
 
 <style>
-
     .goog-te-gadget-simple{
         background-color: #494949;
         border: none;
@@ -120,7 +119,6 @@
 </style>
 
 <script>
-
     function scrolldiv() {
         var elem = document.getElementById("ultimas-noticias");
         elem.scrollIntoView();
@@ -136,6 +134,7 @@
         footer.scrollIntoView();
     }
 
+<<<<<<< HEAD
     function tamanhoFonte(click){
         
         const elemRoot = document.documentElement;
@@ -163,11 +162,10 @@
                 tamanhoFonteAtual--;
                 elemRoot.style.fontSize = tamanhoFonteAtual + "px";
             }
-
         }
-
     }
 
+>>>>>>> 70c46bc3dc244a69852667cc8fbf9438c590dea4
 </script>
 
 <div id="google_translate_element" style="display: none;"></div>
@@ -178,7 +176,7 @@ function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'pt', layout: google.translate.TranslateElement.FloatPosition.TOP_RIGHT}, 'google_translate_element');
 }
 
-function corrigeTextoIdioma() {
+(function corrigeTextoIdioma() {
     const elemGoogleTranslate = document
         .getElementsByClassName('goog-te-gadget-simple')[0];
 
@@ -195,8 +193,6 @@ function corrigeTextoIdioma() {
     } else {
         setTimeout(corrigeTextoIdioma, 100);
     }
-}
-
-corrigeTextoIdioma();
+})();
 </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>

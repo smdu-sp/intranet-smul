@@ -1,5 +1,10 @@
+
 :root{
     --color-text-text-botao:#fff;
+}
+body{
+    font-family: 'Roboto';
+    scroll-behavior: "smooth";
 }
 
 .button-home1{
