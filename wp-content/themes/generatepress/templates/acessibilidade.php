@@ -7,8 +7,8 @@
         </ul>
 0
         <ul class="controle-direita">
-            <li><a onclick="tamanhoFonte('mais')" id="mais" class="funcoes-controle tm-font"><img src="wp-content\themes\generatepress\assets\img\acess-aumentar-fonte.svg" alt=""></a></li>
-            <li><a onclick="tamanhoFonte('menos')" id="menos" class="funcoes-controle tm-font"><img src="wp-content\themes\generatepress\assets\img\acess-diminuir-fonte.svg" alt=""></a></li>
+            <li><a onclick="tamanhoFonte(1)" id="mais" class="funcoes-controle tm-font"><img src="wp-content\themes\generatepress\assets\img\acess-aumentar-fonte.svg" alt=""></a></li>
+            <li><a onclick="tamanhoFonte(-1)" id="menos" class="funcoes-controle tm-font"><img src="wp-content\themes\generatepress\assets\img\acess-diminuir-fonte.svg" alt=""></a></li>
             <li><a href="#" class="funcoes-controle"><img class="img-center" src="wp-content\themes\generatepress\assets\img\acess-alto-contraste.svg" alt="logo"><span class="text-header">Alto contraste</span></a></li>
             <li><a href="#" class="funcoes-controle"><img class="img-center" src="wp-content\themes\generatepress\assets\img\acess-acessibilidade.svg" alt=""><span class="text-header">Acessibilidade</span></a></li>
             <li><a id="google_translate_element" class="funcoes-controle"><img class="img-center" src="wp-content\themes\generatepress\assets\img\acess-idioma.svg" alt=""></a></li>
@@ -135,36 +135,57 @@
         footer.scrollIntoView();
     }
 
-    function tamanhoFonte(click){
-        
+    function getCookie(nome) {
+    var nomeCookie = nome + "=";
+    var cookies = document.cookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+        if (cookie.indexOf(nomeCookie) === 0) {
+        return cookie.substring(nomeCookie.length, cookie.length);
+        }
+    }
+    return "";
+    }
+
+    const nome = getCookie('fonte');
+    const elemRoot = document.documentElement;
+    const estiloComputado = window.getComputedStyle(elemRoot);
+    elemRoot.style.fontSize = nome + "px";
+
+    function saveCookie(tamanhoFonte) {
+        const nome = 'fonte';
+        const validade = '';
+        const local = 'path=/'; 
+        document.cookie = nome + "=" + (tamanhoFonte || "") + validade + "; " + local;
+    }
+
+
+
+    console.log('teste')
+
+    function tamanhoFonte(valor){
         const elemRoot = document.documentElement;
         const estiloComputado = window.getComputedStyle(elemRoot);
         const tamanhoFonteTexto = estiloComputado.fontSize;
-        console.log(tamanhoFonteTexto);
+        let tamanhoFonteAtual = parseFloat(tamanhoFonteTexto);
+        const tamanhoFonteMax = 25;
+        const tamanhoFonteMin = 5;
+
         // Cancela a operação caso tamanhoFonte não seja definido em px
         if ( ! tamanhoFonteTexto.includes('px')) {
             return;
         }
-        
-        let tamanhoFonteAtual = parseFloat(tamanhoFonteTexto);
-        const tamanhoFonteMaximo = 25;
-        const tamanhoFonteMinimo = 5;
 
-        if (click === "mais") {
-            
-            if (tamanhoFonteAtual < tamanhoFonteMaximo) {
-                tamanhoFonteAtual++;
-                elemRoot.style.fontSize = tamanhoFonteAtual + "px";
-            }
-
-        } else if (click === "menos") {
-
-            if (tamanhoFonteAtual > tamanhoFonteMinimo) {
-                tamanhoFonteAtual--;
-                elemRoot.style.fontSize = tamanhoFonteAtual + "px";
-            }
+        if ((valor > 0 && tamanhoFonteAtual < tamanhoFonteMax) || 
+            (valor < 0 && tamanhoFonteAtual > tamanhoFonteMin)
+        ) {
+            tamanhoFonteAtual += valor;
         }
+
+        saveCookie(tamanhoFonteAtual);
+        return elemRoot.style.fontSize = tamanhoFonteAtual + "px";       
     }
+
 
 </script>
 
