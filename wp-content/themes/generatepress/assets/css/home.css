@@ -1,7 +1,6 @@
 
 body{
     font-family: 'Open Sans';
-    scroll-behavior: "smooth";
 }
 
 .button-home1{
@@ -34,6 +33,13 @@ body{
 
 .button-home:hover{
     color: #fff;
+    background-color: #34529e;
+    transition: 200ms;
+}
+.button-home1:hover{
+    color: #fff;
+    background-color: #34529e;
+    transition: 300ms;
 }
 
 html{
@@ -92,6 +98,10 @@ html{
     margin: 20px 0;
     padding: 20px;
     height: 100%;
+}
+.article:hover{
+    background: rgb(235, 235, 235);
+    transition: 300ms;
 }
 
 .sub-title{
