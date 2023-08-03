@@ -1,14 +1,14 @@
 <div class="container-acess-geral">
     <div class="container-controle">
         <ul class="controle-esquerda">
-            <li class="funcoes-controle esquerda"><a href="#ultimas-noticias" accesskey="1">Ir para conteúdo [1]</a></li>
+            <li class="funcoes-controle esquerda"><a href="#ultimas-noticias" accesskey="1" data-scroll-speed="400" data-start-scroll="300">Ir para conteúdo [1]</a></li>
             <li class="funcoes-controle esquerda"><a href="#primary-menu" accesskey="2">Ir para menu [2]</a></li>
-            <li class="funcoes-controle esquerda"><a href="#footer">Ir para rodapé [3]</a></li>
+            <li class="funcoes-controle esquerda"><a href="#footer" accesskey="3">Ir para rodapé [3]</a></li>
         </ul>
-0
+
         <ul class="controle-direita">
-            <li><a onclick="tamanhoFonte(1)" id="mais" class="funcoes-controle tm-font"><img src="wp-content\themes\generatepress\assets\img\acess-aumentar-fonte.svg" alt=""></a></li>
-            <li><a onclick="tamanhoFonte(-1)" id="menos" class="funcoes-controle tm-font"><img src="wp-content\themes\generatepress\assets\img\acess-diminuir-fonte.svg" alt=""></a></li>
+            <li><a onclick="tamanhoFonte(1)" class="funcoes-controle tm-font"><img src="wp-content\themes\generatepress\assets\img\acess-aumentar-fonte.svg" alt=""></a></li>
+            <li><a onclick="tamanhoFonte(-1)" class="funcoes-controle tm-font"><img src="wp-content\themes\generatepress\assets\img\acess-diminuir-fonte.svg" alt=""></a></li>
             <li><a href="#" class="funcoes-controle"><img class="img-center" src="wp-content\themes\generatepress\assets\img\acess-alto-contraste.svg" alt="logo"><span class="text-header">Alto contraste</span></a></li>
             <li><a href="#" class="funcoes-controle"><img class="img-center" src="wp-content\themes\generatepress\assets\img\acess-acessibilidade.svg" alt=""><span class="text-header">Acessibilidade</span></a></li>
             <li><a id="google_translate_element" class="funcoes-controle"><img class="img-center" src="wp-content\themes\generatepress\assets\img\acess-idioma.svg" alt=""></a></li>
@@ -59,16 +59,18 @@
         font-weight: 600;
     }
         /* barra de acessibilidade */
-
     .container-acess-geral{
+        position: fixed;
         background-color: #494949;
         width: 100%;
         display: flex;
         justify-content: center;  
         font-family: 'Roboto';
+        z-index: 1;
     }
 
     .container-controle{
+        position: static;
         display: flex;
         justify-content: left;
         min-width: 1150px;
@@ -122,7 +124,9 @@
 <script>
     function scrolldiv() {
         var elem = document.getElementById("ultimas-noticias");
-        elem.scrollIntoView();
+        elem.scrollIntoView({
+            behavior: 'smooth' // Esta opção garante a rolagem suave
+        });
     }
 
     function scrolldivMenu() {

@@ -1,10 +1,10 @@
 
 :root{
     --color-text-text-botao:#fff;
+
 }
 body{
     font-family: 'Roboto';
-    scroll-behavior: "smooth";
 }
 
 .button-home1{
@@ -94,6 +94,7 @@ html{
     margin: 20px 0;
     padding: 20px;
     height: 100%;
+    transition: rgb(246,246,246, 0.3) 100ms;
 }
 
 .sub-title{
