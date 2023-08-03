@@ -21,7 +21,7 @@ button.menu-toggle {
 	background-color: transparent;
 	width: 100%;
 	border: 0;
-	text-align: center;
+	text-align:center;
 }
 
 button.menu-toggle:hover,

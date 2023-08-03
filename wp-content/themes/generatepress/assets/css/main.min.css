@@ -393,19 +393,27 @@ a {
 .main-navigation a {
   display: block;
   text-decoration: none;
-  font-weight: 400;
+  font-weight: 600;
   text-transform: none;
-  font-size: 15px;
+  font-size: 20px;
 }
 .main-navigation ul {
   list-style: none;
   margin: 0;
   padding-left: 0;
+  font-size:30px;
 }
 .main-navigation .main-nav ul li a {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 50px;
+  padding-right: 70px;
   line-height: 60px;
+  justify-content: space-around;
+  flex-grow: 1;
+  display:flex;
+  font-family: 'Roboto';
+  flex:1;
+  
+  
 }
 .inside-navigation {
   position: relative;
@@ -413,13 +421,11 @@ a {
 .main-navigation .inside-navigation {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  justify-content: space-between;
 }
 .main-navigation .main-nav > ul {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: left;
 }
 .main-navigation li {
   position: relative;
@@ -447,7 +453,6 @@ a {
   flex-basis: 100%;
 }
 .sidebar .main-navigation .main-nav > ul {
-  flex-direction: column;
 }
 .sidebar .main-navigation .menu-bar-items {
   margin: 0 auto;
@@ -1095,7 +1100,7 @@ button.menu-toggle {
   background-color: transparent;
   flex-grow: 1;
   border: 0;
-  text-align: center;
+  text-align: right;
 }
 button.menu-toggle:active,
 button.menu-toggle:focus,
@@ -1103,7 +1108,8 @@ button.menu-toggle:hover {
   background-color: transparent;
 }
 .has-menu-bar-items button.menu-toggle {
-  flex-grow: 0;
+  align-items: right;
+  font-size:35px;
 }
 nav.toggled ul ul.sub-menu {
   width: 100%;
@@ -1120,7 +1126,7 @@ nav.toggled ul ul.sub-menu {
 }
 .main-navigation.toggled .main-nav li {
   width: 100%;
-  text-align: left;
+  text-align: right;
 }
 .main-navigation.toggled .main-nav ul ul {
   transition: 0s;
@@ -1188,7 +1194,7 @@ nav.toggled ul ul.sub-menu {
     transition: all 0s ease-in-out;
   }
   .inside-header {
-    flex-direction: column;
+
     text-align: center;
   }
   .site-header .header-widget {
