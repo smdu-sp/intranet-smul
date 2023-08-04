@@ -1,9 +1,9 @@
 <div class="container-acess-geral">
     <div class="container-controle">
         <ul class="controle-esquerda">
-            <li class="funcoes-controle esquerda"><a href="#ultimas-noticias" accesskey="1" data-scroll-speed="400" data-start-scroll="300">Ir para conteúdo [1]</a></li>
-            <li class="funcoes-controle esquerda"><a href="#primary-menu" accesskey="2">Ir para menu [2]</a></li>
-            <li class="funcoes-controle esquerda"><a href="#footer" accesskey="3">Ir para rodapé [3]</a></li>
+            <li class="funcoes-controle esquerda" ><a onclick="scrolldiv('ultimas-noticias')" accesskey="1">Ir para conteúdo [1]</a></li>
+            <li class="funcoes-controle esquerda"><a onclick="scrolldiv('primary-menu')" accesskey="2">Ir para menu [2]</a></li>
+            <li class="funcoes-controle esquerda"><a onclick="scrolldiv('footer')" accesskey="3">Ir para rodapé [3]</a></li>
         </ul>
 
         <ul class="controle-direita">
@@ -91,6 +91,7 @@
         font-style: normal;
         font-weight: 300;
         line-height: normal;
+        cursor: pointer;
     }
 
     .controle-esquerda a:hover, .controle-direita a:hover{
@@ -122,21 +123,11 @@
 </style>
 
 <script>
-    function scrolldiv() {
-        var elem = document.getElementById("ultimas-noticias");
+    function scrolldiv(div) {
+        var elem = document.getElementById(div);
         elem.scrollIntoView({
-            behavior: 'smooth' // Esta opção garante a rolagem suave
+            behavior: 'smooth'
         });
-    }
-
-    function scrolldivMenu() {
-        var nav = document.getElementById("primary-menu");
-        nav.scrollIntoView();
-    }
-
-    function scrolldivFooter() {
-        var footer = document.getElementById("footer");
-        footer.scrollIntoView();
     }
 
     function getCookie(nome) {
