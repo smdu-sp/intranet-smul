@@ -1,3 +1,23 @@
+<?php
+
+        $icons = array(
+            'fa-solid fa-font"',
+            'fa-solid fa-text-slash"',
+            'fa-solid fa-pen-fancy"'
+        );
+
+        function inseri_icones($icons, $chave){
+            if (isset($icons[$chave])) {
+                $icone = $icons[$chave];
+                return '<i class="' . $icone . '"></i>';
+            } else {
+                return;
+            }
+        }
+?>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
 <div class="container-acess-geral">
     <div class="container-controle">
         <ul class="controle-esquerda">
@@ -7,9 +27,9 @@
         </ul>
 
         <ul class="controle-direita">
-            <li><a onclick="tamanhoFonte(1)" class="funcoes-controle tm-font"><img src="wp-content\themes\generatepress\assets\img\acess-aumentar-fonte.svg" alt=""></a></li>
-            <li><a onclick="tamanhoFonte(-1)" class="funcoes-controle tm-font"><img src="wp-content\themes\generatepress\assets\img\acess-diminuir-fonte.svg" alt=""></a></li>
-            <li><a href="#" class="funcoes-controle"><img class="img-center" src="wp-content\themes\generatepress\assets\img\acess-alto-contraste.svg" alt="logo"><span class="text-header">Alto contraste</span></a></li>
+            <li><a onclick="tamanhoFonte(1)" class="funcoes-controle tm-font"><?=inseri_icones($icons, 0)?></a></li>
+            <li><a onclick="tamanhoFonte(-1)" class="funcoes-controle tm-font"><?=inseri_icones($icons, 1)?></a></li>
+            <li><a href="#" class="funcoes-controle"><?=inseri_icones($icons, 2)?><span class="text-header">Alto contraste</span></a></li>
             <li><a href="#" class="funcoes-controle"><img class="img-center" src="wp-content\themes\generatepress\assets\img\acess-acessibilidade.svg" alt=""><span class="text-header">Acessibilidade</span></a></li>
             <li><a id="google_translate_element" class="funcoes-controle"><img class="img-center" src="wp-content\themes\generatepress\assets\img\acess-idioma.svg" alt=""></a></li>
         </ul>
@@ -17,6 +37,11 @@
 </div>
 
 <style>
+
+    .funcoes-controle .tm-font{
+        color: aquamarine;
+    }
+
     .goog-te-gadget-simple{
         background-color: #494949;
         border: none;
@@ -89,7 +114,6 @@
         color: white;
         font-size: 12px;    
         font-style: normal;
-        font-weight: 300;
         line-height: normal;
         cursor: pointer;
     }
