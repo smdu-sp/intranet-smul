@@ -46,7 +46,7 @@ get_header(); ?>
 	 do_action( 'generate_after_primary_content_area' );
 
 	generate_construct_sidebars();
-
+	include_once 'wp-content\themes\generatepress\inc\templates\back-to-top.php';
 	get_footer();
 	include_once 'wp-content\themes\generatepress\inc\templates\rodape.php';
 ?>
