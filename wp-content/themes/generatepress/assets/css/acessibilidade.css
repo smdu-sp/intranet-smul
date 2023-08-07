@@ -1,0 +1,8 @@
+.container-acess-geral{
+    position: fixed;
+    background-color: #494949;
+    width: 100%;
+    display: flex;
+    justify-content: center;  
+    font-family: 'Roboto';
+}
