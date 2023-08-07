@@ -1,3 +1,35 @@
-.nav-align-center .main-nav > ul {
-	justify-content:center;
+.main-navigation a {
+	display: block;
+	text-decoration: none;
+	font-weight: normal;
+	text-transform:uppercase;
+	font-size: 20px;
+	flex-grow: initial;
+	display:flex;
+}
+.main-navigation .main-nav ul li a{
+	color: #000;
+	font-family: 'Roboto';
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+	flex-grow: initial;
+	display:flex;
+}
+
+
+h2{
+	color:#000;
+}
+body{
+	font-family: 'Roboto';
+}
+.menu-bar-items{
+	display: flex;
+	justify-content: space-around;
+}
+.grid-container{
+	display: flex;
+	justify-content: space-around;
 }

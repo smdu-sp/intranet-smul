@@ -50,3 +50,30 @@ get_header(); ?>
 	get_footer();
 	include_once 'wp-content\themes\generatepress\inc\templates\rodape.php';
 ?>
+<html>
+	<body class="container-princ">
+<div class="container-princ">
+<div class="containerr">
+<h2 class="title">Secretaria Municipal de <br>	
+Urbanismo e Licenciamento</br></h2>
+<p>Rua São Bento, 405, Centro - 8º, 17º, 18º, 19°, 20°, 21°<br>
+ e 22° andar CEP 01011-100 - São Paulo - SP</br></p>
+ <p>Em caso de dúvidas e sugestões, entre em contato pelo email:<br>
+<strong>smulsuporte@prefeitura.sp.gov.br</strong></br></p>
+<div class="container-list">
+</div>
+	<h2 class="list">Institucional</h2>
+	<ul>
+	<li>Acesso Rápido</li>
+	<li>Ouvidoria</li>
+	<li>Transparência</li>
+	<li>Manuais</li>
+	<li>Servidores</li>
+	<li>Outras secretarias</li>	
+	<li>Guia de boas práticas</li>
+	</ul>
+	</div>
+	
+	</div>
+</html>
+</body>

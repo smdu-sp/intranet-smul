@@ -4,7 +4,7 @@
     <div class="container-search">
         <div id="divBusca">
             <input type="text" id="txtBusca" placeholder="O que deseja Buscar?" />
-            <button class="button" type="submit"><img class="lupa"src="/wp-content\themes\generatepress\assets\img\barra-pesquisa-icone.svg"></button>
+            <button class="button" type="submit"><img class="lupa"src="wp-content\themes\generatepress\assets\img\barra-pesquisa-icone.svg"></button>
 
         </div>
     </div>
@@ -22,14 +22,12 @@
         padding: 10px;
         display: flex;
         justify-content: center;
-        flex:1;
+        width: 1400px;
     }
 
     #divBusca {
         display: flex;
-        max-width: 1200px;
-        padding:10px;
-        flex:1;
+        min-width: 1200px;
     }   
 
     .button {
@@ -48,7 +46,6 @@
     #txtBusca {
         width: 100%;
         height: 61px;
-        max-width: 1200px;
     }
 
     .lupa {

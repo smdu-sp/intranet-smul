@@ -12,6 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 	<div <?php generate_do_attr( 'content' ); ?>>
+	<h2>SADADADSA</h2>
 		<main <?php generate_do_attr( 'main' ); ?>>
 		
 			<?php
@@ -61,6 +62,7 @@ get_header(); ?>
 			do_action( 'generate_after_main_content' );
 			
 			?>
+		<h2>SADADADSA</h2>
 		</main>
 	</div>
 
