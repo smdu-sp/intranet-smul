@@ -162,10 +162,6 @@
         document.cookie = nome + "=" + (tamanhoFonte || "") + validade + "; " + local;
     }
 
-
-
-    console.log('teste')
-
     function tamanhoFonte(valor){
         const elemRoot = document.documentElement;
         const estiloComputado = window.getComputedStyle(elemRoot);
