@@ -24,6 +24,7 @@ do_action( 'generate_before_footer' );
 
 <div <?php generate_do_attr( 'footer' ); ?>>
 	<?php
+	
 	/**
 	 * generate_before_footer_content hook.
 	 *

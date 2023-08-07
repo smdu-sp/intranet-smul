@@ -323,7 +323,7 @@ if ( ! function_exists( 'generate_advanced_css' ) ) {
 		$css->set_selector( '.main-navigation,.main-navigation ul ul' );
 		$css->add_property( 'background-color', $settings['navigation_background_color'] );
 
-		$css->set_selector( '.main-navigation .main-nav ul li a, .main-navigation .menu-toggle, .main-navigation .menu-bar-items' );
+		$css->set_selector( 'local' );
 		$css->add_property( 'color', $settings['navigation_text_color'] );
 
 		$css->set_selector( '.main-navigation .main-nav ul li:not([class*="current-menu-"]):hover > a, .main-navigation .main-nav ul li:not([class*="current-menu-"]):focus > a, .main-navigation .main-nav ul li.sfHover:not([class*="current-menu-"]) > a, .main-navigation .menu-bar-item:hover > a, .main-navigation .menu-bar-item.sfHover > a' );

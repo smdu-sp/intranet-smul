@@ -66,9 +66,6 @@ get_header(); ?>
 			 */
 			do_action( 'generate_after_main_content' );
 			?>
-		</main>
-	</div>
-
 	<?php
 	/**
 	 * generate_after_primary_content_area hook.
@@ -76,7 +73,7 @@ get_header(); ?>
 	 * @since 2.0
 	 */
 	do_action( 'generate_after_primary_content_area' );
-
 	generate_construct_sidebars();
 
 	get_footer();
+	

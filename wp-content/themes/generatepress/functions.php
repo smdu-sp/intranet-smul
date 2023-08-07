@@ -122,5 +122,6 @@ require $theme_dir . '/inc/structure/post-meta.php';
 require $theme_dir . '/inc/structure/sidebars.php';
 require $theme_dir . '/inc/structure/search-modal.php';
 
+wp_enqueue_style('header','/wp-content/themes/generatepress/assets/css/header.css', array(), '1.0', 'all');
 wp_enqueue_style( 'home.css', '/wp-content/themes/generatepress/assets/css/home.css', array(), '1.0', 'all');
 wp_enqueue_style( 'acessibilidade.css', '/wp-content/themes/generatepress/assets/css/acessibilidade.css', array(), '1.0', 'all');
