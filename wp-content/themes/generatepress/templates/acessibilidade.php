@@ -1,15 +1,37 @@
+<?php
+
+
+
+function inseri($chave) {
+    $icons = array(
+       'mais_font' => 'fa-solid fa-font',
+       'menos_fontes' =>'fa-solid fa-text-slash',
+        'alto_contraste' =>'fa-solid fa-pen-fancy'
+    );
+
+    foreach ($icons as $chave_icon => $icone) {
+        if ($chave_icon === $chave) {
+            return '<i class="' . $icone . '"></i> ';
+        }
+    }
+}
+
+?>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
 <div class="container-acess-geral">
     <div class="container-controle">
         <ul class="controle-esquerda">
-            <li class="funcoes-controle esquerda"><a href="#ultimas-noticias" accesskey="1">Ir para conteúdo [1]</a></li>
-            <li class="funcoes-controle esquerda"><a href="#primary-menu" accesskey="2">Ir para menu [2]</a></li>
-            <li class="funcoes-controle esquerda"><a href="#footer">Ir para rodapé [3]</a></li>
+            <li class="funcoes-controle esquerda" ><a onclick="scrolldiv('ultimas-noticias')" accesskey="1">Ir para conteúdo [1]</a></li>
+            <li class="funcoes-controle esquerda"><a onclick="scrolldiv('primary-menu')" accesskey="2">Ir para menu [2]</a></li>
+            <li class="funcoes-controle esquerda"><a onclick="scrolldiv('footer')" accesskey="3">Ir para rodapé [3]</a></li>
         </ul>
 
         <ul class="controle-direita">
-            <li><a onclick="aumentarFonte()" class="funcoes-controle tm-font"><img src="wp-content\themes\generatepress\assets\img\acess-aumentar-fonte.svg" alt=""></a></li>
-            <li><a onclick="diminuirFonte()" class="funcoes-controle tm-font"><img src="wp-content\themes\generatepress\assets\img\acess-diminuir-fonte.svg" alt=""></a></li>
-            <li><a href="#" class="funcoes-controle"><img class="img-center" src="wp-content\themes\generatepress\assets\img\acess-alto-contraste.svg" alt="logo"><span class="text-header">Alto contraste</span></a></li>
+            <li><a onclick="tamanhoFonte(1)" class="funcoes-controle tm-font"><?=inseri('mais_font')?></a></li>
+            <li><a onclick="tamanhoFonte(-1)" class="funcoes-controle tm-font"></a></li>
+            <li><a href="#" class="funcoes-controle"><span class="text-header">Alto contraste</span></a></li>
             <li><a href="#" class="funcoes-controle"><img class="img-center" src="wp-content\themes\generatepress\assets\img\acess-acessibilidade.svg" alt=""><span class="text-header">Acessibilidade</span></a></li>
             <li><a id="google_translate_element" class="funcoes-controle"><img class="img-center" src="wp-content\themes\generatepress\assets\img\acess-idioma.svg" alt=""></a></li>
         </ul>
@@ -18,6 +40,10 @@
 
 <style>
 
+    .funcoes-controle .tm-font{
+        color: aquamarine;
+    }
+
     .goog-te-gadget-simple{
         background-color: #494949;
         border: none;
@@ -25,7 +51,8 @@
 
     .goog-te-gadget-simple span{
         color: #fff;
-        font-weight: normal;
+        font-weight: unset;
+        font-family: 'Roboto';
     }
 
     .goog-te-gadget-simple span:hover{
@@ -59,16 +86,18 @@
         font-weight: 600;
     }
         /* barra de acessibilidade */
-
     .container-acess-geral{
+        position: fixed;
         background-color: #494949;
         width: 100%;
         display: flex;
         justify-content: center;  
-
+        font-family: 'Roboto';
+        z-index: 1;
     }
 
     .container-controle{
+        position: static;
         display: flex;
         justify-content: left;
         min-width: 1150px;
@@ -87,8 +116,8 @@
         color: white;
         font-size: 12px;    
         font-style: normal;
-        font-weight: 300;
         line-height: normal;
+        cursor: pointer;
     }
 
     .controle-esquerda a:hover, .controle-direita a:hover{
@@ -120,108 +149,62 @@
 </style>
 
 <script>
-
-    function scrolldiv() {
-        var elem = document.getElementById("ultimas-noticias");
-        elem.scrollIntoView();
+    function scrolldiv(div) {
+        var elem = document.getElementById(div);
+        elem.scrollIntoView({
+            behavior: 'smooth'
+        });
     }
 
-    function scrolldivMenu() {
-        var nav = document.getElementById("primary-menu");
-        nav.scrollIntoView();
+    function getCookie(nome) {
+    var nomeCookie = nome + "=";
+    var cookies = document.cookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+        if (cookie.indexOf(nomeCookie) === 0) {
+        return cookie.substring(nomeCookie.length, cookie.length);
+        }
+    }
+    return "";
     }
 
-    function scrolldivFooter() {
-        var footer = document.getElementById("footer");
-        footer.scrollIntoView();
+    const nome = getCookie('fonte');
+    const elemRoot = document.documentElement;
+    const estiloComputado = window.getComputedStyle(elemRoot);
+    elemRoot.style.fontSize = nome + "px";
+
+    function saveCookie(tamanhoFonte) {
+        const nome = 'fonte';
+        const validade = '';
+        const local = 'path=/'; 
+        document.cookie = nome + "=" + (tamanhoFonte || "") + validade + "; " + local;
     }
 
-    function aumentarFonte() {
- 
-                
-        /*guarda a classse dentro da variavel*/
-        var elementosTexto = document.getElementsByClassName("mais-font");
-
-        /* pega o valor numerico de px do texto */
-
-        var classe = "text";
-
-        var elemento = document.querySelector("." + classe);
-
-        var estiloComputado = window.getComputedStyle(elemento);
-
-        var tamanhoFonte = parseFloat(estiloComputado.fontSize);
 
 
+    console.log('teste')
 
-        for (let i = 0; i < elementosTexto.length; i++) {
+    function tamanhoFonte(valor){
+        const elemRoot = document.documentElement;
+        const estiloComputado = window.getComputedStyle(elemRoot);
+        const tamanhoFonteTexto = estiloComputado.fontSize;
+        let tamanhoFonteAtual = parseFloat(tamanhoFonteTexto);
+        const tamanhoFonteMax = 25;
+        const tamanhoFonteMin = 5;
 
-            
-
-            var elemento = elementosTexto[i];
-
-            var tamanhoFonteAtual = window.getComputedStyle(elemento, null).getPropertyValue('font-size');
-
-            var novoTamanhoFonte = parseFloat(tamanhoFonteAtual);
-
-            var tamanhoFonteMaximo = 25;
-
-
-            if (tamanhoFonte <= tamanhoFonteMaximo) {
-
-                var limitfont = novoTamanhoFonte + 1;
-
-                elemento.style.fontSize = limitfont + "px";
-
-            }
-
+        // Cancela a operação caso tamanhoFonte não seja definido em px
+        if ( ! tamanhoFonteTexto.includes('px')) {
+            return;
         }
 
-    }
-
-    
-
-    function diminuirFonte() {
- 
-                
-        /*guarda a classse dentro da variavel*/
-        var elementosTexto = document.getElementsByClassName("menos-font");
-
-        /* pega o valor numerico de px do texto */
-
-        var classe = "text";
-
-        var elemento = document.querySelector("." + classe);
-
-        var estiloComputado = window.getComputedStyle(elemento);
-
-        var tamanhoFonte = parseFloat(estiloComputado.fontSize);
-
-
-
-        for (let i = 0; i < elementosTexto.length; i++) {
-
-            
-
-            var elemento = elementosTexto[i];
-
-            var tamanhoFonteAtual = window.getComputedStyle(elemento, null).getPropertyValue('font-size');
-
-            var novoTamanhoFonte = parseFloat(tamanhoFonteAtual);
-
-            var tamanhoFonteMinima = 10;
-
-
-            if (tamanhoFonte >= tamanhoFonteMinima) {
-
-                var limitfont = novoTamanhoFonte - 1;
-
-                elemento.style.fontSize = limitfont + "px";
-
-            }
-
+        if ((valor > 0 && tamanhoFonteAtual < tamanhoFonteMax) || 
+            (valor < 0 && tamanhoFonteAtual > tamanhoFonteMin)
+        ) {
+            tamanhoFonteAtual += valor;
         }
 
+        saveCookie(tamanhoFonteAtual);
+        return elemRoot.style.fontSize = tamanhoFonteAtual + "px";       
     }
 
 
@@ -229,22 +212,29 @@
 
 <div id="google_translate_element" style="display: none;"></div>
 
- 
-
+<!-- Google Translate -->
 <script type="text/javascript">
-
- 
-
 function googleTranslateElementInit() {
-
- 
-
   new google.translate.TranslateElement({pageLanguage: 'pt', layout: google.translate.TranslateElement.FloatPosition.TOP_RIGHT}, 'google_translate_element');
-
- 
-
 }
 
- 
+(function corrigeTextoIdioma() {
+    const elemGoogleTranslate = document
+        .getElementsByClassName('goog-te-gadget-simple')[0];
 
-</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    if (elemGoogleTranslate !== undefined) {
+                const elemIdiomaTexto = elemGoogleTranslate
+                    .getElementsByTagName('span')[0]
+                    .getElementsByTagName('a')[0];
+                
+                const span = document.createElement('span');
+                const spanText = document.createTextNode('Idioma');
+                span.appendChild(spanText);
+        
+                elemIdiomaTexto.replaceChildren(span);
+    } else {
+        setTimeout(corrigeTextoIdioma, 100);
+    }
+})();
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
