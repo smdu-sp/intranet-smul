@@ -1,20 +1,18 @@
 <?php
 
-$icons = array(
-    'fa-solid fa-font',
-    'fa-solid fa-text-slash',
-    'fa-solid fa-pen-fancy'
-);
 
-function inseri($icons) {
-    $chave = isset($_SESSION['chave']) ? $_SESSION['chave'] : 0;
 
-    if (isset($icons[$chave])) {
-        $icone = $icons[$chave];
-        $_SESSION['chave'] = $chave + 1;
-        return '<i class="' . $icone . '"></i>';
-    } else {
-        return '';
+function inseri($chave) {
+    $icons = array(
+       'mais_font' => 'fa-solid fa-font',
+       'menos_fontes' =>'fa-solid fa-text-slash',
+        'alto_contraste' =>'fa-solid fa-pen-fancy'
+    );
+
+    foreach ($icons as $chave_icon => $icone) {
+        if ($chave_icon === $chave) {
+            return '<i class="' . $icone . '"></i> ';
+        }
     }
 }
 
@@ -31,9 +29,9 @@ function inseri($icons) {
         </ul>
 
         <ul class="controle-direita">
-            <li><a onclick="tamanhoFonte(1)" class="funcoes-controle tm-font"><?=inseri($icons);?></a></li>
-            <li><a onclick="tamanhoFonte(-1)" class="funcoes-controle tm-font"><?=inseri($icons)?></a></li>
-            <li><a href="#" class="funcoes-controle"><?=inseri($icons)?><span class="text-header">Alto contraste</span></a></li>
+            <li><a onclick="tamanhoFonte(1)" class="funcoes-controle tm-font"><?=inseri('mais_font')?></a></li>
+            <li><a onclick="tamanhoFonte(-1)" class="funcoes-controle tm-font"></a></li>
+            <li><a href="#" class="funcoes-controle"><span class="text-header">Alto contraste</span></a></li>
             <li><a href="#" class="funcoes-controle"><img class="img-center" src="wp-content\themes\generatepress\assets\img\acess-acessibilidade.svg" alt=""><span class="text-header">Acessibilidade</span></a></li>
             <li><a id="google_translate_element" class="funcoes-controle"><img class="img-center" src="wp-content\themes\generatepress\assets\img\acess-idioma.svg" alt=""></a></li>
         </ul>
