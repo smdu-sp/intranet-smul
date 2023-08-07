@@ -13,14 +13,14 @@
     max-width: 1200px;
     display: flex;
     justify-content: center;
-    font-family: 'Open Sans','sans-serif';
+    font-family: 'Open Sans'sans-serif;
     font-weight: 700;
     
 }
 .lista-footer ul{
     list-style: none;
     padding-top:10px;
-    margin: 0;
+    margin-top: 10px;
     text-align:left;
     justify-content: start;
     
@@ -39,35 +39,46 @@ text-align: center;
 padding:10px;
 text-align: left;
 }
-p{
-font-family:'Open Sans'sans-serif;
-font-size: 19px;
-font-style: normal;
-font-weight: 400;
+.info, li{
+    color:#fff;
+    font-family: 'Open Sans'sans-serif;
+font-size: 14px;
+font-weight: 200;
 line-height: normal;
+padding:2px;
 }
 .title{
     color: #FFF;
-font-family: 'Open Sans'sans-serif;
+    font-family: 'Open Sans'sans-serif;
 font-size: 23px;
 font-style: normal;
 font-weight: 700;
 line-height: normal;
+padding:17px;
+}
+a.container-style{
+    position:absolute;
+    text-align:right;
 }
 
 </style>
 <html>
+    <div>
+        <div class="container-style"></div>
+        <a href="#masthead">Voltar ao topo</a>
+    </div>
+    
 <footer class="container-princ">
     <div class="container-conteudo">
         <div class="logo-img">
-            <img class="logo" src= "/wp-content\themes\generatepress\assets\img\rodape-logo-smul.png">
+            <img class="logo" src="/wp-content\themes\generatepress\assets\img\rodape-logo-smul.png">
         </div>
         <div class="info-footer">
             <h2 class="title">Secretaria Municipal de <br>	
             Urbanismo e Licenciamento</br></h2>
-            <p>Rua São Bento, 405, Centro - 8º, 17º, 18º, 19°, 20°, 21°<br>
+            <p class="info">Rua São Bento, 405, Centro - 8º, 17º, 18º, 19°, 20°, 21°<br>
             e 22° andar CEP 01011-100 - São Paulo - SP</br></p>
-            <p>Em caso de dúvidas e sugestões, entre em contato pelo email:<br>
+            <p class="info">Em caso de dúvidas e sugestões, entre em contato pelo email:<br>
             <strong>smulsuporte@prefeitura.sp.gov.br</strong></br></p>
         </div>
         
