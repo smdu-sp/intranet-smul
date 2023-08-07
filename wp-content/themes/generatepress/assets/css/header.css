@@ -33,3 +33,17 @@ body{
 	display: flex;
 	justify-content: space-around;
 }
+
+.main-navigation .main-nav ul li > a {
+	text-transform: uppercase;
+}
+
+/* Remove as setas do menu superior */
+@media (min-width: 769px) {
+    .menu-item-has-children a > .dropdown-menu-toggle {
+        display: none;
+    }
+    .main-navigation .main-nav ul li.menu-item-has-children > a {
+        padding-right: 20px !important;
+    }
+}
