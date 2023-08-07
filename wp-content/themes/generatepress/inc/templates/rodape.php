@@ -39,7 +39,7 @@ text-align: center;
 padding:10px;
 text-align: left;
 }
-.info, li{
+.info-footer p, .lista-footer li{
     color:#fff;
     font-family: 'Open Sans'sans-serif;
 font-size: 14px;
@@ -62,7 +62,6 @@ a.container-style{
 }
 
 </style>
-<html>
     <div>
         <div class="container-style"></div>
         <a href="#masthead">Voltar ao topo</a>
@@ -99,5 +98,4 @@ a.container-style{
         </div>
     </div>
 </footer>
-</html>
 </body>

@@ -66,6 +66,8 @@ get_header(); ?>
 			 */
 			do_action( 'generate_after_main_content' );
 			?>
+		</main>
+	</div>
 	<?php
 	/**
 	 * generate_after_primary_content_area hook.
