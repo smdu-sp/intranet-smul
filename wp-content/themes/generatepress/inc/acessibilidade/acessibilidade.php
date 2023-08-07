@@ -1,22 +1,4 @@
-<?php
-
-
-
-function inseri($chave) {
-    $icons = array(
-       'mais_font' => 'fa-solid fa-font',
-       'menos_fontes' =>'fa-solid fa-text-slash',
-        'alto_contraste' =>'fa-solid fa-pen-fancy'
-    );
-
-    foreach ($icons as $chave_icon => $icone) {
-        if ($chave_icon === $chave) {
-            return '<i class="' . $icone . '"></i> ';
-        }
-    }
-}
-
-?>
+<?php ?>
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -29,9 +11,9 @@ function inseri($chave) {
         </ul>
 
         <ul class="controle-direita">
-            <li><a onclick="tamanhoFonte(1)" class="funcoes-controle tm-font"><?=inseri('mais_font')?></a></li>
-            <li><a onclick="tamanhoFonte(-1)" class="funcoes-controle tm-font"></a></li>
-            <li><a href="#" class="funcoes-controle"><span class="text-header">Alto contraste</span></a></li>
+            <li><a onclick="tamanhoFonte(1)" class="funcoes-controle tm-font"><img src="wp-content\themes\generatepress\assets\img\acess-aumentar-fonte.svg" alt=""></a></li>
+            <li><a onclick="tamanhoFonte(-1)" class="funcoes-controle tm-font"><img src="wp-content\themes\generatepress\assets\img\acess-diminuir-fonte.svg" alt=""></a></li>
+            <li><a href="#" class="funcoes-controle"><img class="img-center" src="wp-content\themes\generatepress\assets\img\acess-alto-contraste.svg" alt="logo"><span class="text-header">Alto contraste</span></a></li>
             <li><a href="#" class="funcoes-controle"><img class="img-center" src="wp-content\themes\generatepress\assets\img\acess-acessibilidade.svg" alt=""><span class="text-header">Acessibilidade</span></a></li>
             <li><a id="google_translate_element" class="funcoes-controle"><img class="img-center" src="wp-content\themes\generatepress\assets\img\acess-idioma.svg" alt=""></a></li>
         </ul>
