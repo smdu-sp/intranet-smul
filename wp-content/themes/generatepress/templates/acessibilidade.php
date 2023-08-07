@@ -1,25 +1,23 @@
 <?php
 
 $icons = array(
-    'fa-solid fa-font"',
-    'fa-solid fa-text-slash"',
-    'fa-solid fa-pen-fancy"'
+    'fa-solid fa-font',
+    'fa-solid fa-text-slash',
+    'fa-solid fa-pen-fancy'
 );
 
-$chave = 0;
-
-function inseri($icons){
-    global $chave;
+function inseri($icons) {
+    $chave = isset($_SESSION['chave']) ? $_SESSION['chave'] : 0;
 
     if (isset($icons[$chave])) {
         $icone = $icons[$chave];
-        $chave++;
+        $_SESSION['chave'] = $chave + 1;
         return '<i class="' . $icone . '"></i>';
     } else {
-        return ;
+        return '';
     }
-
 }
+
 ?>
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -33,7 +31,7 @@ function inseri($icons){
         </ul>
 
         <ul class="controle-direita">
-            <li><a onclick="tamanhoFonte(1)" class="funcoes-controle tm-font"><?=inseri($icons)?></a></li>
+            <li><a onclick="tamanhoFonte(1)" class="funcoes-controle tm-font"><?=inseri($icons);?></a></li>
             <li><a onclick="tamanhoFonte(-1)" class="funcoes-controle tm-font"><?=inseri($icons)?></a></li>
             <li><a href="#" class="funcoes-controle"><?=inseri($icons)?><span class="text-header">Alto contraste</span></a></li>
             <li><a href="#" class="funcoes-controle"><img class="img-center" src="wp-content\themes\generatepress\assets\img\acess-acessibilidade.svg" alt=""><span class="text-header">Acessibilidade</span></a></li>
