@@ -37,6 +37,13 @@ body{
 
 .button-home:hover{
     color: #fff;
+    background-color: #34529e;
+    transition: 200ms;
+}
+.button-home1:hover{
+    color: #fff;
+    background-color: #34529e;
+    transition: 300ms;
 }
 
 html{
@@ -55,7 +62,7 @@ html{
 }
 
 #primary{
-    max-width: 880px;
+    max-width: 900px;
     padding: 0%;
 }
 
@@ -95,6 +102,10 @@ html{
     padding: 20px;
     height: 100%;
     transition: rgb(246,246,246, 0.3) 100ms;
+}
+.article:hover{
+    background: rgb(235, 235, 235);
+    transition: 300ms;
 }
 
 .sub-title{
