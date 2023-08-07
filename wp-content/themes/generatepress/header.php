@@ -55,7 +55,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	
 	do_action( 'generate_after_header' );
-	include_once 'wp-content\themes\generatepress\inc\templates\pesquisa.php';
+	include_once 'wp-content\themes\generatepress\inc\header\pesquisa.php';
 	?>
 	
 <div <?php generate_do_attr( 'page' ); ?>>
