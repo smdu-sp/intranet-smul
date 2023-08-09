@@ -1,11 +1,9 @@
-<?php ?>
-<head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
+<?php 
+?>
 <div class="container-acess-geral">
     <div class="container-controle">
         <ul class="controle-esquerda">
-            <li class="funcoes-controle esquerda" ><a onclick="scrolldiv('ultimas-noticias')" accesskey="1">Ir para conteúdo [1]</a></li>
+            <li class="funcoes-controle esquerda"><a class="zero" onclick="scrolldiv('ultimas-noticias')" accesskey="1">Ir para conteúdo [1]</a></li>
             <li class="funcoes-controle esquerda"><a onclick="scrolldiv('primary-menu')" accesskey="2">Ir para menu [2]</a></li>
             <li class="funcoes-controle esquerda"><a onclick="scrolldiv('footer')" accesskey="3">Ir para rodapé [3]</a></li>
         </ul>
@@ -82,7 +80,7 @@
         position: static;
         display: flex;
         justify-content: left;
-        min-width: 1150px;
+        min-width: 1180px;
         justify-content: space-between;
     }
 
@@ -113,11 +111,19 @@
     }
 
     .img-center{
-        margin-right: 4px;
+        margin-right: 5px;
     }
 
     .tm-font{
         cursor: pointer;
+    }
+
+    .zero{
+        margin-left: -4px;
+    }
+    
+    .VIpgJd-ZVi9od-xl07Ob-lTBxed{
+        margin-right: -7px;
     }
 
     @media only screen and (max-width: 1210px) {

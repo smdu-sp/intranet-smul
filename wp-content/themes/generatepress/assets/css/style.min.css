@@ -812,7 +812,8 @@ nav ul ul .menu-item-has-children .dropdown-menu-toggle {
 }
 
 .site-header .header-image {
-    vertical-align: middle
+    vertical-align: middle;
+    margin-top: 31px;
 }
 
 .header-widget {
@@ -1354,7 +1355,7 @@ ol.comment-list {
 }
 
 .one-container .site-content {
-    padding: 40px
+    padding: 0px
 }
 
 .separate-containers .comments-area,
