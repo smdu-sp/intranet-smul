@@ -1710,3 +1710,7 @@ nav.toggled .sfHover>a>.dropdown-menu-toggle .gp-icon.icon-arrow-right svg {
     visibility: visible;
     width: auto
 }
+
+.generate-back-to-top{
+    display: none;
+}

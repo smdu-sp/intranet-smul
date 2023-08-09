@@ -62,10 +62,11 @@ a.container-style{
 }
 
 </style>
-    <div>
-        <div class="container-style"></div>
-        <a href="#masthead">Voltar ao topo</a>
-    </div>
+
+<div id="text_voltar_topo">
+    <div class="container-style"></div>
+    <a onclick="scrolldiv('masthead')">Voltar ao topo</a>
+</div>
     
 <footer class="container-princ">
     <div class="container-conteudo">

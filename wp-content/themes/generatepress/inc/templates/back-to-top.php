@@ -1,65 +1,60 @@
+<html>
+    <div id="progress">
+        <span id="progress-value">&#x1F815;</span>
+    </div>
+</html>
 
-<!DOCTYPE html>
-<html
-<head>
-<div id="back-to-top">^</div>
-    <title>Exemplo de Back to Top</title>
-    <style>
-        /* Estilo do botão Back to Top */
-        #back-to-top {
-            display: none;
-            position: fixed;
-            bottom: 15px;
-            right: 15px;
-            width: 40px;
-            height: 40px;
-            background-color: gray;
-            color: white;
-            text-align: center;
-            line-height: 50px;
-            font-size: 20px;
-            border-radius: 18%;
-            cursor: pointer;
-
-        }
-    </style>
-</head>
-<body>
-<div id="back-to-top">^</div>
+<style>
+    #progress{
+        background-color: rgb(0, 0, 0, 0.1);
+        border: 4px solid #395AAD;
+        bottom: 30px;
+        height: 40px;
+        width: 40px;
+        font-size: 30px;
+        position: fixed;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        right: 40px;
+        transition: 300ms;
+    }
+</style>
 
 
 <script>
-         document.addEventListener("DOMContentLoaded", function() {
-            var backToTopButton = document.getElementById("back-to-top");
-            backToTopButton.style.display = "none";
+    window.onscroll = function() {
 
-        });
-        window.onscroll = function() {
-            var backToTopButton = document.getElementById("back-to-top");
-            
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                backToTopButton.style.display = "block";
-            } else {
-                backToTopButton.style.display = "none";
-            }
- 
-        };
-        document.getElementById("back-to-top").addEventListener("click", function() {
-            scrollToTop(350); //
-        });
+        var backToTopButton = document.getElementById("progress");
+        var text_voltar_topo = document.getElementById("text_voltar_topo");
+        var menu = document.getElementById("primary-menu");
 
-        function scrollToTop(scrollDuration) {
-            var scrollStep = -window.scrollY / (scrollDuration / 15);
-            var scrollInterval = setInterval(function() {
-                if (window.scrollY !== 0) {
-                    window.scrollBy(0, scrollStep);
-                } else {
-                    clearInterval(scrollInterval);
-                }
-            }, 15);
+        function isElementInViewport(el) {
+            var rect = el.getBoundingClientRect();
+            return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
         }
-    </script>
-</body>
-</html>
-    </script>
-    </body>
+
+        window.addEventListener("scroll", function() {
+            if (isElementInViewport(menu) || isElementInViewport(text_voltar_topo)) {
+                backToTopButton.style.display = "none";
+            } else{
+                backToTopButton.style.display = "grid";
+            }
+        });
+
+        backToTopButton.addEventListener("click", function() {
+            window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+            });
+        });
+
+    };
+</script>

@@ -3,6 +3,11 @@
     --color-text-text-botao:#fff;
 
 }
+
+.generate-back-to-top{
+    position: 0;
+}
+
 body{
     font-family: 'Roboto';
 }
@@ -153,6 +158,10 @@ html{
     justify-content: center;
     align-items: center;
     margin: 20px 0;
+}
+
+.generate-back-to-top{
+    position: none;
 }
 
 .img-galeria{
