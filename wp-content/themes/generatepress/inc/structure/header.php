@@ -307,6 +307,7 @@ function generate_do_site_branding() {
 	}
 
 	generate_construct_site_title();
+
 }
 
 add_action( 'generate_after_header_content', 'generate_do_header_widget' );
@@ -322,7 +323,9 @@ function generate_do_header_widget() {
 	}
 
 	generate_construct_header_widget();
+
 }
+
 
 if ( ! function_exists( 'generate_top_bar' ) ) {
 	add_action( 'generate_before_header', 'generate_top_bar', 5 );
@@ -332,17 +335,23 @@ if ( ! function_exists( 'generate_top_bar' ) ) {
 	 * @since 1.3.45
 	 */
 	function generate_top_bar() {
+		include_once ('wp-content\themes\generatepress\inc\header\nav-bar.php');
 		if ( ! is_active_sidebar( 'top-bar' ) ) {
 			return;
 		}
 		?>
 		<div <?php generate_do_attr( 'top-bar' ); ?>>
+	
 			<div <?php generate_do_attr( 'inside-top-bar' ); ?>>
+			
 				<?php dynamic_sidebar( 'top-bar' ); ?>
+				
 			</div>
 		</div>
+	
 		<?php
-	}
+	
+}
 }
 
 if ( ! function_exists( 'generate_pingback_header' ) ) {
@@ -361,6 +370,7 @@ if ( ! function_exists( 'generate_pingback_header' ) ) {
 
 if ( ! function_exists( 'generate_add_viewport' ) ) {
 	add_action( 'wp_head', 'generate_add_viewport', 1 );
+	
 	/**
 	 * Add viewport to wp_head.
 	 *

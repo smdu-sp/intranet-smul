@@ -15,6 +15,7 @@
 	line-height: normal;
 	flex-grow: initial;
 	display:flex;
+	
 }
 
 h2{
@@ -32,9 +33,6 @@ body{
 	justify-content: space-around;
 }
 
-.main-navigation .main-nav ul li > a {
-	text-transform: uppercase;
-}
 
 .inside-navigation{
 	display: flex;

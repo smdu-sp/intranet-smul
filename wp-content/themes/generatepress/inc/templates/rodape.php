@@ -3,9 +3,11 @@
 <style>
 .container-princ{
     background-color:#333;
-    text-align: center;
+    text-align: start;
+    padding:20px;
+
 }
-.logo-img{
+.logo{
     width: 211px;
     float:left;
 }
@@ -17,10 +19,10 @@
     font-weight: 700;
     
 }
-.lista-footer ul{
+.lista-footer ul li{
     list-style: none;
-    padding-top:10px;
-    margin-top: 10px;
+    padding:0;
+    margin-bottom:8px;
     text-align:left;
     justify-content: start;
     
@@ -29,14 +31,16 @@
 .line-vertical{
     background-color: white;
     width: 5px;
-    height: 220px;
+    height: 189px;
     margin-right: 20px;
     margin-left: 20px;
-    margin-top:20px;
+    margin-top:8px;
+    padding:0;
 }
 .info-footer{
 text-align: center;
-padding:10px;
+padding:2px;
+margin:0;
 text-align: left;
 }
 .info-footer p, .lista-footer li{
@@ -45,16 +49,16 @@ text-align: left;
 font-size: 14px;
 font-weight: 200;
 line-height: normal;
-padding:2px;
 }
 .title{
+    margin:0;
     color: #FFF;
     font-family: 'Open Sans'sans-serif;
 font-size: 23px;
 font-style: normal;
 font-weight: 700;
 line-height: normal;
-padding:17px;
+padding:6px;
 }
 a.container-style{
     position:absolute;
