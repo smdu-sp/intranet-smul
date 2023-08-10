@@ -11,6 +11,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+define('PATH_IMG', ABSPATH . 'wp-content/themes/generatepress/assets/img/');
+
 // Set our theme version.
 define( 'GENERATE_VERSION', '3.3.0' );
 
@@ -125,3 +127,25 @@ require $theme_dir . '/inc/structure/search-modal.php';
 wp_enqueue_style('header','/wp-content/themes/generatepress/assets/css/header.css', array(), '1.0', 'all');
 wp_enqueue_style( 'home.css', '/wp-content/themes/generatepress/assets/css/home.css', array(), '1.0', 'all');
 wp_enqueue_style( 'acessibilidade.css', '/wp-content/themes/generatepress/assets/css/acessibilidade.css', array(), '1.0', 'all');
+
+function iconeSVG( $arquivoSVG ) {
+	$nomeArquivo = $arquivoSVG;
+
+	if ( str_contains( $arquivoSVG, '/' ) || str_contains( $arquivoSVG, '\\' )) {
+		$start = checkSlashPos( $arquivoSVG ) + 1;
+		$nomeArquivo = substr( $arquivoSVG, $start);
+	}
+	
+	$arquivo = PATH_IMG . $nomeArquivo;
+	return file_get_contents( $arquivo );
+}
+
+function checkSlashPos( $str ) {
+	$pos = strrpos( $str, '/' );
+
+	if ( $pos === false ) {
+		$pos = strrpos( $str, '\\' );
+	}
+
+	return $pos;
+}
