@@ -119,11 +119,11 @@
     }
 
     .zero{
-        margin-left: -4px;
+        margin-left: -9px;
     }
     
     .VIpgJd-ZVi9od-xl07Ob-lTBxed{
-        margin-right: -7px;
+        margin-right: -10px;
     }
 
     @media only screen and (max-width: 1210px) {
