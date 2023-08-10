@@ -11,11 +11,11 @@
         </ul>
 
         <ul class="controle-direita">
-            <li><a onclick="tamanhoFonte(1)" class="funcoes-controle tm-font"><img src="wp-content\themes\generatepress\assets\img\acess-aumentar-fonte.svg" alt=""></a></li>
-            <li><a onclick="tamanhoFonte(-1)" class="funcoes-controle tm-font"><img src="wp-content\themes\generatepress\assets\img\acess-diminuir-fonte.svg" alt=""></a></li>
-            <li><a href="#" class="funcoes-controle"><img class="img-center" src="wp-content\themes\generatepress\assets\img\acess-alto-contraste.svg" alt="logo"><span class="text-header">Alto contraste</span></a></li>
-            <li><a href="#" class="funcoes-controle"><img class="img-center" src="wp-content\themes\generatepress\assets\img\acess-acessibilidade.svg" alt=""><span class="text-header">Acessibilidade</span></a></li>
-            <li><a id="google_translate_element" class="funcoes-controle"><img class="img-center" src="wp-content\themes\generatepress\assets\img\acess-idioma.svg" alt=""></a></li>
+            <li><a onclick="tamanhoFonte(1)" class="funcoes-controle tm-font"><?= iconeSVG( 'acess-aumentar-fonte.svg' ) ?></a></li>
+            <li><a onclick="tamanhoFonte(-1)" class="funcoes-controle tm-font"><?= iconeSVG( 'acess-diminuir-fonte.svg' ) ?></a></li>
+            <li><a href="#" class="funcoes-controle"><?= iconeSVG( 'acess-alto-contraste.svg' ) ?><span class="text-header">Alto contraste</span></a></li>
+            <li><a href="#" class="funcoes-controle"><?= iconeSVG( 'acess-acessibilidade.svg' ) ?>Acessibilidade</span></a></li>
+            <li><a id="google_translate_element" class="funcoes-controle"><?= iconeSVG( 'acess-idioma.svg' ) ?></a></li>
         </ul>
     </div>
 </div>
