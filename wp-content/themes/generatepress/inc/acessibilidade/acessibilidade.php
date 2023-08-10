@@ -1,4 +1,7 @@
 <?php 
+
+
+
 ?>
 <div class="container-acess-geral">
     <div class="container-controle">
@@ -94,7 +97,7 @@
 
     .controle-esquerda a, .controle-direita a{
         color: white;
-        font-size: 12px;    
+        font-size: 0.75rem;    
         font-style: normal;
         line-height: normal;
         cursor: pointer;
@@ -173,6 +176,7 @@
         const estiloComputado = window.getComputedStyle(elemRoot);
         const tamanhoFonteTexto = estiloComputado.fontSize;
         let tamanhoFonteAtual = parseFloat(tamanhoFonteTexto);
+        console.log(tamanhoFonteAtual);
         const tamanhoFonteMax = 25;
         const tamanhoFonteMin = 5;
 
