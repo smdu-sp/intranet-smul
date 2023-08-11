@@ -1,26 +1,50 @@
-<?php ?>
-<head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
+<?php 
+
+
+
+?>
 <div class="container-acess-geral">
     <div class="container-controle">
         <ul class="controle-esquerda">
-            <li class="funcoes-controle esquerda" ><a onclick="scrolldiv('ultimas-noticias')" accesskey="1">Ir para conteúdo [1]</a></li>
-            <li class="funcoes-controle esquerda"><a onclick="scrolldiv('primary-menu')" accesskey="2">Ir para menu [2]</a></li>
-            <li class="funcoes-controle esquerda"><a onclick="scrolldiv('footer')" accesskey="3">Ir para rodapé [3]</a></li>
+            <li class="funcoes-controle esquerda"><a class="zero" onclick="scrolldiv('ultimas-noticias')" data-tooltip="Ir para conteúdo" accesskey="1">Ir para conteúdo [1]</a></li>
+            <li class="funcoes-controle esquerda"><a onclick="scrolldiv('primary-menu')" data-tooltip="Ir para menu" accesskey="2">Ir para menu [2]</a></li>
+            <li class="funcoes-controle esquerda"><a onclick="scrolldiv('footer')" data-tooltip="Ir para rodapé" accesskey="3">Ir para rodapé [3]</a></li>
         </ul>
 
         <ul class="controle-direita">
-            <li><a onclick="tamanhoFonte(1)" class="funcoes-controle tm-font"><?= iconeSVG( 'acess-aumentar-fonte.svg' ) ?></a></li>
-            <li><a onclick="tamanhoFonte(-1)" class="funcoes-controle tm-font"><?= iconeSVG( 'acess-diminuir-fonte.svg' ) ?></a></li>
-            <li><a href="#" class="funcoes-controle"><?= iconeSVG( 'acess-alto-contraste.svg' ) ?><span class="text-header">Alto contraste</span></a></li>
-            <li><a href="#" class="funcoes-controle"><?= iconeSVG( 'acess-acessibilidade.svg' ) ?>Acessibilidade</span></a></li>
-            <li><a id="google_translate_element" class="funcoes-controle"><?= iconeSVG( 'acess-idioma.svg' ) ?></a></li>
+            <li><a onclick="tamanhoFonte(1)" class="funcoes-controle tm-font" data-tooltip="Aumentar fonte"><?= iconeSVG( 'acess-aumentar-fonte.svg' ) ?></a></li>
+            <li><a onclick="tamanhoFonte(-1)" class="funcoes-controle tm-font" data-tooltip="Diminur fonte"><?= iconeSVG( 'acess-diminuir-fonte.svg' ) ?></a></li>
+            <li><a href="#" class="funcoes-controle" data-tooltip="Alto contraste"><?= iconeSVG( 'acess-alto-contraste.svg' ) ?><span class="text-header">Alto contraste</span></a></li>
+            <li><a href="#" class="funcoes-controle" data-tooltip="Acessibilidade"><?= iconeSVG( 'acess-acessibilidade.svg' ) ?>Acessibilidade</span></a></li>
+            <li><a id="google_translate_element" class="funcoes-controle" data-tooltip="Idioma"><?= iconeSVG( 'acess-idioma.svg' ) ?></a></li>
         </ul>
     </div>
 </div>
 
 <style>
+
+    [data-tooltip] {
+        position: relative;
+    }
+
+    [data-tooltip]:after {
+        display: none;
+        position: absolute;
+        font-size: 17px;
+        top: 27px;
+        padding: 5px;
+        border-radius: 3px;
+        content: attr(data-tooltip);
+        white-space: nowrap;
+        background-color: grey;
+        color: White;
+    }
+
+    [data-tooltip]:hover:after {
+
+        display: block;
+        
+    }
 
     .funcoes-controle .tm-font{
         color: aquamarine;
@@ -82,7 +106,7 @@
         position: static;
         display: flex;
         justify-content: left;
-        min-width: 1150px;
+        min-width: 1180px;
         justify-content: space-between;
     }
 
@@ -96,7 +120,7 @@
 
     .controle-esquerda a, .controle-direita a{
         color: white;
-        font-size: 12px;    
+        font-size: 14px;    
         font-style: normal;
         line-height: normal;
         cursor: pointer;
@@ -113,11 +137,19 @@
     }
 
     .img-center{
-        margin-right: 4px;
+        margin-right: 5px;
     }
 
     .tm-font{
         cursor: pointer;
+    }
+
+    .zero{
+        margin-left: -9px;
+    }
+    
+    .VIpgJd-ZVi9od-xl07Ob-lTBxed{
+        margin-right: -10px;
     }
 
     @media only screen and (max-width: 1210px) {
@@ -167,6 +199,7 @@
         const estiloComputado = window.getComputedStyle(elemRoot);
         const tamanhoFonteTexto = estiloComputado.fontSize;
         let tamanhoFonteAtual = parseFloat(tamanhoFonteTexto);
+        console.log(tamanhoFonteAtual);
         const tamanhoFonteMax = 25;
         const tamanhoFonteMin = 5;
 
