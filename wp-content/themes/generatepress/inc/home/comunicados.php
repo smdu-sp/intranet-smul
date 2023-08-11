@@ -1,20 +1,15 @@
 <?php ?>
 
 <div class="section-title">
-        <h2 class="sub-title-home"><?= $titulo ?></h2>
-        <div class="linha">
-            <span class="decoracao"></span>
-        </div>
+    <h2 class="sub-title-home"><?= $titulo ?></h2>
+    <div class="linha">
+        <span class="decoracao"></span>
     </div>
-<div>
-
-<div class="exp-img-cheio img-galeria imagem-<?= $tipoSecao ?>">
-    <img src="<?= $urlImagem ?>" alt="Capa de <?= $titulo ?>">
 </div>
-    <div class="conteudo-<?= $tipoSecao ?> ">
-        <p class="text mais-font menos-font"><?= $conteudo ?></p>
-    </div>
+<div>
     <a  class="botao-<?= $tipoSecao ?> section-bnt" href="<?= $url ?>">
-        <div class="botao-<?= $tipoSecao ?> button-home1 mais-font menos-font">Ver Mais</div>
+        <div style="background-image: Url(<?= $urlImagem ?>); background-repeat: no-repeat; background-position: center; background-color: #ddd" class="exp-img-cheio img-galeria imagem-<?= $tipoSecao ?>">
+            
+        </div>
     </a>
 </div>
