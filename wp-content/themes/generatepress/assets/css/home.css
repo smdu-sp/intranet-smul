@@ -160,6 +160,18 @@ html{
     justify-content: center;
 }
 
+.site-header .header-image {
+    margin-top: 31px;
+}
+
+article .article.inside-article {
+    padding: 20px;
+}
+
+section .inside-section {
+    padding: 0;
+}
+
 /* barra de pesquisa */
 
 /* Menu principal/home */

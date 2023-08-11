@@ -18,7 +18,7 @@ $countSecoes[$tipoSecao]++;
 
 ?>
 <section #id="secao-<?= "{$tipoSecao}-{$countSecoes[$tipoSecao]}" ?>">
-    <div class="inside-article">
+    <div class="inside-section">
         <?php
             if ( $tipoSecao === 'conteudo' ) include 'conteudo.php';
             if ( $tipoSecao === 'galeria' ) include 'galeria.php';
