@@ -1,24 +1,18 @@
 <html>
     <div id="progress">
-        <span id="progress-value">&#x1F815;</span>
+        <span id="progress-value">Voltar ao topo</span>
     </div>
 </html>
 
 <style>
     #progress{
-        background-color: rgb(0, 0, 0, 0.1);
-        border: 4px solid #395AAD;
-        bottom: 30px;
-        height: 40px;
-        width: 40px;
-        font-size: 30px;
+        font-size: 14px;
         position: fixed;
         display: grid;
         place-items: center;
-        border-radius: 50%;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         cursor: pointer;
-        right: 40px;
+        right: 90px;
+        bottom: 90px;
         transition: 300ms;
     }
 </style>
