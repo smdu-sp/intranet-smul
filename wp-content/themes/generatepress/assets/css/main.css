@@ -577,6 +577,7 @@ a {
 	display: flex;
 	align-items: center;
 	font-size: 15px;
+	flex-grow: unset;
 }
 
 .main-navigation .menu-bar-items a {

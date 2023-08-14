@@ -1,0 +1,96 @@
+.main-navigation a {
+	text-decoration: none;
+	font-weight: normal;
+	text-transform:uppercase;
+	font-size: 20px;
+	flex-grow: initial;
+	display:flex;
+}
+.main-navigation .main-nav ul li a{
+	color: #000;
+	font-family: 'Roboto';
+	font-size: 1.25rem;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+	flex-grow: initial;
+	display:flex;
+}
+
+h2{
+	color:#000;
+}
+body{
+	font-family: 'Roboto';
+}
+.menu-bar-items{
+	display: flex;
+	justify-content: space-around;
+}
+.grid-container{
+	display: flex;
+	justify-content: space-around;
+}
+
+.main-navigation .main-nav ul li > a {
+	text-transform: uppercase;
+}
+
+.inside-navigation{
+	display: flex;
+	justify-content: space-around;
+}
+
+/* Remove as setas do menu superior */
+@media (min-width: 769px) {
+    .menu-item-has-children a > .dropdown-menu-toggle {
+        display: none;
+    }
+
+    .main-navigation .main-nav ul li.menu-item-has-children > a {
+        padding-right: 20px !important;
+    }
+}
+
+/* Pesquisa */
+.container-search {
+	padding: 10px;
+	display: flex;
+	justify-content: center;
+	width: 1400px;
+	margin-top: 16px;
+}
+
+#divBusca {
+	display: flex;
+	min-width: 1200px;
+}   
+
+.button {
+	text-align: inline;
+	float: right;
+	position: sticky;
+	border-radius: 5px;
+	border: 1px solid #E3E3E3;
+	background: #F5F5F5;
+
+	width: 152px;
+		height: 61px;
+	margin-left: -7px;
+}
+
+#txtBusca {
+	width: 100%;
+	height: 61px;
+}
+
+.lupa {
+	width: 100%;
+   height: 43px;
+}
+
+@media only screen and (max-width: 1210px) {
+	#divBusca {
+		min-width: 90%;
+	}
+}

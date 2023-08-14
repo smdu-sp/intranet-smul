@@ -5,7 +5,12 @@ $posts = wp_get_recent_posts( array( 'numberposts' => 3 ) );
 ?>
 
 <section id="ultimas-noticias">
-    <h2>Últimas notícias</h2>
+
+<div class="section-title">
+    <h2 class="sub-title-home">Últimas noticias</h2>
+    <div class="linha">
+    </div>
+</div>
 
 <?php
 
@@ -16,18 +21,20 @@ foreach ( $posts as $index => $value ) {
     $postsPageId = get_option( 'page_for_posts' );
 ?>
 
-    <a href="<?= get_post_permalink($postId) ?>">
-        <article id="post-<?= $postId ?>" class="post-<?= $postId ?>">
-            <div class="inside-article">
-                <h3><?= $postTitle ?></h3>
-                <p><?= $postExcerpt ?></p>
-            </div>
-        </article>
-    </a>
+<a href="<?= get_post_permalink($postId) ?>">
+    <article id="post-<?= $postId ?>" class="post-<?= $postId ?>">
+        <div class="inside-article article">
+            <h3 class="sub-title"> <?= $postTitle ?></h3>
+            <p class="text"><?= $postExcerpt ?></p>
+        </div>
+    </article>
+</a>
 
 <?php
 }
 ?>
-
-    <a href="<?= get_post_permalink($postsPageId) ?>">Ver Mais</a>
+    <div class="section-bnt">
+        <a href="<?= get_post_permalink($postsPageId) ?>" class="button-home mais-font menos-font">Ver Mais</a>
+    </div>
+    
 </section>
