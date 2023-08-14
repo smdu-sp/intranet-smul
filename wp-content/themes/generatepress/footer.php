@@ -39,7 +39,7 @@ do_action( 'generate_before_footer' );
 	 * @hooked generate_construct_footer_widgets - 5
 	 * @hooked generate_construct_footer - 10
 	 */
-	do_action( 'generate_footer' );
+	include_once 'wp-content\themes\generatepress\templates\footer.php';
 
 	/**
 	 * generate_after_footer_content hook.
