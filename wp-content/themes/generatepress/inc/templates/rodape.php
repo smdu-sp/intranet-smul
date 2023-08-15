@@ -6,7 +6,7 @@
         <div class="conteiner-footer" id="footer">
             <div class="container-cont">
                 <div class="img-footer">
-                    <img src="http://localhost/wp-content/uploads/2023/07/rodape-logo-smul.png" alt="imagem prefeitura">
+                    <img src="wp-content\themes\generatepress\assets\img\rodape-logo-smul.png" alt="imagem prefeitura">
                 </div>
                 <div class="informações-prefeitura">
                     <h2 class="sub-title-footer mais-font menos-font">Secretaria Municipal de<br>Urbanismo e Licenciamento</h3>
