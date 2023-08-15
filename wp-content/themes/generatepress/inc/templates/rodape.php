@@ -61,20 +61,8 @@ a.container-style{
     text-align:right;
 }
 
-#text_voltar_topo{
-    background-color: aqua;
-    position: relative;
-}
-
-.text_back{
-    right: 90px;
-}
 
 </style>
-
-<div id="text_voltar_topo">
-    <a onclick="scrolldiv('masthead')" class="text_back">Voltar ao topo</a>
-</div>
     
 <footer class="container-princ">
     <div class="container-conteudo">
