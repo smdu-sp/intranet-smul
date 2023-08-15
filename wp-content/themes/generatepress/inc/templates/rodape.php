@@ -1,5 +1,8 @@
 <body>
     <footer>
+        <div id="text_voltar_topo">
+            <a onclick="scrolldiv('masthead')" class="text_back"><span>Voltar ao topo</span></a>
+        </div>
         <div class="conteiner-footer" id="footer">
             <div class="container-cont">
                 <div class="img-footer">
@@ -30,6 +33,24 @@
 </body>
 
 <style>
+
+    #text_voltar_topo{
+        display: flex;
+        justify-content: right;
+    }
+
+    .text_back{
+        margin-right: 90px;
+        margin-bottom: 30px;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        color: #0A3299;
+        border-bottom: 1px solid #0A3299;
+    }
+    .text_back:hover{
+        color: #0A3299;
+    }
 
     .lista{
         margin: 0;
@@ -85,19 +106,14 @@
         color: rgb(250, 250, 250, 0.8);
     }
 
- 
-
     .informações-prefeitura{
         margin: 0 60px 0 10px;
     }
-
- 
 
     .email-footer{
         color: rgb(250, 250, 250, 0.8);
         letter-spacing: 0.5px;
     }
-
 
     a:hover{
         color: rgb(250, 250, 250);
