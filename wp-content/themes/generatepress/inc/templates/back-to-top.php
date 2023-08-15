@@ -8,19 +8,18 @@
     #progress{
         font-size: 14px;
         position: fixed;
-        display: grid;
-        place-items: center;
+        display: block;
         cursor: pointer;
         right: 90px;
         bottom: 90px;
         transition: 300ms;
+        font-weight: bold;
     }
 </style>
 
 
 <script>
     window.onscroll = function() {
-
         var backToTopButton = document.getElementById("progress");
         var text_voltar_topo = document.getElementById("text_voltar_topo");
         var menu = document.getElementById("primary-menu");
@@ -39,7 +38,7 @@
             if (isElementInViewport(menu) || isElementInViewport(text_voltar_topo)) {
                 backToTopButton.style.display = "none";
             } else{
-                backToTopButton.style.display = "grid";
+                backToTopButton.style.display = "block";
             }
         });
 
@@ -49,6 +48,5 @@
             behavior: "smooth"
             });
         });
-
     };
 </script>

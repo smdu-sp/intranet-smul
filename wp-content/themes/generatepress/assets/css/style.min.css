@@ -1357,13 +1357,6 @@ ol.comment-list {
     padding: 40px
 }
 
-.separate-containers .comments-area,
-.separate-containers .inside-article,
-.separate-containers .page-header,
-.separate-containers .paging-navigation {
-    padding: 40px
-}
-
 .separate-containers .page-header,
 .separate-containers .site-main>*,
 .separate-containers .widget {
