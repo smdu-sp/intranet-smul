@@ -597,10 +597,10 @@ function generate_has_inline_mobile_toggle() {
 function generate_get_the_title_parameters() {
 	$params = array(
 		'before' => sprintf(
-			'<h1 class="entry-title"%s>',
+			'<div class="section-title"><h1 class="sub-title-home"%s><div class="linha"><span class="decoracao"></span></div>',
 			'microdata' === generate_get_schema_type() ? ' itemprop="headline"' : ''
 		),
-		'after' => '</h1>',
+		'after' => '</h1></div>',
 	);
 
 	if ( ! is_singular() ) {
