@@ -28,9 +28,11 @@
         th,
         td {
             text-align: center;
-            border: 0.2px solid #000;
+            border: 0.1px solid #000;
             color: #000;
             font-family: 'Open Sans'sans-serif;
+            border-collapse: separate;
+
         }
 
         th {
@@ -44,5 +46,12 @@
             opacity: 0,7;
             text-decoration:underline;
             
+        }
+        table, td ,th{
+            border-collapse:collapse;
+
+        }
+        td{
+            text-align:left;
         }
     </style>
