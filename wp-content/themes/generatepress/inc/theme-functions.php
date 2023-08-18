@@ -64,6 +64,7 @@ if ( ! function_exists( 'generate_get_layout' ) ) {
 }
 
 if ( ! function_exists( 'generate_get_footer_widgets' ) ) {
+	
 	/**
 	 * Get the footer widgets for the current page
 	 *
