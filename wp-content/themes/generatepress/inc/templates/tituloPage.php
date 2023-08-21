@@ -12,13 +12,13 @@
             padding: 0;
             margin-bottom: -33px;
             margin-top: 10px;
-            x
         }
 
         .sub-title-home {
-            font-size: 1.25rem;
+            font-size: 2.0rem;
             color: #395AAD;
             font-weight: 700;
+
         }
 
         .site-content {
@@ -32,26 +32,29 @@
             color: #000;
             font-family: 'Open Sans'sans-serif;
             border-collapse: separate;
-
         }
 
-        th {
-            background-color: #F6F6F6;
+      th{
+            ;
             text-align: center;
-            color: #000;
-        }
-
-        .link:hover {
-            color: #000;
+            color: #395AAD;
             opacity: 0,7;
-            text-decoration:underline;
+            font-size:1.6rem;
             
         }
+        
+
+        .link:hover{
+            opacity: 0,7;
+            color: #000;
+        }
+
         table, td ,th{
             border-collapse:collapse;
 
         }
         td{
             text-align:left;
+            font-size:1.4rem;
         }
     </style>
