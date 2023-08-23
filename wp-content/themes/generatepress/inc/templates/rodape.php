@@ -9,9 +9,9 @@
                     <img src="wp-content\themes\generatepress\assets\img\rodape-logo-smul.png" alt="imagem prefeitura">
                 </div>
                 <div class="informações-prefeitura">
-                    <h2 class="sub-title-footer mais-font menos-font">Secretaria Municipal de<br>Urbanismo e Licenciamento</h3>
-                    <p class="text-footer mais-font menos-font">Rua São Bento, 405, Centro - 8º, 17º, 18º, 19°, 20°, 21°<br>e 22° andar CEP 01011-100 - São Paulo - SP </p>
-                    <p class="text-footer mais-font menos-font">Em caso de dúvidas e sugestões, entre em contato pelo email:<br><b><a href="mailto:smulsuporte@prefeitura.sp.gov.br" class="email-footer mais-font menos-font">smulsuporte@prefeitura.sp.gov.br</a></b></p>
+                    <h2 class="sub-title-footer">Secretaria Municipal de<br>Urbanismo e Licenciamento</h3>
+                    <p class="text-footer">Rua São Bento, 405, Centro - 8º, 17º, 18º, 19°, 20°, 21°<br>e 22° andar CEP 01011-100 - São Paulo - SP </p>
+                    <p class="text-footer">Em caso de dúvidas e sugestões, entre em contato pelo email:<br><b><a href="mailto:smulsuporte@prefeitura.sp.gov.br" class="email-footer">smulsuporte@prefeitura.sp.gov.br</a></b></p>
                 </div>
                 <div class="barra-footer">
                 </div>

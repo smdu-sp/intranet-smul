@@ -30,7 +30,6 @@ get_header(); ?>
 				while ( have_posts() ) :
 
 					the_post();
-					include_once 'wp-content\themes\generatepress\inc\templates\tituloPage.php';
 					generate_do_template_part( 'page' );
 					
 
