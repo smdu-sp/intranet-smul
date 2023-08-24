@@ -75,23 +75,30 @@ html{
     margin-left: 10px;
 }
 
-.section-title{
+.entry-header .section-title {
+    width: 75%;
+}
+
+.section-title {
     display: flex;
     position: relative;
 }
 
-.sub-title-home{
+.sub-title-home, .title-interna {
     color: #395AAD;
     border-bottom: 6px solid #395AAD; 
     display: inline-block;
     font-size: 2.0rem;
     font-weight: 700;
     padding-bottom: 5px;
+    margin-bottom: 0;
 }
 
-.linha{
+
+
+.linha {
     position: absolute;
-    bottom: 22px;
+    bottom: 2px;
     width: 100%;
     border-bottom: 1px solid #395AAD;
 }

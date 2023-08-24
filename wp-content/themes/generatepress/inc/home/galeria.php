@@ -12,9 +12,9 @@
     <img src="<?= $urlImagem ?>" alt="Capa de <?= $titulo ?>">
 </div>
     <div class="conteudo-<?= $tipoSecao ?> ">
-        <p class="text mais-font menos-font"><?= $conteudo ?></p>
+        <p class="text"><?= $conteudo ?></p>
     </div>
     <a  class="botao-<?= $tipoSecao ?> section-bnt" href="<?= $url ?>">
-        <div class="botao-<?= $tipoSecao ?> button-home1 mais-font menos-font">Ver Mais</div>
+        <div class="botao-<?= $tipoSecao ?> button-home1">Ver Mais</div>
     </a>
 </div>
