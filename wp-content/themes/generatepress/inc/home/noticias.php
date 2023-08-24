@@ -34,7 +34,7 @@ foreach ( $posts as $index => $value ) {
 }
 ?>
     <div class="section-bnt">
-        <a href="<?= get_post_permalink($postsPageId) ?>" class="button-home mais-font menos-font">Ver Mais</a>
+        <a href="<?= get_post_permalink($postsPageId) ?>" class="button-home">Ver Mais</a>
     </div>
     
 </section>

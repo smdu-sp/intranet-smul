@@ -64,6 +64,7 @@ if ( ! function_exists( 'generate_get_layout' ) ) {
 }
 
 if ( ! function_exists( 'generate_get_footer_widgets' ) ) {
+	
 	/**
 	 * Get the footer widgets for the current page
 	 *
@@ -597,10 +598,10 @@ function generate_has_inline_mobile_toggle() {
 function generate_get_the_title_parameters() {
 	$params = array(
 		'before' => sprintf(
-			'<h1 class="entry-title"%s>',
+			'<div class="section-title"><h1 class="title-interna">',
 			'microdata' === generate_get_schema_type() ? ' itemprop="headline"' : ''
 		),
-		'after' => '</h1>',
+		'after' => '</h1><div class="linha"></div></div>',
 	);
 
 	if ( ! is_singular() ) {
