@@ -1,0 +1,61 @@
+<h1 class="section-title">Contatos</h1>
+<div class="container-busca">
+   <input class="text" type="text" id="search" placeholder=""> <button id="searchButton">Buscar</button>
+    <input type="text" id="search" placeholder=""> <button id="searchButton">Buscar</button>
+    <input  type="text" id="search" placeholder=""><button id="searchButton">Buscar</button>
+    <div class="results">
+    </label>
+        <!-- Os resultados da busca serão exibidos aqui -->
+    </div>
+    <style>
+        .text-lab{
+            margin-right:60px;
+        }
+        .container-busca {
+            display: grid;
+            grid-template-columns: 3fr 3fr 3fr;
+            gap: 5px;
+            margin: 0 auto;
+            padding-bottom:10px;
+            margin-left: 20px;
+        }
+
+        input[type="text"] {
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            grid-column: 1;
+            grid-template-rows: 6fr;
+            width:640px;
+            text-align: left;
+                }
+
+        .results {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            grid-column: 1;
+        }
+
+        /* Estilize os resultados da busca a seu gosto */
+        .results .result {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+      #searchButton{
+              width: 115px;
+            height: 46px;
+            font-size: 14px;
+            background-color: #E3E3E3;
+            color:#BDBDBD;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+            border: 2px solid #E3E3E3;
+
+            /* Espaçamento entre o campo de  botão */
+        }
+    </style>
