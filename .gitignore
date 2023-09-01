@@ -33,6 +33,8 @@ node_modules/
 *.log
 *.sql
 *.sqlite
+*db-config.php
+*ldap-config.php
 
 # ignora arquivos de teste
 *_old*
