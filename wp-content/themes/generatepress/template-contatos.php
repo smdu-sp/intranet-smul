@@ -26,6 +26,14 @@ $alfabeto = range( 'A', 'Z' );?>
     </ul>
 </div>
 <div id="lista-de-contatos"></div>
+<div id="paginacao-contatos">
+    <div>
+        <button class="botao-seta-contatos" type="button" onclick="retornarPagina()">&lt;</button>
+        <button class="botao-proximo-contatos" type="button" onclick="avancarPagina()">Próxima Página</button>
+        <button class="botao-seta-contatos" type="button" onclick="avancarPagina()">&gt;</button> 
+    </div>
+    <div class="pagina-atual-contatos">Página <span id="pagina-atual-contatos"></span></div>
+</div>
 <?php
 
 // Inicia conexão ao banco da lista de contatos
@@ -135,8 +143,53 @@ $jsonPessoas = json_encode( $pessoas );
     function filtroAlfabeto(letra) {
         // Função filtro
         // gerar lista filtrada
-
         gerarContatos(listaFiltrada);
+    }
+
+    globalThis.paginaAtual = 1;
+    globalThis.contatosPorPagina = 8;
+    globalThis.paginas = [];
+
+    function atualizarPaginaAtual(valor) {
+        paginaAtual += valor;
+        document.getElementById('pagina-atual-contatos').innerHTML = paginaAtual;
+        document.getElementById('resultado-contatos').scrollIntoView(true);
+    }
+
+    function gerarPaginacao(listaPessoas) {
+        let itensPaginados = 0;
+
+        for (const pessoa in listaPessoas) {            
+            if (itensPaginados === 0) {
+                paginas.push([]);
+            }
+
+            paginas.at(-1).push(listaPessoas[pessoa]);
+            itensPaginados++;
+
+            if (itensPaginados === contatosPorPagina) {
+                itensPaginados = 0;
+            }
+        }
+
+        paginaAtual = 1;
+        gerarContatos(paginas[0]);
+    }
+
+    function avancarPagina() {
+        const tamanhoLista = paginas.length;
+
+        if (paginaAtual < tamanhoLista) {
+            atualizarPaginaAtual(1);
+            gerarContatos(paginas[paginaAtual - 1]);
+        }
+    }
+
+    function retornarPagina() {
+        if (paginaAtual > 1) {
+            atualizarPaginaAtual(-1);
+            gerarContatos(paginas[paginaAtual - 1]);
+        }
     }
 
     function gerarContatos(listaPessoas) {
@@ -161,7 +214,7 @@ $jsonPessoas = json_encode( $pessoas );
 
             const header = '<table class="tabela-contatos" border="1px" cellpadding="5px" cellspacing="0">';
             const html = `
-                <tr class="linha-contatos"><th rowspan="7" class="ordem-contatos"><center>${i + 1}</center></th>
+                <tr class="linha-contatos"><th rowspan="7" class="ordem-contatos"><center>${(paginaAtual - 1) * 8 + (i + 1)}</center></th>
                 <th class="info-contatos">Nome</th><td>${listaPessoas[i]['nome']}</td></tr>
                 <tr><th class="info-contatos">Cargo</th><td>${listaPessoas[i]['cargo']}</td></tr>
                 <tr><th class="info-contatos">Tel.</th><td>${listaPessoas[i]['telefone']}</td></tr>
@@ -174,7 +227,7 @@ $jsonPessoas = json_encode( $pessoas );
             tabelaContatos += header;
 
             if ( i === 0 ) {
-                tabelaContatos += '<tr><th colspan=\"3\" class=\"resultado-contatos\">Todos os resultados:</th></tr>';
+                tabelaContatos += '<tr><th colspan=\"3\" class=\"resultado-contatos\" id=\"resultado-contatos\">Todos os resultados:</th></tr>';
             }
 
             tabelaContatos += html;
@@ -183,5 +236,5 @@ $jsonPessoas = json_encode( $pessoas );
         divContatos.innerHTML = tabelaContatos;
     }
 
-    gerarContatos(jsonPessoas);
+    gerarPaginacao(jsonPessoas);
 </script>

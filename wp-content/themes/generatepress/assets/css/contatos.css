@@ -103,11 +103,10 @@ label {
 .lista-alfabeto {
   display: flex;
   list-style: none;
-  justify-content: space-around;
   padding-inline-start: 0px;
   padding-top: 40px;
-  width: 1172px;
-  justify-content:space-between;
+  width: 1200px;
+  justify-content: space-between;
   margin:0 0em 3.5em 0em;
   
 }
