@@ -27,6 +27,7 @@ center {
   width: 1172px;
   text-align: left;
   padding: 10px 24px;
+  font-size: 1.4rem;
 }
 
 .ordem-contatos {
@@ -78,6 +79,7 @@ table a {
 }
 
 label {
+  font-size:1.4rem;
   text-align: center;
   margin-top: 10px;
   font-family: "Roboto";
@@ -104,7 +106,10 @@ label {
   justify-content: space-around;
   padding-inline-start: 0px;
   padding-top: 40px;
-  padding-right: 20px;
+  width: 1172px;
+  justify-content:space-between;
+  margin:0 0em 3.5em 0em;
+  
 }
 
 .form-contatos {
@@ -135,4 +140,7 @@ label {
   border-radius: 5px;
   cursor: pointer;
   border: 1px solid #e3e3e3;
+}
+.lista-de-contatos{
+  width: 1172px;
 }

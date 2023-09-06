@@ -10,11 +10,20 @@ if ( !defined( 'ABSPATH' ) ) {
 
 get_header();
 
-$alfabeto = range( 'A', 'Z' );
+$alfabeto = range( 'A', 'Z' );?> 
 
+<div class="form-contatos">
+    <label>Nome:</label> <input type="text" id="search" placeholder=""><button id="searchButton">Buscar</button>
+    <label>Cargo:</label> <input type="text" id="search" placeholder=""> <button id="searchButton">Buscar</button>
+    <label>Unidade:</label> <input type="text" id="search" placeholder=""><button id="searchButton">Buscar</button>
+</div>
+<div class="alfabeto"> 
+    <ul class="lista-alfabeto"> <?php
 foreach ( $alfabeto as $key => $value ) { ?>
-    <li><a href="#" onclick="filtroAlfabeto( '<?= $value ?>' )"><?= $value ?></a></li>
-<?php } ?>
+        <li class="list"><a href="#" onclick="filtroAlfabeto( '<?= $value ?>' )"><?= $value ?></a></li>
+        <?php } ?>
+    </ul>
+</div>
 <div id="lista-de-contatos"></div>
 <?php
 
