@@ -18,9 +18,10 @@ $alfabeto = range( 'A', 'Z' );?>
     <label>Unidade:</label> <input type="text" id="search" placeholder=""><button id="searchButton">Buscar</button>
 </div>
 <div class="alfabeto"> 
-    <ul class="lista-alfabeto"> <?php
-foreach ( $alfabeto as $key => $value ) { ?>
-        <li class="list"><a href="#" onclick="filtroAlfabeto( '<?= $value ?>' )"><?= $value ?></a></li>
+    <ul class="lista-alfabeto">
+    <?php
+        foreach ( $alfabeto as $key => $value ) { ?>
+            <li class="list"><a href="#" onclick="filtroAlfabeto( '<?= $value ?>' )"><?= $value ?></a></li>
         <?php } ?>
     </ul>
 </div>
@@ -32,11 +33,12 @@ include_once 'db-config.php';
 
 $pessoas = array();
 
-$SMUL = conectarLDAP( 'SMUL', $mysqli );
-$SPURBANISMO = conectarLDAP( 'SPURBANISMO', $mysqli );
+$SMUL = conectarLDAP( 'SMUL' );
+$SPURBANISMO = conectarLDAP( 'SPURBANISMO' );
 
-function conectarLDAP( $company, $mysqli ) {
+function conectarLDAP( $company ) {
     include 'ldap-config.php';
+    global $mysqli;
     $base_dn = "OU=Users,OU=$company,DC=rede,DC=sp";
     $resultado = array();
 
@@ -110,7 +112,7 @@ function conectarLDAP( $company, $mysqli ) {
         }
     }
 
-    ldap_close($connect);
+    ldap_close( $connect );
 
     return $resultado;
 }
