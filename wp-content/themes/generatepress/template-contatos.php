@@ -4,23 +4,23 @@
 Template Name: Contatos
 */
 
-if ( !defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
 }
 
 get_header();
 
-$alfabeto = range( 'A', 'Z' );?> 
+$alfabeto = range('A', 'Z'); ?>
 
 <div class="form-contatos">
     <label>Nome:</label> <input type="text" id="search" placeholder=""><button id="searchButton">Buscar</button>
     <label>Cargo:</label> <input type="text" id="search" placeholder=""> <button id="searchButton">Buscar</button>
     <label>Unidade:</label> <input type="text" id="search" placeholder=""><button id="searchButton">Buscar</button>
 </div>
-<div class="alfabeto"> 
+<div class="alfabeto">
     <ul class="lista-alfabeto">
-    <?php
-        foreach ( $alfabeto as $key => $value ) { ?>
+        <?php
+        foreach ($alfabeto as $key => $value) { ?>
             <li class="list"><a href="#" onclick="filtroAlfabeto( '<?= $value ?>' )"><?= $value ?></a></li>
         <?php } ?>
     </ul>
@@ -28,9 +28,11 @@ $alfabeto = range( 'A', 'Z' );?>
 <div id="lista-de-contatos"></div>
 <div id="paginacao-contatos">
     <div>
-        <button class="botao-seta-contatos" type="button" onclick="retornarPagina()">&lt;</button>
-        <button class="botao-proximo-contatos" type="button" onclick="avancarPagina()">Próxima Página</button>
-        <button class="botao-seta-contatos" type="button" onclick="avancarPagina()">&gt;</button> 
+        <button class="botao-seta-contatos" type="button" onclick="mudarPagina('um')">&lt;&lt;</button>
+        <button class="botao-seta-contatos" type="button" onclick="mudarPagina('retornar')">&lt;</button>
+        <button class="botao-proximo-contatos" type="button" onclick="mudarPagina('avancar')">Próxima Página</button>
+        <button class="botao-seta-contatos" type="button" onclick="mudarPagina('avancar')">&gt;</button>
+        <button class="botao-seta-contatos" type="button" onclick="mudarPagina('ultimo')">&gt;&gt;</button>
     </div>
     <div class="pagina-atual-contatos">Página <span id="pagina-atual-contatos"></span></div>
 </div>
@@ -41,10 +43,11 @@ include_once 'db-config.php';
 
 $pessoas = array();
 
-$SMUL = conectarLDAP( 'SMUL' );
-$SPURBANISMO = conectarLDAP( 'SPURBANISMO' );
+$SMUL = conectarLDAP('SMUL');
+$SPURBANISMO = conectarLDAP('SPURBANISMO');
 
-function conectarLDAP( $company ) {
+function conectarLDAP($company)
+{
     include 'ldap-config.php';
     global $mysqli;
     $base_dn = "OU=Users,OU=$company,DC=rede,DC=sp";
@@ -54,85 +57,89 @@ function conectarLDAP( $company ) {
     $pesquisa = '*';
     $filter = "(&(objectClass=user)(objectCategory=person)(|(cn=$pesquisa)(samaccountname=$pesquisa))(!(userAccountControl:1.2.840.113556.1.4.803:=2)))";
 
-    if ( ( $connect = @ldap_connect( $ldap_server ) ) ) {
-        if ( ($bind = @ldap_bind( $connect, $auth_user, $auth_pass ) ) ) {
+    if (($connect = @ldap_connect($ldap_server))) {
+        if (($bind = @ldap_bind($connect, $auth_user, $auth_pass))) {
 
-            if ( ( $search = @ldap_search( $connect, $base_dn, $filter ) ) ) {
+            if (($search = @ldap_search($connect, $base_dn, $filter))) {
 
-                $number_returned = ldap_count_entries( $connect, $search );
-                $info = ldap_get_entries( $connect, $search );
+                $number_returned = ldap_count_entries($connect, $search);
+                $info = ldap_get_entries($connect, $search);
 
                 $count = $info["count"];
 
-                for ( $i = 0; $i < $count; $i++ ) {
+                for ($i = 0; $i < $count; $i++) {
 
                     $ID_Rede = '';
                     $Email = '';
                     $Nome = '';
                     $Secretaria = '';
 
-                    if ( isset( $info[$i]["samaccountname"][0] ) ) {
+                    if (isset($info[$i]["samaccountname"][0])) {
                         $ID_Rede = $info[$i]["samaccountname"][0];
                     }
-                    if ( isset( $info[$i]["mail"][0] ) ) {
+                    if (isset($info[$i]["mail"][0])) {
                         $Email = $info[$i]["mail"][0];
                     }
-                    if ( isset( $info[$i]["displayname"][0] ) ) {
+                    if (isset($info[$i]["displayname"][0])) {
                         $Nome = mb_convert_encoding($info[$i]["displayname"][0], 'UTF-8', 'ISO-8859-1');
                     }
-                    if ( isset( $info[$i]["company"][0] ) ) {
+                    if (isset($info[$i]["company"][0])) {
                         $Secretaria = $info[$i]["company"][0];
                     }
 
-                    $busca = mysqli_query( $mysqli, "select * from tbl_telefones WHERE cp_usuario_rede LIKE '$ID_Rede' ORDER BY cp_nome ASC" );
+                    $busca = mysqli_query($mysqli, "select * from tbl_telefones WHERE cp_usuario_rede LIKE '$ID_Rede' ORDER BY cp_nome ASC");
 
-                    if ( mysqli_num_rows($busca) > 0 ) {
-                        while ( $dados = mysqli_fetch_array( $busca ) ) {
-                            $resultado += [$ID_Rede => array(
-                                'nome' => $dados['cp_nome'],
-                                'telefone' => $dados['cp_telefone'],
-                                'cargo' => $dados['cp_cargo'],
-                                'departamento' => $dados['cp_departamento'],
-                                'secretaria' => $dados['cp_secretaria'],
-                                'andar' => $dados['cp_andar'],
-                                'cep' => $dados['cp_cep'],
-                                'Email' => $dados['cp_email'],
-                                'Dia' => $dados['cp_nasc_dia'],
-                                'Mes' => $dados['cp_nasc_mes']
-                            )];
+                    if (mysqli_num_rows($busca) > 0) {
+                        while ($dados = mysqli_fetch_array($busca)) {
+                            $resultado += [
+                                $ID_Rede => array(
+                                    'nome' => $dados['cp_nome'],
+                                    'telefone' => $dados['cp_telefone'],
+                                    'cargo' => $dados['cp_cargo'],
+                                    'departamento' => $dados['cp_departamento'],
+                                    'secretaria' => $dados['cp_secretaria'],
+                                    'andar' => $dados['cp_andar'],
+                                    'cep' => $dados['cp_cep'],
+                                    'Email' => $dados['cp_email'],
+                                    'Dia' => $dados['cp_nasc_dia'],
+                                    'Mes' => $dados['cp_nasc_mes']
+                                )
+                            ];
                         }
-                    } else if ( $company === 'SMUL' && $Nome != "" && $Email != "" ) {
-                        $resultado += [$ID_Rede => array(
-                            'nome' => $Nome,
-                            'telefone' => '',
-                            'cargo' => '',
-                            'departamento' => '',
-                            'secretaria' => $Secretaria,
-                            'andar' => '',
-                            'cep' => '',
-                            'Email' => mb_strtolower( $Email ),
-                            'Dia' => '',
-                            'Mes' => ''
-                        )];
+                    } else if ($company === 'SMUL' && $Nome != "" && $Email != "") {
+                        $resultado += [
+                            $ID_Rede => array(
+                                'nome' => $Nome,
+                                'telefone' => '',
+                                'cargo' => '',
+                                'departamento' => '',
+                                'secretaria' => $Secretaria,
+                                'andar' => '',
+                                'cep' => '',
+                                'Email' => mb_strtolower($Email),
+                                'Dia' => '',
+                                'Mes' => ''
+                            )
+                        ];
                     }
                 }
             }
         }
     }
 
-    ldap_close( $connect );
+    ldap_close($connect);
 
     return $resultado;
 }
 
-mysqli_close( $mysqli );
+mysqli_close($mysqli);
 
-$pessoas = array_merge( $SMUL, $SPURBANISMO );
+$pessoas = array_merge($SMUL, $SPURBANISMO);
 
-$result = count( $pessoas );
-sort( $pessoas );
+$result = count($pessoas);
+sort($pessoas);
 
-$jsonPessoas = json_encode( $pessoas );
+$jsonPessoas = json_encode($pessoas);
 
 ?>
 
@@ -159,7 +166,7 @@ $jsonPessoas = json_encode( $pessoas );
     function gerarPaginacao(listaPessoas) {
         let itensPaginados = 0;
 
-        for (const pessoa in listaPessoas) {            
+        for (const pessoa in listaPessoas) {
             if (itensPaginados === 0) {
                 paginas.push([]);
             }
@@ -176,20 +183,38 @@ $jsonPessoas = json_encode( $pessoas );
         gerarContatos(paginas[0]);
     }
 
-    function avancarPagina() {
+    /* function avancarPagina() {
+         const tamanhoLista = paginas.length;
+ 
+         if (paginaAtual < tamanhoLista) {
+             atualizarPaginaAtual(1);
+             gerarContatos(paginas[paginaAtual - 1]);
+         }
+     }
+ 
+     function retornarPagina() {
+         if (paginaAtual > 1) {
+             atualizarPaginaAtual(-1);
+             gerarContatos(paginas[paginaAtual - 1]);
+         }
+     }
+ */
+ 
+ function mudarPagina(acao) {
         const tamanhoLista = paginas.length;
+        const cont = tamanhoLista / 8;
+    
+        if (acao === 'ultimo' && paginaAtual < tamanhoLista) {
+        
+        }else if (acao === 'um') {
 
-        if (paginaAtual < tamanhoLista) {
+        }else if (acao === 'avancar' && paginaAtual < tamanhoLista) {
             atualizarPaginaAtual(1);
-            gerarContatos(paginas[paginaAtual - 1]);
-        }
-    }
-
-    function retornarPagina() {
-        if (paginaAtual > 1) {
+        } else if (acao === 'retornar' && paginaAtual > -1) {
             atualizarPaginaAtual(-1);
-            gerarContatos(paginas[paginaAtual - 1]);
         }
+        gerarContatos(paginas[paginaAtual - 1]);
+
     }
 
     function gerarContatos(listaPessoas) {
@@ -226,7 +251,7 @@ $jsonPessoas = json_encode( $pessoas );
 
             tabelaContatos += header;
 
-            if ( i === 0 ) {
+            if (i === 0) {
                 tabelaContatos += '<tr><th colspan=\"3\" class=\"resultado-contatos\" id=\"resultado-contatos\">Todos os resultados:</th></tr>';
             }
 
