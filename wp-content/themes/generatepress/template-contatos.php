@@ -27,14 +27,15 @@ $alfabeto = range('A', 'Z'); ?>
 </div>
 <div id="lista-de-contatos"></div>
 <div id="paginacao-contatos">
+    <div></div>
     <div>
-        <button class="botao-seta-contatos" type="button" onclick="mudarPagina('um')">&lt;&lt;</button>
-        <button class="botao-seta-contatos" type="button" onclick="mudarPagina('retornar')">&lt;</button>
-        <button class="botao-proximo-contatos" type="button" onclick="mudarPagina('avancar')">Próxima Página</button>
-        <button class="botao-seta-contatos" type="button" onclick="mudarPagina('avancar')">&gt;</button>
-        <button class="botao-seta-contatos" type="button" onclick="mudarPagina('ultimo')">&gt;&gt;</button>
+        <button class="botao-seta-contatos seta-dupla" type="button" onclick="mudarPagina(-999)"><?= iconeSVG( 'seta-primeiro.svg' ) ?></button>
+        <button class="botao-seta-contatos" type="button" onclick="mudarPagina(-1)"><?= iconeSVG( 'seta-anterior.svg' ) ?></button>
+        <button class="botao-proximo-contatos" type="button" onclick="mudarPagina(1)">Próxima Página</button>
+        <button class="botao-seta-contatos seta-direita" type="button" onclick="mudarPagina(1)"><?= iconeSVG( 'seta-anterior.svg' ) ?></button>
+        <button class="botao-seta-contatos seta-direita seta-dupla" type="button" onclick="mudarPagina(999)"><?= iconeSVG( 'seta-primeiro.svg' ) ?></button>
     </div>
-    <div class="pagina-atual-contatos">Página <span id="pagina-atual-contatos"></span></div>
+    <div class="pagina-atual-contatos">Página <span id="pagina-atual-contatos">1</span></div>
 </div>
 <?php
 
@@ -161,6 +162,7 @@ $jsonPessoas = json_encode($pessoas);
         paginaAtual += valor;
         document.getElementById('pagina-atual-contatos').innerHTML = paginaAtual;
         document.getElementById('resultado-contatos').scrollIntoView(true);
+        gerarContatos(paginas[paginaAtual - 1]);
     }
 
     function gerarPaginacao(listaPessoas) {
@@ -183,38 +185,16 @@ $jsonPessoas = json_encode($pessoas);
         gerarContatos(paginas[0]);
     }
 
-    /* function avancarPagina() {
-         const tamanhoLista = paginas.length;
- 
-         if (paginaAtual < tamanhoLista) {
-             atualizarPaginaAtual(1);
-             gerarContatos(paginas[paginaAtual - 1]);
-         }
-     }
- 
-     function retornarPagina() {
-         if (paginaAtual > 1) {
-             atualizarPaginaAtual(-1);
-             gerarContatos(paginas[paginaAtual - 1]);
-         }
-     }
- */
- 
- function mudarPagina(acao) {
+    function mudarPagina(pagina) {
         const tamanhoLista = paginas.length;
-        const cont = tamanhoLista / 8;
-    
-        if (acao === 'ultimo' && paginaAtual < tamanhoLista) {
-        
-        }else if (acao === 'um') {
-
-        }else if (acao === 'avancar' && paginaAtual < tamanhoLista) {
-            atualizarPaginaAtual(1);
-        } else if (acao === 'retornar' && paginaAtual > -1) {
-            atualizarPaginaAtual(-1);
+        if (pagina < (1 - paginaAtual)) {
+            pagina = 1 - paginaAtual;
         }
-        gerarContatos(paginas[paginaAtual - 1]);
-
+        if (pagina > tamanhoLista) {
+            pagina = tamanhoLista - paginaAtual;
+        }
+                
+        atualizarPaginaAtual(pagina);
     }
 
     function gerarContatos(listaPessoas) {
@@ -262,4 +242,72 @@ $jsonPessoas = json_encode($pessoas);
     }
 
     gerarPaginacao(jsonPessoas);
+
+    document.onkeydown = function (e) {
+        var evt = window.event || e;
+        console.log(evt.keyCode);
+        switch (evt.keyCode) {
+            case 39:  
+                mudarPagina(1);
+                break;
+            case 37:
+                mudarPagina(-1);
+                break;
+        }
+    }
 </script>
+
+<style>
+    #paginacao-contatos {
+        display: flex;
+        justify-content: space-between;
+        margin: 40px 0 120px 0;
+    }
+
+    .botao-seta-contatos, .botao-proximo-contatos {
+        border-radius: 5px;
+        font-size: 14px;
+        line-height: 1;
+        vertical-align: top;
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+
+    .botao-seta-contatos {
+        padding: 3px 7px;
+    }
+
+    .botao-proximo-contatos {
+        padding: 10px 12px;
+    }
+    
+    .botao-seta-contatos,
+    .botao-seta-contatos:focus,
+    .botao-seta-contatos:hover {
+        background-color: #fff;
+        color: #000;
+        border: 1px solid #000;
+    }
+    
+    .botao-proximo-contatos, 
+    .botao-proximo-contatos:focus,
+    .botao-proximo-contatos:hover {
+        background-color: #0a3399;
+        color: #fff;
+        text-transform: uppercase;
+    }
+
+    .seta-dupla {
+        padding: 3px 2px;
+    }
+
+    .seta-direita svg {
+        transform: rotate(180deg);
+    }
+
+    .pagina-atual-contatos {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #000;
+    }
+</style>
