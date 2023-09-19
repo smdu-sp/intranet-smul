@@ -13,9 +13,15 @@ get_header();
 $alfabeto = range('A', 'Z'); ?>
 
 <div class="form-contatos">
-    <label>Nome:</label> <input type="text" id="search" placeholder=""><button id="searchButton">Buscar</button>
-    <label>Cargo:</label> <input type="text" id="search" placeholder=""> <button id="searchButton">Buscar</button>
-    <label>Unidade:</label> <input type="text" id="search" placeholder=""><button id="searchButton">Buscar</button>
+    <label>Nome:</label>
+    <input type="text" id="pesquisa-nome" data-tipo="nome">
+    <button type="button" onclick="pesquisarContatos('nome')">Buscar</button>
+    <label>Cargo:</label>
+    <input type="text" id="pesquisa-cargo" data-tipo="cargo">
+    <button type="button" onclick="pesquisarContatos('cargo')">Buscar</button>
+    <label>Unidade:</label>
+    <input type="text" id="pesquisa-departamento" data-tipo="departamento">
+    <button type="button" onclick="pesquisarContatos('departamento')">Buscar</button>
 </div>
 <div class="alfabeto">
     <ul class="lista-alfabeto">
@@ -60,7 +66,6 @@ function conectarLDAP($company)
 
     if (($connect = @ldap_connect($ldap_server))) {
         if (($bind = @ldap_bind($connect, $auth_user, $auth_pass))) {
-
             if (($search = @ldap_search($connect, $base_dn, $filter))) {
 
                 $number_returned = ldap_count_entries($connect, $search);
@@ -146,27 +151,20 @@ $jsonPessoas = json_encode($pessoas);
 
 <script>
     const jsonPessoas = <?= $jsonPessoas ?>;
-    let divContatos = document.getElementById('lista-de-contatos');
-
-    function filtroAlfabeto(letra) {
-        // Função filtro
-        // gerar lista filtrada
-        gerarContatos(listaFiltrada);
-    }
+    let divContatos = document.getElementById('lista-de-contatos');    
 
     globalThis.paginaAtual = 1;
     globalThis.contatosPorPagina = 8;
     globalThis.paginas = [];
+    globalThis.numeroResultados = jsonPessoas.length;
+    globalThis.mensagemPesquisa = `Todos os contatos (${numeroResultados} resultados):`;
+    globalThis.pesquisaAtual = jsonPessoas;
 
-    function atualizarPaginaAtual(valor) {
-        paginaAtual += valor;
-        document.getElementById('pagina-atual-contatos').innerHTML = paginaAtual;
-        document.getElementById('resultado-contatos').scrollIntoView(true);
-        gerarContatos(paginas[paginaAtual - 1]);
-    }
+    gerarPaginacao(jsonPessoas);
 
     function gerarPaginacao(listaPessoas) {
         let itensPaginados = 0;
+        paginas = [];
 
         for (const pessoa in listaPessoas) {
             if (itensPaginados === 0) {
@@ -182,28 +180,25 @@ $jsonPessoas = json_encode($pessoas);
         }
 
         paginaAtual = 1;
-        gerarContatos(paginas[0]);
+        atualizarPaginaAtual();
+        gerarTabelaContatos(paginas[0]);
     }
 
-    function mudarPagina(pagina) {
-        const tamanhoLista = paginas.length;
-        if (pagina < (1 - paginaAtual)) {
-            pagina = 1 - paginaAtual;
+    function gerarTabelaContatos(listaPessoas) {
+        let tabelaContatos = '';
+        const header = '<table class="tabela-contatos" border="1px" cellpadding="5px" cellspacing="0">';
+        const headerResultados = '<tr><th colspan=\"3\" class=\"resultado-contatos\" id=\"resultado-contatos\"></th></tr>';
+        const mensagemErro = '<tr><td colspan=\"3\" class=\"info-contatos\">Nenhum resultado encontrado.</td></tr>';
+        
+        if (!listaPessoas) {
+            tabelaContatos += header + headerResultados + mensagemErro;
+            carregarTabelaContatos(tabelaContatos);
+            return;
         }
-        if (pagina > tamanhoLista) {
-            pagina = tamanhoLista - paginaAtual;
-        }
-                
-        atualizarPaginaAtual(pagina);
-    }
-
-    function gerarContatos(listaPessoas) {
-        console.log(listaPessoas);
-        tabelaContatos = ''
 
         for (let i = 0; i < listaPessoas.length; i++) {
             let unidade = '';
-            cep = '';
+            let cep = '';
 
             if (listaPessoas[i]['secretaria'] && listaPessoas[i]['secretaria'].length > 0) {
                 unidade += listaPessoas[i]['secretaria'];
@@ -217,7 +212,6 @@ $jsonPessoas = json_encode($pessoas);
                 cep += ` - ${listaPessoas[i]['cep']}`;
             }
 
-            const header = '<table class="tabela-contatos" border="1px" cellpadding="5px" cellspacing="0">';
             const html = `
                 <tr class="linha-contatos"><th rowspan="7" class="ordem-contatos"><center>${(paginaAtual - 1) * 8 + (i + 1)}</center></th>
                 <th class="info-contatos">Nome</th><td>${listaPessoas[i]['nome']}</td></tr>
@@ -232,28 +226,105 @@ $jsonPessoas = json_encode($pessoas);
             tabelaContatos += header;
 
             if (i === 0) {
-                tabelaContatos += '<tr><th colspan=\"3\" class=\"resultado-contatos\" id=\"resultado-contatos\">Todos os resultados:</th></tr>';
+                tabelaContatos += headerResultados;
             }
 
             tabelaContatos += html;
         }
-
-        divContatos.innerHTML = tabelaContatos;
+        
+        carregarTabelaContatos(tabelaContatos);
     }
 
-    gerarPaginacao(jsonPessoas);
-
-    document.onkeydown = function (e) {
-        var evt = window.event || e;
-        console.log(evt.keyCode);
-        switch (evt.keyCode) {
-            case 39:  
-                mudarPagina(1);
-                break;
-            case 37:
-                mudarPagina(-1);
-                break;
+    function atualizarPaginaAtual(valor) {
+        if (Number.isInteger(valor)) {
+            paginaAtual += valor;
         }
+        document.getElementById('pagina-atual-contatos').innerHTML = paginaAtual;
+        document.getElementById('lista-de-contatos').scrollIntoView(true);
+        gerarTabelaContatos(paginas[paginaAtual - 1]);
+    }
+
+    function carregarTabelaContatos(tabela) {
+        divContatos.innerHTML = tabela;
+
+        const cabecalhoResultado = document.getElementById('resultado-contatos');
+        cabecalhoResultado.textContent = mensagemPesquisa;
+    }
+
+    function filtroAlfabeto(letra) {
+        listaFiltrada = pesquisaAtual.filter(x => x.nome.toUpperCase().startsWith(letra));
+        console.log(listaFiltrada);
+        numeroResultados = listaFiltrada.length;
+        let textoResultados = `${numeroResultados} resultados`;
+        if (numeroResultados < 1) {
+            textoResultados = 'nenhum resultado';
+        }
+        mensagemPesquisa = `Resultados da pesquisa: ${letra} (${textoResultados})`;
+        gerarPaginacao(listaFiltrada);
+    }
+
+    function mudarPagina(pagina) {
+        const tamanhoLista = paginas.length;
+        if (pagina < (1 - paginaAtual)) {
+            pagina = 1 - paginaAtual;
+        }
+        if (pagina > tamanhoLista - paginaAtual) {
+            pagina = tamanhoLista - paginaAtual;
+        }
+                
+        atualizarPaginaAtual(pagina);
+    }
+
+    (function teclasMudarPagina(){
+        document.onkeydown = function (e) {
+            var evt = window.event || e;
+            switch (evt.keyCode) {
+                case 39:  
+                    mudarPagina(1);
+                    break;
+                case 37:
+                    mudarPagina(-1);
+                    break;
+            }
+        }
+    })();
+
+    (function camposPesquisa() {
+        divForm = document.getElementsByClassName('form-contatos')[0];
+        inputs = divForm.getElementsByTagName('input');
+
+        for (input of inputs) {
+            input.addEventListener('keydown', (event) => {
+                if (event.keyCode == 13) {
+                    const tipoInput = event.target.dataset['tipo'];
+                    pesquisarContatos(tipoInput);
+                }
+            });
+        }
+    })()
+
+    function pesquisarContatos(tipo) {
+        const idInput = `pesquisa-${tipo}`;
+        const consulta = document.getElementById(idInput).value;
+        const resultado = jsonPessoas.filter(contato => {
+            let stringConsultada = contato[tipo];
+            
+            if (!stringConsultada) {
+                stringConsultada = "";
+            }
+
+            return stringConsultada.toUpperCase()
+                .includes(consulta.toUpperCase());
+        });
+
+        pesquisaAtual = resultado;
+        numeroResultados = resultado.length;
+        let textoResultados = `${numeroResultados} resultados`;
+        if (numeroResultados < 1) {
+            textoResultados = 'nenhum resultado';
+        }
+        mensagemPesquisa = `Resultados da pesquisa: ${consulta} (${textoResultados})`;
+        gerarPaginacao(resultado);
     }
 </script>
 
