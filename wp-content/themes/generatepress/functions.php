@@ -13,6 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 define('IMGPATH', ABSPATH . 'wp-content/themes/generatepress/assets/img/');
 define('CSSPATH', '/wp-content/themes/generatepress/assets/css/');
+define('JSPATH', '/wp-content/themes/generatepress/assets/js/');
 
 // Set our theme version.
 define( 'GENERATE_VERSION', '3.3.0' );
@@ -157,5 +158,6 @@ function carregar_estilos() {
 	
 	if ( is_page( 'contatos' ) ) {
 		wp_enqueue_style( 'contatos', CSSPATH . 'contatos.css', array(), '1.0', 'all' );
+		wp_enqueue_script( 'contatos', JSPATH . 'contatos.js');
 	}
 }

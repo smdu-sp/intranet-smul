@@ -143,3 +143,57 @@ label {
 .lista-de-contatos{
   width: 1172px;
 }
+
+/* TO-DO: Revisar CSS */
+#paginacao-contatos {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 0 120px 0;
+}
+
+.botao-seta-contatos, .botao-proximo-contatos {
+  border-radius: 5px;
+  font-size: 14px;
+  line-height: 1;
+  vertical-align: top;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.botao-seta-contatos {
+  padding: 3px 7px;
+}
+
+.botao-proximo-contatos {
+  padding: 10px 12px;
+}
+
+.botao-seta-contatos,
+.botao-seta-contatos:focus,
+.botao-seta-contatos:hover {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #000;
+}
+
+.botao-proximo-contatos, 
+.botao-proximo-contatos:focus,
+.botao-proximo-contatos:hover {
+  background-color: #0a3399;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.seta-dupla {
+  padding: 3px 2px;
+}
+
+.seta-direita svg {
+  transform: rotate(180deg);
+}
+
+.pagina-atual-contatos {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #000;
+}
