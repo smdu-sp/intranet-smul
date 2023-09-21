@@ -33,7 +33,6 @@ function iniciarContatos() {
 }
 
 function gerarPaginacao(listaPessoas) {
-    console.log('teste');
     let itensPaginados = 0;
     paginas.splice(0);
 
@@ -124,7 +123,6 @@ function carregarTabelaContatos(tabela) {
 
 function filtroAlfabeto(letra) {
     listaFiltrada = pesquisaAtual.filter(x => x.nome.toUpperCase().startsWith(letra));
-    console.log(listaFiltrada);
     numeroResultados = listaFiltrada.length;
     let textoResultados = `${numeroResultados} resultados`;
     if (numeroResultados < 1) {
@@ -214,7 +212,7 @@ function pesquisarContatos(tipo) {
     if (numeroResultados < 1) {
         textoResultados = 'nenhum resultado';
     }
-    
+
     mensagemPesquisa = `Resultados da pesquisa: ${consulta} (${textoResultados})`;
     gerarPaginacao(resultado);
 }
