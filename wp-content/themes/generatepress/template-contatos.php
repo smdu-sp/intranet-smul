@@ -15,16 +15,16 @@ $alfabeto = range('A', 'Z'); ?>
 <div class="form-contatos">
     <label>Nome:</label>
     <input type="text" id="pesquisa-nome" data-tipo="nome">
-    <button type="button" onclick="pesquisarContatos('nome')">Buscar</button>
+    <button type="button" id="botao-pesquisa-nome" class="botao-pesquisa-contatos" onclick="pesquisarContatos('nome')">Buscar</button>
     <label>Cargo:</label>
     <input type="text" id="pesquisa-cargo" data-tipo="cargo">
-    <button type="button" onclick="pesquisarContatos('cargo')">Buscar</button>
+    <button type="button" id="botao-pesquisa-cargo" class="botao-pesquisa-contatos" onclick="pesquisarContatos('cargo')">Buscar</button>
     <label>Unidade:</label>
     <input type="text" id="pesquisa-departamento" data-tipo="departamento">
-    <button type="button" onclick="pesquisarContatos('departamento')">Buscar</button>
+    <button type="button" id="botao-pesquisa-departamento" class="botao-pesquisa-contatos" onclick="pesquisarContatos('departamento')">Buscar</button>
 </div>
 <div class="alfabeto">
-    <ul class="lista-alfabeto">
+    <ul class="lista-alfabeto" id="lista-alfabeto">
         <?php
         foreach ($alfabeto as $key => $value) { ?>
             <li class="list"><a href="#" onclick="filtroAlfabeto( '<?= $value ?>' )"><?= $value ?></a></li>
@@ -240,7 +240,7 @@ $jsonPessoas = json_encode($pessoas);
             paginaAtual += valor;
         }
         document.getElementById('pagina-atual-contatos').innerHTML = paginaAtual;
-        document.getElementById('lista-de-contatos').scrollIntoView(true);
+        document.getElementById('lista-alfabeto').scrollIntoView(true);
         gerarTabelaContatos(paginas[paginaAtual - 1]);
     }
 
@@ -293,11 +293,28 @@ $jsonPessoas = json_encode($pessoas);
         divForm = document.getElementsByClassName('form-contatos')[0];
         inputs = divForm.getElementsByTagName('input');
 
-        for (input of inputs) {
+        for (const input of inputs) {
+            const tipoInput = input.dataset['tipo'];
+            const botaoPesquisa = document.getElementById(`botao-pesquisa-${tipoInput}`);
+            
             input.addEventListener('keydown', (event) => {
-                if (event.keyCode == 13) {
-                    const tipoInput = event.target.dataset['tipo'];
+                const tamanhoInput = input.value.length;
+                
+                if (event.keyCode == 13 && tamanhoInput > 0) {
                     pesquisarContatos(tipoInput);
+                }
+            });
+            
+            input.addEventListener('input', (event) => {
+                const tamanhoInput = input.value.length;
+
+                if (tamanhoInput > 0) {
+                    botaoPesquisa.style.color = '#fff';
+                    botaoPesquisa.style.backgroundColor = '#0a3399';
+                    botaoPesquisa.style.border = 'none';
+                    botaoPesquisa.style.fontWeight = 'bold';
+                } else {
+                    botaoPesquisa.removeAttribute('style');
                 }
             });
         }

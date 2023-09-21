@@ -130,7 +130,7 @@ label {
   text-align: left;
 }
 
-#searchButton {
+.botao-pesquisa-contatos {
   width: 120px;
   height: 40px;
   font-size: 14px;
