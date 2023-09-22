@@ -16,13 +16,13 @@ $alfabeto = range('A', 'Z');
 <div class="form-contatos">
     <label>Nome:</label>
     <input type="text" id="pesquisa-nome" data-tipo="nome">
-    <button type="button" id="botao-pesquisa-nome" class="botao-pesquisa-contatos" onclick="pesquisarContatos('nome')">Buscar</button>
+    <button type="button" id="botao-pesquisa-nome" class="botao-pesquisa-contatos" onclick="pesquisarContatos('nome')" disabled>Buscar</button>
     <label>Cargo:</label>
     <input type="text" id="pesquisa-cargo" data-tipo="cargo">
-    <button type="button" id="botao-pesquisa-cargo" class="botao-pesquisa-contatos" onclick="pesquisarContatos('cargo')">Buscar</button>
+    <button type="button" id="botao-pesquisa-cargo" class="botao-pesquisa-contatos" onclick="pesquisarContatos('cargo')" disabled>Buscar</button>
     <label>Unidade:</label>
     <input type="text" id="pesquisa-departamento" data-tipo="departamento">
-    <button type="button" id="botao-pesquisa-departamento" class="botao-pesquisa-contatos" onclick="pesquisarContatos('departamento')">Buscar</button>
+    <button type="button" id="botao-pesquisa-departamento" class="botao-pesquisa-contatos" onclick="pesquisarContatos('departamento')" disabled>Buscar</button>
 </div>
 <div class="alfabeto">
     <ul class="lista-alfabeto" id="lista-alfabeto">

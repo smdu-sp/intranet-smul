@@ -16,6 +16,10 @@
 	display:flex;
 }
 
+input:focus-visible {
+	outline-color: #395aad;
+}
+
 h2{
 	color:#000;
 }
@@ -53,28 +57,27 @@ body{
 
 /* Pesquisa */
 .container-search {
-	padding: 10px;
-	display: flex;
-	justify-content: center;
-	width: 1400px;
-	margin-left: 20px;
+	min-width: 0;
+	width: 100%;
+	max-width: 1200px;
+	padding: 24px 10px;
+	box-sizing: border-box;
 }
 
 #divBusca {
 	display: flex;
-	min-width: 1200px;
-	height: 61px;
-}   
+	height: 60px;
+}
 
-.button{
+.button {
 	border-radius: 5px;
 	border: 2px solid #E3E3E3;
 	background: #F5F5F5;
-	width: 152px;
-	margin-right: 20px;
-	height: 61px;
+	min-width: 160px;
+	height: 60px;
 }
-.button:hover{
+
+.button:hover {
 	background-color: #fafafa;
 }
 

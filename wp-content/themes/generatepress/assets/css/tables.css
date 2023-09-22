@@ -1,5 +1,7 @@
 .site-content {
-  min-width: 1200px;
+  min-width: 900px;
+  max-width: 1200px;
+  padding: 0 10px;
 }
 
 table,

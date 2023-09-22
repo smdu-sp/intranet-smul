@@ -176,16 +176,14 @@ function camposPesquisa() {
         
         input.addEventListener('input', (event) => {
             const tamanhoInput = input.value.length;
+            console.log(botaoPesquisa);
 
             if (tamanhoInput > 0) {
-                botaoPesquisa.style.color = '#fff';
-                botaoPesquisa.style.backgroundColor = '#0a3399';
-                botaoPesquisa.style.border = 'none';
-                botaoPesquisa.style.fontWeight = 'bold';
+                botaoPesquisa.removeAttribute('disabled');
                 return;
             }
-            
-            botaoPesquisa.removeAttribute('style');            
+           
+            botaoPesquisa.setAttribute('disabled', true);
         });
     }
 }
