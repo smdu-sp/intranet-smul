@@ -138,17 +138,16 @@ table a {
   font-weight: bold;
 }
 
+.botao-pesquisa-contatos:hover, .botao-pesquisa-contatos:focus {
+  background-color: #395aad;
+  outline-color: #0a3399;
+}
+
 .botao-pesquisa-contatos:disabled {
   background-color: #f5f5f5;
   color: #bdbdbd;
   cursor: pointer;
   border: 2px solid #e3e3e3;
-}
-
-.botao-pesquisa-contatos
-
-.botao-pesquisa-contatos:hover {
-  background-color: #395aad;
 }
 
 .lista-de-contatos{
