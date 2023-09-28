@@ -6,6 +6,10 @@ let divContatos = null;
 const contatosPorPagina = 8;
 const paginas = [];
 const jsonContatos = [];
+const carregando = {
+    pagina: true,
+    contatos: true,
+}
 
 fetch('/index.php/lista-contatos')
     .then(response => response.json())
@@ -24,6 +28,29 @@ fetch('/index.php/lista-contatos')
             iniciarContatos();
         });
     });
+
+function checarCarregamento() {
+    const divCarregamentoPagina = document.getElementById('carregando-conteudo');
+    const divPagina = document.getElementById('container-contatos');
+    const divCarregamentoContatos = document.getElementById('carregando-contatos');
+    const divContatos = document.getElementById('container-lista-contatos');
+
+    if (carregando.pagina) {
+        divCarregamentoPagina.classList.add('hidden');
+        divPagina.classList.remove('hidden');
+    } else {
+        divPagina.classList.add('hidden');
+        divCarregamentoPagina.classList.remove('hidden');
+    }
+
+    if (carregando.contatos) {
+        divCarregamentoContatos.classList.add('hidden');
+        divContatos.classList.remove('hidden');
+    } else {
+        divContatos.classList.add('hidden');
+        divCarregamentoContatos.classList.remove('hidden');
+    }
+}
 
 function iniciarContatos() {
     divContatos = document.getElementById('lista-de-contatos');
@@ -119,6 +146,8 @@ function carregarTabelaContatos(tabela) {
 
     const cabecalhoResultado = document.getElementById('resultado-contatos');
     cabecalhoResultado.textContent = mensagemPesquisa;
+    carregando.pagina, carregando.contatos = true;
+    checarCarregamento();
 }
 
 function filtroAlfabeto(letra) {

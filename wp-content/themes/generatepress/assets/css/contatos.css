@@ -3,6 +3,10 @@
   font-family: Roboto, sans-serif;
 }
 
+.container-contatos {
+  padding: 0 10px;
+}
+
 .container-linha {
   border-collapse: separate;
 }

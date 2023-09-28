@@ -155,6 +155,7 @@ function carregar_estilos() {
     wp_enqueue_style( 'home.css', CSSPATH . 'home.css', array(), '1.0', 'all' );
     wp_enqueue_style( 'acessibilidade.css', CSSPATH . 'acessibilidade.css', array(), '1.0', 'all' );
     wp_enqueue_style( 'tables.css', CSSPATH . 'tables.css', array(), '1.0', 'all' );
+    wp_enqueue_style( 'loader.css', CSSPATH . 'loader.css', array(), '1.0', 'all' );
 	
 	if ( is_page( 'contatos' ) ) {
 		wp_enqueue_style( 'contatos', CSSPATH . 'contatos.css', array(), '1.0', 'all' );
