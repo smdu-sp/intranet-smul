@@ -6,10 +6,38 @@ let divContatos = null;
 const contatosPorPagina = 8;
 const paginas = [];
 const jsonContatos = [];
-const carregando = {
-    pagina: true,
-    contatos: true,
-}
+let divCarregamentoPagina;
+let divPagina;
+let divCarregamentoContatos;
+let divListaContatos;
+
+// Carregamento da página e elementos
+const eventoCarregado = new Event('carregado');
+const eventoEsconder = new Event('descarregado');
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Loaded')
+    divCarregamentoPagina = document.getElementById('carregando-conteudo');
+    divPagina = document.getElementById('container-contatos');
+    divCarregamentoContatos = document.getElementById('carregando-contatos');
+    divListaContatos = document.getElementById('container-lista-contatos');
+    
+    divPagina.addEventListener('carregado', () => {
+        divPagina.classList.remove('hidden');
+        divCarregamentoPagina.classList.add('hidden');
+    });
+    
+    divListaContatos.addEventListener('carregado', () => {
+        divListaContatos.classList.remove('hidden');
+        divCarregamentoContatos.classList.add('hidden');
+    });
+    
+    divListaContatos.addEventListener('descarregado', () => {
+        console.log('descarregado');
+        divListaContatos.classList.add('hidden');
+        divCarregamentoContatos.classList.remove('hidden');
+    });
+});
 
 fetch('/index.php/lista-contatos')
     .then(response => response.json())
@@ -29,29 +57,6 @@ fetch('/index.php/lista-contatos')
         });
     });
 
-function checarCarregamento() {
-    const divCarregamentoPagina = document.getElementById('carregando-conteudo');
-    const divPagina = document.getElementById('container-contatos');
-    const divCarregamentoContatos = document.getElementById('carregando-contatos');
-    const divContatos = document.getElementById('container-lista-contatos');
-
-    if (carregando.pagina) {
-        divCarregamentoPagina.classList.add('hidden');
-        divPagina.classList.remove('hidden');
-    } else {
-        divPagina.classList.add('hidden');
-        divCarregamentoPagina.classList.remove('hidden');
-    }
-
-    if (carregando.contatos) {
-        divCarregamentoContatos.classList.add('hidden');
-        divContatos.classList.remove('hidden');
-    } else {
-        divContatos.classList.add('hidden');
-        divCarregamentoContatos.classList.remove('hidden');
-    }
-}
-
 function iniciarContatos() {
     divContatos = document.getElementById('lista-de-contatos');
     gerarPaginacao(jsonContatos);
@@ -60,6 +65,7 @@ function iniciarContatos() {
 }
 
 function gerarPaginacao(listaPessoas) {
+    divListaContatos.dispatchEvent(eventoEsconder);
     let itensPaginados = 0;
     paginas.splice(0);
 
@@ -137,7 +143,6 @@ function atualizarPaginaAtual(valor) {
         paginaAtual += valor;
     }
     document.getElementById('pagina-atual-contatos').innerHTML = paginaAtual;
-    document.getElementById('lista-alfabeto').scrollIntoView(true);
     gerarTabelaContatos(paginas[paginaAtual - 1]);
 }
 
@@ -146,8 +151,8 @@ function carregarTabelaContatos(tabela) {
 
     const cabecalhoResultado = document.getElementById('resultado-contatos');
     cabecalhoResultado.textContent = mensagemPesquisa;
-    carregando.pagina, carregando.contatos = true;
-    checarCarregamento();
+    divPagina.dispatchEvent(eventoCarregado);
+    setTimeout(() => divListaContatos.dispatchEvent(eventoCarregado), 750);
 }
 
 function filtroAlfabeto(letra) {

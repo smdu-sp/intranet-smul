@@ -30,3 +30,7 @@
 .hidden {
   display: none;
 }
+
+#carregando-contatos.container-carregando {
+  margin-bottom: 100vh;
+}

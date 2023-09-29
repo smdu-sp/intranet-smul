@@ -111,6 +111,22 @@ table a {
   
 }
 
+.botao-alfabeto {
+  background-color: transparent;
+  color: #395aad;
+  font-family: Roboto;
+  font-weight: 700;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.botao-alfabeto:hover,
+.botao-alfabeto:focus,
+.botao-alfabeto:active {
+  background-color: #395aad;
+  color: #fff;
+}
+
 .form-contatos {
   display: grid;
   grid-template-columns: 80px 640px 120px;
@@ -210,4 +226,10 @@ table a {
   font-size: 1.4rem;
   font-weight: 700;
   color: #000;
+}
+
+@media (min-width: 1200px) {
+  .container-contatos {
+    min-width: 1200px;
+  }
 }

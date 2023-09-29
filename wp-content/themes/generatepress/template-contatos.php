@@ -34,7 +34,7 @@ $alfabeto = range('A', 'Z');
         <ul class="lista-alfabeto" id="lista-alfabeto">
             <?php
             foreach ($alfabeto as $key => $value) { ?>
-                <li class="list"><a href="#" onclick="filtroAlfabeto( '<?= $value ?>' )"><?= $value ?></a></li>
+                <li class="list"><button type="button" class="botao-alfabeto" onclick="filtroAlfabeto( '<?= $value ?>' )"><?= $value ?></a></li>
             <?php } ?>
         </ul>
     </div>
@@ -42,7 +42,7 @@ $alfabeto = range('A', 'Z');
         <div class="carregando-animacao" aria-label="Animação carregamento"></div>
         <div class="carregando-mensagem">Carregando o conteúdo...</div>
     </div>
-    <div id="container-lista-contatos hidden">
+    <div id="container-lista-contatos" class="hidden">
         <div id="lista-de-contatos"></div>
         <div id="paginacao-contatos">
             <div></div>
