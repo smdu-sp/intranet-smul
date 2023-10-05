@@ -15,13 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     campoPesquisa.addEventListener('input', () => {
-        habilitarBotaoPesquisa(false);
         const pesquisa = campoPesquisa.value.trim();
         const pesquisaValida = pesquisa.length > 2;
-
+        
         if (pesquisaValida) {
             habilitarBotaoPesquisa(true);
+            return;
         }
+
+        habilitarBotaoPesquisa(false);
     });
 });
 

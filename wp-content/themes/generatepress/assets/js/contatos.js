@@ -210,7 +210,7 @@ function camposPesquisa() {
         input.addEventListener('input', (event) => {
             const tamanhoInput = input.value.length;
 
-            if (tamanhoInput > 0) {
+            if (tamanhoInput > 2) {
                 botaoPesquisa.removeAttribute('disabled');
                 return;
             }
