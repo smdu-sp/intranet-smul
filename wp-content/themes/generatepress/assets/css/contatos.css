@@ -3,10 +3,6 @@
   font-family: Roboto, sans-serif;
 }
 
-.container-contatos {
-  padding: 0 10px;
-}
-
 .container-linha {
   border-collapse: separate;
 }
@@ -230,6 +226,10 @@ table a {
 
 @media (min-width: 1200px) {
   .container-contatos {
-    min-width: 1200px;
+    min-width: 1180px;
+  }
+
+  main header {
+    min-width: 1180px;
   }
 }

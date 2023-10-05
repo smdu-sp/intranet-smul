@@ -7,53 +7,76 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
 }
 
-get_header();
+get_header(); ?>
 
-$alfabeto = range('A', 'Z');
+	<div <?php generate_do_attr( 'content' ); ?>>
+		<main <?php generate_do_attr( 'main' ); ?>>
+			<?php
+			/**
+			 * generate_before_main_content hook.
+			 *
+			 * @since 0.1
+			 */
+			do_action( 'generate_before_main_content' );
 
-?>
+            if ( generate_show_entry_header() ) :
+                ?>
+                <header <?php generate_do_attr( 'entry-header' ); ?>>
+                    <?php
+                    /**
+                     * generate_before_entry_title hook.
+                     *
+                     * @since 0.1
+                     */
+                    do_action( 'generate_before_entry_title' );
+    
+                    if ( generate_show_title() ) {
+                        $params = generate_get_the_title_parameters();
+    
+                        the_title( $params['before'], $params['after'] );
+                    }
+    
+                    /**
+                     * generate_after_entry_title hook.
+                     *
+                     * @since 0.1
+                     *
+                     * @hooked generate_post_meta - 10
+                     */
+                    do_action( 'generate_after_entry_title' );
+                    
+                        ?>
+                </header>
+                <?php
+            endif;
+            
+			?>
+			
+            <?php 
+				include_once 'inc/contatos/contatos.php';
+			?>
 
-<div id="carregando-conteudo" class="container-carregando">
-    <div class="carregando-animacao" aria-label="Animação carregamento"></div>
-    <div class="carregando-mensagem">Carregando o conteúdo...</div>
-</div>
-
-<div id="container-contatos" class="container-contatos hidden">
-    <div class="form-contatos">
-        <label>Nome:</label>
-        <input type="text" id="pesquisa-nome" data-tipo="nome">
-        <button type="button" id="botao-pesquisa-nome" class="botao-pesquisa-contatos" onclick="pesquisarContatos('nome')" disabled>Buscar</button>
-        <label>Cargo:</label>
-        <input type="text" id="pesquisa-cargo" data-tipo="cargo">
-        <button type="button" id="botao-pesquisa-cargo" class="botao-pesquisa-contatos" onclick="pesquisarContatos('cargo')" disabled>Buscar</button>
-        <label>Unidade:</label>
-        <input type="text" id="pesquisa-departamento" data-tipo="departamento">
-        <button type="button" id="botao-pesquisa-departamento" class="botao-pesquisa-contatos" onclick="pesquisarContatos('departamento')" disabled>Buscar</button>
-    </div>
-    <div class="alfabeto">
-        <ul class="lista-alfabeto" id="lista-alfabeto">
             <?php
-            foreach ($alfabeto as $key => $value) { ?>
-                <li class="list"><button type="button" class="botao-alfabeto" onclick="filtroAlfabeto( '<?= $value ?>' )"><?= $value ?></a></li>
-            <?php } ?>
-        </ul>
-    </div>
-    <div id="carregando-contatos" class="container-carregando">
-        <div class="carregando-animacao" aria-label="Animação carregamento"></div>
-        <div class="carregando-mensagem">Carregando o conteúdo...</div>
-    </div>
-    <div id="container-lista-contatos" class="hidden">
-        <div id="lista-de-contatos"></div>
-        <div id="paginacao-contatos">
-            <div></div>
-            <div>
-                <button class="botao-seta-contatos seta-dupla" type="button" onclick="mudarPagina(-999)"><?= iconeSVG( 'seta-primeiro.svg' ) ?></button>
-                <button class="botao-seta-contatos" type="button" onclick="mudarPagina(-1)"><?= iconeSVG( 'seta-anterior.svg' ) ?></button>
-                <button class="botao-proximo-contatos" type="button" onclick="mudarPagina(1)">Próxima Página</button>
-                <button class="botao-seta-contatos seta-direita" type="button" onclick="mudarPagina(1)"><?= iconeSVG( 'seta-anterior.svg' ) ?></button>
-                <button class="botao-seta-contatos seta-direita seta-dupla" type="button" onclick="mudarPagina(999)"><?= iconeSVG( 'seta-primeiro.svg' ) ?></button>
-            </div>
-            <div class="pagina-atual-contatos">Página <span id="pagina-atual-contatos">1</span></div>
-        </div>
-    </div>
-</div>
+			/**
+			 * generate_after_main_content hook.
+			 *
+			 * @since 0.1
+			 */
+			do_action( 'generate_after_main_content' );
+			?>
+		</main>
+	</div>
+	<?php
+	/**
+	 * generate_after_primary_content_area hook.
+	 *
+	 * @since 2.0
+	 */
+	
+    do_action( 'generate_after_primary_content_area' );
+
+	generate_construct_sidebars();
+	include_once 'wp-content/themes/generatepress/inc/templates/back-to-top.php';
+	get_footer();
+?>
+</body>
