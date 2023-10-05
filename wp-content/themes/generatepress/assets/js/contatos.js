@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     divListaContatos.addEventListener('descarregado', () => {
-        console.log('descarregado');
         divListaContatos.classList.add('hidden');
         divCarregamentoContatos.classList.remove('hidden');
     });
@@ -60,7 +59,7 @@ function iniciarContatos() {
     divContatos = document.getElementById('lista-de-contatos');
     gerarPaginacao(jsonContatos);
     teclasMudarPagina();
-    camposPesquisa();
+    campoPesquisaContatos();
 }
 
 function gerarPaginacao(listaPessoas) {
@@ -191,38 +190,43 @@ function teclasMudarPagina(){
     }
 }
 
-function camposPesquisa() {
-    divForm = document.getElementsByClassName('form-contatos')[0];
-    inputs = divForm.getElementsByTagName('input');
+function campoPesquisaContatos() {
+    const selectTipo = document.getElementById('select-pesquisa-contatos');
+    const inputPesquisa = document.getElementById('campo-pesquisa-contatos');
+    const botaoPesquisa = document.getElementById('botao-pesquisa-contatos');
+    
+    inputPesquisa.addEventListener('keydown', (event) => {
+        const tipoPesquisa = selectTipo.value;
+        const tamanhoInput = inputPesquisa.value.length;
+        const inputValido = tamanhoInput > 2;
 
-    for (const input of inputs) {
-        const tipoInput = input.dataset['tipo'];
-        const botaoPesquisa = document.getElementById(`botao-pesquisa-${tipoInput}`);
-        
-        input.addEventListener('keydown', (event) => {
-            const tamanhoInput = input.value.length;
-            
-            if (event.keyCode == 13 && tamanhoInput > 0) {
-                pesquisarContatos(tipoInput);
-            }
-        });
-        
-        input.addEventListener('input', (event) => {
-            const tamanhoInput = input.value.length;
+        if (inputValido && event.key === 'Enter') {
+            pesquisarContatos(tipoPesquisa);
+        }
+    });
 
-            if (tamanhoInput > 2) {
-                botaoPesquisa.removeAttribute('disabled');
-                return;
-            }
-           
-            botaoPesquisa.setAttribute('disabled', true);
-        });
-    }
+    inputPesquisa.addEventListener('input', (event) => {
+        const tamanhoInput = inputPesquisa.value.length;
+        const inputValido = tamanhoInput > 2;
+        
+        if (inputValido) {
+            botaoPesquisa.removeAttribute('disabled');
+            return;
+        }
+
+        botaoPesquisa.setAttribute('disabled', true);
+    });
+}
+
+function botaoPesquisarContatos() {
+    const selectTipo = document.getElementById('select-pesquisa-contatos');
+    const tipoPesquisa = selectTipo.value;
+
+    pesquisarContatos(tipoPesquisa);
 }
 
 function pesquisarContatos(tipo) {
-    const idInput = `pesquisa-${tipo}`;
-    const consulta = document.getElementById(idInput).value;
+    const consulta = document.getElementById('campo-pesquisa-contatos').value;
     const resultado = jsonContatos.filter(contato => {
         let stringConsultada = contato[tipo];
         

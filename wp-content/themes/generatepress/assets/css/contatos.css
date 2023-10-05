@@ -125,7 +125,7 @@ table a {
 
 .form-contatos {
   display: grid;
-  grid-template-columns: 80px 640px 120px;
+  grid-template-columns: 120px 600px 120px;
   grid-gap: 5px;
   max-width: 1400px;
   width: 100%;
