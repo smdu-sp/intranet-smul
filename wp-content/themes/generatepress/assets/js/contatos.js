@@ -16,7 +16,6 @@ const eventoCarregado = new Event('carregado');
 const eventoEsconder = new Event('descarregado');
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('Loaded')
     divCarregamentoPagina = document.getElementById('carregando-conteudo');
     divPagina = document.getElementById('container-contatos');
     divCarregamentoContatos = document.getElementById('carregando-contatos');

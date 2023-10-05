@@ -148,17 +148,25 @@ function checkSlashPos( $str ) {
 	return $pos;
 }
 
-add_action( 'wp_enqueue_scripts', 'carregar_estilos', 11 );
+add_action( 'wp_enqueue_scripts', 'carregar_scripts', 11 );
+add_action( 'wp_enqueue_scripts', 'carregar_estilos', 12 );
 
 function carregar_estilos() {
     wp_enqueue_style( 'header', CSSPATH . 'header.css', array(), '1.0', 'all' );
-    wp_enqueue_style( 'home.css', CSSPATH . 'home.css', array(), '1.0', 'all' );
-    wp_enqueue_style( 'acessibilidade.css', CSSPATH . 'acessibilidade.css', array(), '1.0', 'all' );
-    wp_enqueue_style( 'tables.css', CSSPATH . 'tables.css', array(), '1.0', 'all' );
-    wp_enqueue_style( 'loader.css', CSSPATH . 'loader.css', array(), '1.0', 'all' );
+    wp_enqueue_style( 'home', CSSPATH . 'home.css', array(), '1.0', 'all' );
+    wp_enqueue_style( 'acessibilidade', CSSPATH . 'acessibilidade.css', array(), '1.0', 'all' );
+    wp_enqueue_style( 'tables', CSSPATH . 'tables.css', array(), '1.0', 'all' );
+    wp_enqueue_style( 'loader', CSSPATH . 'loader.css', array(), '1.0', 'all' );
 	
 	if ( is_page( 'contatos' ) ) {
 		wp_enqueue_style( 'contatos', CSSPATH . 'contatos.css', array(), '1.0', 'all' );
+	}
+}
+
+function carregar_scripts() {
+	wp_enqueue_script( 'pesquisa', JSPATH . 'pesquisa.js');
+
+	if ( is_page( 'contatos' ) ) {
 		wp_enqueue_script( 'contatos', JSPATH . 'contatos.js');
 	}
 }
