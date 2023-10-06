@@ -15,16 +15,15 @@
             <div class="barra-footer">
             </div>
             <div class="menu-footer">
-                <h2 class="sub-title-footer">Institucional</h3>
-                <ul class="lista-nav">
-                    <li class="item-lista-nav"><a href="#" target="_blank" rel="noopener noreferrer">Acesso Rápido</a></li>
-                    <li class="item-lista-nav"><a href="#" target="_blank" rel="noopener noreferrer">Ouvidoria</a></li>
-                    <li class="item-lista-nav"><a href="#" target="_blank" rel="noopener noreferrer">Transparência</a></li>
-                    <li class="item-lista-nav"><a href="#" target="_blank" rel="noopener noreferrer">Manuais</a></li>
-                    <li class="item-lista-nav"><a href="#" target="_blank" rel="noopener noreferrer">Servidores</a></li>
-                    <li class="item-lista-nav"><a href="#" target="_blank" rel="noopener noreferrer">Outras secretarias</a></li>
-                    <li class="item-lista-nav"><a href="#" target="_blank" rel="noopener noreferrer">Guia de boas práticas</a></li>
-                </ul>
+                <h2 class="sub-title-footer">Institucional</h2>
+                <?php 
+                    wp_nav_menu(
+                        array(
+                            'theme_location' => 'footer-menu',   
+                            'container' => 'nav',   
+                        )
+                    );
+                ?>
             </div>
         </div>
     </div>
