@@ -1,0 +1,98 @@
+<div class="form-contatos">
+
+    <label>Nome:</label> <input type="text" id="search" placeholder=""><button id="searchButton">Buscar</button>
+    <label>Cargo:</label> <input type="text" id="search" placeholder=""> <button id="searchButton">Buscar</button>
+    <label>Unidade:</label> <input type="text" id="search" placeholder=""><button id="searchButton">Buscar</button>
+</div>
+<div class="alfabeto">
+    <ul class="lista-alfabeto">
+        <li class="list">A</li>
+        <li class="list">B</li>
+        <li class="list">C</li>
+        <li class="list">D</li>
+        <li class="list">E</li>
+        <li class="list">F</li>
+        <li class="list">G</li>
+        <li class="list">H</li>
+        <li class="list">I</li>
+        <li class="list">J</li>
+        <li class="list">K</li>
+        <li class="list">L</li>
+        <li class="list">M</li>
+        <li class="list">O</li>
+        <li class="list">P</li>
+        <li class="list">Q</li>
+        <li class="list">R</li>
+        <li class="list">S</li>
+        <li class="list">T</li>
+        <li class="list">U</li>
+        <li class="list">V</li>
+        <li class="list">W</li>
+        <li class="list">X</li>
+        <li class="list">Y</li>
+        <li class="list">Z</li>
+    </ul>
+</div>
+
+<style>
+    label {
+        text-align: center;
+        margin-top: 10px;
+        font-family: 'Roboto';
+        color: #666;
+    }
+    .list {
+        padding: 0;
+        margin: 0;
+        color: #395AAD;
+        font-family: 'Roboto';
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+    .alfabeto {
+        max-width: 1200px;
+    }
+    .lista-alfabeto {
+        display: flex;
+        list-style: none;
+        justify-content: space-around;
+        padding-inline-start: 0px;
+        padding-top:40px;
+        padding-right:20px;
+    }
+    .form-contatos {
+        display: grid;
+        grid-template-columns: 70px 626px 120px;
+        grid-gap: 20px;
+        max-width: 1400px;
+        width: 100%;
+
+    }
+
+    .form-contatos input[type="text"] {
+        display: inline-block;
+        font-size: 16px;
+        border: 1px solid #E3E3E3;
+        border-radius: 5px;
+        grid-column: 2;
+        width: 640px;
+        height: 40px;
+        text-align: left;
+
+    }
+
+    #searchButton {
+        width: 120px;
+        height: 40px;
+        font-size: 14px;
+        background-color: #F5F5F5;
+        color: #BDBDBD;
+        border-radius: 5px;
+        cursor: pointer;
+        border: 1px solid #E3E3E3;
+
+        /* Espaçamento entre o campo de  botão */
+    }
+</style>

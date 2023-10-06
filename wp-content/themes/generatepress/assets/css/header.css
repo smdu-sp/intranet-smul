@@ -9,11 +9,15 @@
 .main-navigation .main-nav ul li a{
 	color: #000;
 	font-family: 'Roboto';
-	font-size: 1.25rem;
+	font-size: 2.0rem;
 	font-style: normal;
 	font-weight: 600;
 	flex-grow: initial;
 	display:flex;
+}
+
+input:focus-visible {
+	outline-color: #395aad;
 }
 
 h2{
@@ -53,42 +57,65 @@ body{
 
 /* Pesquisa */
 .container-search {
-	padding: 10px;
-	display: flex;
-	justify-content: center;
-	width: 1400px;
-	margin-left: 20px;
+	min-width: 0;
+	width: 100%;
+	max-width: 1200px;
+	padding: 24px 10px;
+	box-sizing: border-box;
 }
 
 #divBusca {
 	display: flex;
-	min-width: 1200px;
-	height: 61px;
-}   
-
-.button{
-	border-radius: 5px;
-	border: 2px solid #E3E3E3;
-	background: #F5F5F5;
-	width: 152px;
-	margin-right: 20px;
-	height: 61px;
+	height: 60px;
 }
-.button:hover{
+
+.botao-pesquisa {
+	border-radius: 5px;
+	border: 1px solid #395aad;
+	outline: #395aad auto 1px;
+	outline-offset: 1px;
+	padding-top: 6px;
+	min-width: 160px;
+	height: 60px;
+	background: #0a3399;
+}
+
+.botao-pesquisa:hover,
+.botao-pesquisa:active,
+.botao-pesquisa:focus {
+	background-color: #395aad;
+}
+
+.botao-pesquisa:disabled {
+	outline: unset;
+	background-color: #f5f5f5;
+	border-color: #e3e3e3;
+}
+
+.botao-pesquisa svg path {
+	stroke: #fff;
+}
+
+.botao-pesquisa:disabled svg path {
+	stroke: #000;
+}
+
+.botao-pesquisa:hover {
 	background-color: #fafafa;
 }
 
-#txtBusca {
+#barra-pesquisa {
 	width: 100%;
 	border-radius: 5px;
 	padding-left: 30px;
-	font-size: 1.25em;
+	font-size: 1.4rem;
 	color: #666666;
 	border: 2px solid #E3E3E3;
 	border-right: none;
 	border-top-right-radius: 0px;
 	border-bottom-right-radius: 0px;
 	margin-right: -3px;
+	font-family: Roboto, sans-serif;
 
 }
 

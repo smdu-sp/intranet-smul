@@ -11,7 +11,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-define('PATH_IMG', ABSPATH . 'wp-content/themes/generatepress/assets/img/');
+define('IMGPATH', ABSPATH . 'wp-content/themes/generatepress/assets/img/');
+define('CSSPATH', '/wp-content/themes/generatepress/assets/css/');
+define('JSPATH', '/wp-content/themes/generatepress/assets/js/');
 
 // Set our theme version.
 define( 'GENERATE_VERSION', '3.3.0' );
@@ -132,7 +134,7 @@ function iconeSVG( $arquivoSVG ) {
 		$nomeArquivo = substr( $arquivoSVG, $start);
 	}
 	
-	$arquivo = PATH_IMG . $nomeArquivo;
+	$arquivo = IMGPATH . $nomeArquivo;
 	return file_get_contents( $arquivo );
 }
 
@@ -146,11 +148,26 @@ function checkSlashPos( $str ) {
 	return $pos;
 }
 
-add_action( 'wp_enqueue_scripts', 'carregar_estilos', 11 );
+add_action( 'wp_enqueue_scripts', 'carregar_scripts', 11 );
+add_action( 'wp_enqueue_scripts', 'carregar_estilos', 12 );
 
 function carregar_estilos() {
-    wp_enqueue_style('header','/wp-content/themes/generatepress/assets/css/header.css', array(), '1.0', 'all');
-    wp_enqueue_style( 'home.css', '/wp-content/themes/generatepress/assets/css/home.css', array(), '1.0', 'all');
-    wp_enqueue_style( 'acessibilidade.css', '/wp-content/themes/generatepress/assets/css/acessibilidade.css', array(), '1.0', 'all');
-    wp_enqueue_style( 'tables.css', '/wp-content/themes/generatepress/assets/css/tables.css', array(), '1.0', 'all');    
+    wp_enqueue_style( 'header', CSSPATH . 'header.css', array(), '1.0', 'all' );
+    wp_enqueue_style( 'home', CSSPATH . 'home.css', array(), '1.0', 'all' );
+    wp_enqueue_style( 'acessibilidade', CSSPATH . 'acessibilidade.css', array(), '1.0', 'all' );
+    wp_enqueue_style( 'tables', CSSPATH . 'tables.css', array(), '1.0', 'all' );
+    wp_enqueue_style( 'formularios', CSSPATH . 'forms.css', array(), '1.0', 'all' );
+    wp_enqueue_style( 'loader', CSSPATH . 'loader.css', array(), '1.0', 'all' );
+	
+	if ( is_page( 'contatos' ) ) {
+		wp_enqueue_style( 'contatos', CSSPATH . 'contatos.css', array(), '1.0', 'all' );
+	}
+}
+
+function carregar_scripts() {
+	wp_enqueue_script( 'pesquisa', JSPATH . 'pesquisa.js');
+
+	if ( is_page( 'contatos' ) ) {
+		wp_enqueue_script( 'contatos', JSPATH . 'contatos.js');
+	}
 }
