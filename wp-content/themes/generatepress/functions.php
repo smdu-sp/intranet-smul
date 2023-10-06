@@ -171,3 +171,16 @@ function carregar_scripts() {
 		wp_enqueue_script( 'contatos', JSPATH . 'contatos.js');
 	}
 }
+
+// Registrar menus
+function registrar_menus()
+  {
+      register_nav_menus(
+          array
+          (
+              'footer-menu' => __( 'Menu do Rodapé' ),
+          )
+      );
+}
+
+add_action( 'init', 'registrar_menus' );
