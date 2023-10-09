@@ -16,11 +16,11 @@
             </div>
             <div class="menu-footer">
                 <h2 class="sub-title-footer">Institucional</h2>
-                <?php 
+                <?php
                     wp_nav_menu(
                         array(
-                            'theme_location' => 'footer-menu',   
-                            'container' => 'nav',   
+                            'theme_location' => 'footer-menu',
+                            'container' => 'nav',
                         )
                     );
                 ?>

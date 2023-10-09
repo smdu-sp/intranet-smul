@@ -17,13 +17,13 @@
     color: #0A3299;
 }
 
-.lista-nav {
+#menu-rodape {
     margin: 0;
     padding: 0;
 }
 
 .conteiner-footer {
-    background-color: #333333;
+    background-color: #333;
     width: 100%;
     display: flex;
     justify-content: center;        
@@ -37,8 +37,8 @@
 }
 
 .sub-title-footer {
-    color: #FFFFFF;
-    font-size: 1.1em;
+    color: #fff;
+    font-size: 16px;
     font-weight: 700;
     margin-bottom: 10px;
     letter-spacing: 1px;
@@ -47,22 +47,23 @@
 .barra-footer {
     width: 5px;
     height: 190px;
-    background-color: white;
+    background-color: #fff;
 }
 
 .menu-footer {
     margin-left: 3%;
 }
 
-.item-lista-nav {
+#menu-rodape .menu-item {
     list-style: none;
-    font-size: 14px;
     padding: 0;
     margin: 0;
 }
 
-.item-lista-nav a {
+#menu-rodape .menu-item a {
     color: rgb(250, 250, 250, 0.8);
+    font-size: 14px;
+    font-weight: 400;
 }
 
 .text-footer {
