@@ -166,6 +166,7 @@ function carregar_estilos() {
 }
 
 function carregar_scripts() {
+	wp_enqueue_script( 'acessibilidade', JSPATH . 'acessibilidade.js');
 	wp_enqueue_script( 'pesquisa', JSPATH . 'pesquisa.js');
 
 	if ( is_page( 'contatos' ) ) {

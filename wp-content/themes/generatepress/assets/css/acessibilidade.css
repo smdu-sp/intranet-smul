@@ -1,3 +1,56 @@
+[data-tooltip] {
+    position: relative;
+}
+
+[data-tooltip]:after {
+    display: none;
+    position: absolute;
+    font-size: 17px;
+    top: 27px;
+    padding: 5px;
+    border-radius: 3px;
+    content: attr(data-tooltip);
+    white-space: nowrap;
+    background-color: grey;
+    color: White;
+}
+
+[data-tooltip]:hover:after {
+
+    display: block;
+    
+}
+
+.text-header{
+    margin-left: 5px;
+}
+
+.funcoes-controle .tm-font{
+    color: aquamarine;
+}
+
+#primary-menu{
+    display: flex;
+    justify-content: center;
+
+}
+
+#menu-menu-cabecalho{
+    display: flex;
+    justify-content: space-around;
+    min-width: 1220px;
+    font-weight: bold;
+}
+
+.menu-item{
+    flex-grow: 1;
+}
+
+.menu-item a{
+    font-size: 20px;
+    font-weight: 600;
+}
+
 .container-acess-geral{
     position: fixed;
     background-color: #494949;
@@ -5,4 +58,61 @@
     display: flex;
     justify-content: center;  
     font-family: 'Roboto';
+    z-index: 1;
+}
+
+.container-controle{
+    position: static;
+    display: flex;
+    min-width: 1180px;
+    justify-content: space-between;
+}
+
+.controle-esquerda, .controle-direita{
+    list-style: none;
+    padding: 6px 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.controle-esquerda a, .controle-direita a{
+    color: white;
+    font-size: 14px;    
+    font-style: normal;
+    line-height: normal;
+    cursor: pointer;
+}
+
+.controle-esquerda a:hover, .controle-direita a:hover{
+    color: rgb(246,246,246, 0.8);
+}
+
+.funcoes-controle{
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+}
+
+.img-center{
+    margin-right: 5px;
+}
+
+.tm-font{
+    cursor: pointer;
+}
+
+.zero{
+    margin-left: -9px;
+}
+
+.VIpgJd-ZVi9od-xl07Ob-lTBxed{
+    margin-right: -10px;
+}
+
+@media only screen and (max-width: 1210px) {
+    .container-controle{
+        min-width: 90%;
+    }
+
 }
