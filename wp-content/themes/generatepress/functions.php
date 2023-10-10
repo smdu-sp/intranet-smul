@@ -158,6 +158,7 @@ function carregar_estilos() {
     wp_enqueue_style( 'tables', CSSPATH . 'tables.css', array(), '1.0', 'all' );
     wp_enqueue_style( 'formularios', CSSPATH . 'forms.css', array(), '1.0', 'all' );
     wp_enqueue_style( 'loader', CSSPATH . 'loader.css', array(), '1.0', 'all' );
+    wp_enqueue_style( 'rodape', CSSPATH . 'rodape.css', array(), '1.0', 'all' );
 	
 	if ( is_page( 'contatos' ) ) {
 		wp_enqueue_style( 'contatos', CSSPATH . 'contatos.css', array(), '1.0', 'all' );
@@ -171,3 +172,16 @@ function carregar_scripts() {
 		wp_enqueue_script( 'contatos', JSPATH . 'contatos.js');
 	}
 }
+
+// Registrar menus
+function registrar_menus()
+  {
+      register_nav_menus(
+          array
+          (
+              'footer-menu' => __( 'Menu do Rodapé' ),
+          )
+      );
+}
+
+add_action( 'init', 'registrar_menus' );
