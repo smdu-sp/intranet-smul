@@ -16,6 +16,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
+	<div <?php generate_do_attr( 'content' ); ?>>
+		<main <?php generate_do_attr( 'main' ); ?>>
 			<?php
 			
 			/**
@@ -23,7 +25,7 @@ get_header(); ?>
 			 *
 			 * @since 0.1
 			 */
-			
+			do_action( 'generate_before_main_content' );
 			
 
 			if ( generate_has_default_loop() ) {

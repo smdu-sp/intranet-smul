@@ -66,20 +66,20 @@
     font-weight: 400;
 }
 
+#menu-rodape .menu-item a:hover {
+    color: rgb(250, 250, 250);
+}
+
 .text-footer {
     font-size: 14px;
     color: rgb(250, 250, 250, 0.8);
 }
 
-.informações-prefeitura {
+.informacoes-prefeitura {
     margin: 0 60px 0 10px;
 }
 
 .email-footer {
     color: rgb(250, 250, 250, 0.8);
     letter-spacing: 0.5px;
-}
-
-a:hover {
-    color: rgb(250, 250, 250);
 }
