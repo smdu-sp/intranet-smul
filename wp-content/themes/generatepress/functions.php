@@ -152,6 +152,7 @@ add_action( 'wp_enqueue_scripts', 'carregar_scripts', 11 );
 add_action( 'wp_enqueue_scripts', 'carregar_estilos', 12 );
 
 function carregar_estilos() {
+    wp_enqueue_style( 'default', CSSPATH . 'default.css', array(), '1.0', 'all' );
     wp_enqueue_style( 'header', CSSPATH . 'header.css', array(), '1.0', 'all' );
     wp_enqueue_style( 'home', CSSPATH . 'home.css', array(), '1.0', 'all' );
     wp_enqueue_style( 'acessibilidade', CSSPATH . 'acessibilidade.css', array(), '1.0', 'all' );

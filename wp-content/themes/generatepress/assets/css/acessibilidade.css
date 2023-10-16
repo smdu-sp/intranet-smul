@@ -23,10 +23,7 @@
 
 .text-header{
     margin-left: 5px;
-}
-
-.funcoes-controle .tm-font{
-    color: aquamarine;
+    color: #fff;
 }
 
 #primary-menu{
@@ -76,11 +73,9 @@
     align-items: center;
 }
 
-.controle-esquerda a, .controle-direita a{
+.controle-esquerda *, .controle-direita * {
+    font-size: 14px;
     color: white;
-    font-size: 14px;    
-    font-style: normal;
-    line-height: normal;
     cursor: pointer;
 }
 
