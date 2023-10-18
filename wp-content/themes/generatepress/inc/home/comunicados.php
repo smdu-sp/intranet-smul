@@ -8,7 +8,7 @@
 </div>
 <div>
     <a  class="botao-<?= $tipoSecao ?> section-bnt" href="<?= $url ?>">
-        <div style="background-image: Url(<?= $urlImagem ?>); background-repeat: no-repeat; background-position: center; background-color: #ddd" class="exp-img-cheio img-galeria imagem-<?= $tipoSecao ?>">
+        <div style="background-image: Url(<?= $urlImagem ?>); background-repeat: no-repeat; background-position: center; background-color: #ddd" class="exp-img-cheio img-comunicados imagem-<?= $tipoSecao ?>">
             
         </div>
     </a>
