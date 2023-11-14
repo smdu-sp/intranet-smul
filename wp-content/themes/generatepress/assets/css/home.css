@@ -120,7 +120,6 @@ html{
     color: #000;
     font-weight: 700;
     font-style: normal;
-    font-weight: bold;
 }
 
 .text{
@@ -164,7 +163,12 @@ html{
 .img-galeria {
     display: flex;
     justify-content: center;
-    height: 200px;
+    height: 165px;
+}
+
+.img-conteudo {
+    height: 165px;
+    min-width: 270px;
 }
 
 .img-comunicados {
@@ -181,6 +185,10 @@ article .article.inside-article {
 
 section .inside-section {
     padding: 0;
+}
+
+.conteudo-conteudo {`
+    height: 165px;
 }
 
 /* barra de pesquisa */

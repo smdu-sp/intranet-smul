@@ -6,15 +6,27 @@
 }
 
 a {
-    color: #777;
+    color: #0a3299;
     font-weight: 700;
 
 }
 
 a:hover {
-    color: #0a3299;
+    text-decoration: underline;
 }
 
 .separate-containers article .inside-article {
     padding: 0;
+}
+
+.separate-containers .page-header {
+    padding: 0;
+}
+
+h2, h2 a {
+    font-size: 1.6rem;
+}
+
+.separate-containers article.type-page {
+    margin-bottom: 60px;
 }

@@ -11,7 +11,7 @@
 
 <a href="<?= $url ?>">
     <div class="conteiner-papoUrbanoo" >
-        <div class="exp-img img-galeria imagem-<?= $tipoSecao ?>">
+        <div class="exp-img img-conteudo imagem-<?= $tipoSecao ?>">
             <img src="<?= $urlImagem ?>" alt="Capa de <?= $titulo ?>">
         </div>
             <div class="conteudo-<?= $tipoSecao ?> article">

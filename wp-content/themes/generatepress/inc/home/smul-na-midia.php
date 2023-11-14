@@ -1,6 +1,6 @@
 <?php
 
-$numPosts = 2;
+$numPosts = 1;
 $idCatMidia = get_category_by_slug('smul-na-midia')->term_id;
 $postsMidia = wp_get_recent_posts( array( 'numberposts' => $numPosts, 'category' => $idCatMidia ) );
 
