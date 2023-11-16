@@ -1,0 +1,3 @@
+<template>
+  <CarouselComunicados></CarouselComunicados>
+</template>

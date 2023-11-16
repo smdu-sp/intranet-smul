@@ -5,7 +5,7 @@
 !lc-modules/
 !css/
 !js/
-!vite/
+!vue/
 !acf.json
 
 # Incluir apenas os ícones
