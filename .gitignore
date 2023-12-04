@@ -6,7 +6,7 @@
 !css/
 !js/
 !vue/
-!acf.json
+!acf/
 
 # Incluir apenas os ícones
 !assets/
