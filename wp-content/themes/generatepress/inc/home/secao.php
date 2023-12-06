@@ -17,12 +17,14 @@ if ( ! array_key_exists( $tipoSecao, $countSecoes ) )
 $countSecoes[$tipoSecao]++;
 
 ?>
-<section #id="secao-<?= "{$tipoSecao}-{$countSecoes[$tipoSecao]}" ?>">
+<section #id="secao-<?= "{$tipoSecao}-{$countSecoes[$tipoSecao]}" ?>" class="secao-home">
     <div class="inside-section">
         <?php
-            if ( $tipoSecao === 'conteudo' ) include 'conteudo.php';
-            if ( $tipoSecao === 'galeria' ) include 'galeria.php';
+            if ( $tipoSecao === 'midia' ) include 'midia.php';
+            if ( $tipoSecao === 'noticias' ) include 'noticias.php';
             if ( $tipoSecao === 'comunicados' ) include 'comunicados.php';
+            if ( $tipoSecao === 'materia' ) include 'materia.php';
+            if ( $tipoSecao === 'galeria' ) include 'galeria.php';
         ?>
     </div>
 </section>

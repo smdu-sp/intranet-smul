@@ -10,6 +10,8 @@ import {
 } from 'vue3-carousel'
 import InlineSvg from 'vue-inline-svg'
 
+if (document.querySelector('#appComunicados') !== null) {
+
 const appComunicados = createApp(AppComunicados)
 appComunicados.component('CarouselComunicados', CarouselComunicados)
 appComunicados.component('Carousel', Carousel)
@@ -19,4 +21,5 @@ appComunicados.component('Slide', Slide)
 appComunicados.component('InlineSvg', InlineSvg)
 
 appComunicados.mount('#appComunicados')
+}
 

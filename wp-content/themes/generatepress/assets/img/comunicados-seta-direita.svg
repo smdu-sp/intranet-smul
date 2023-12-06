@@ -1,0 +1,17 @@
+<svg class="carousel__icon" width="34" height="52" viewBox="0 0 34 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g>
+<path d="M29.604 19.8885C29.8661 20.5578 30.0007 21.2754 30 22C30.0007 22.7246 29.8661 23.4422 29.604 24.1115C29.3419 24.7809 28.9574 25.3888 28.4726 25.9005L12.8342 42.4513C11.8511 43.4563 10.5343 44.0124 9.16751 43.9998C7.80073 43.9872 6.49329 43.407 5.52679 42.3841C4.56029 41.3612 4.01207 39.9775 4.0002 38.531C3.98832 37.0845 4.51374 35.6909 5.4633 34.6504L17.4163 22L5.4633 9.34964C4.51374 8.30913 3.98832 6.91554 4.0002 5.46901C4.01207 4.02248 4.5603 2.63876 5.52679 1.61588C6.49329 0.592989 7.80073 0.0127787 9.16751 0.000208813C10.5343 -0.012361 11.8511 0.543716 12.8342 1.54867L28.4726 18.0995C28.9574 18.6112 29.3419 19.2191 29.604 19.8885Z"/>
+</g>
+<defs>
+<filter id="filter0_d_759_2895" x="0" y="0" width="34" height="52" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_759_2895"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_759_2895" result="shape"/>
+</filter>
+</defs>
+</svg>

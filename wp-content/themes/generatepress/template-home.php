@@ -22,8 +22,6 @@ get_header(); ?>
 			?>
 			
             <?php 
-				include_once 'inc/home/smul-na-midia.php';
-				include_once 'inc/home/noticias.php';
 				include_once 'inc/home/secoes.php';
 			?>
 

@@ -1,5 +1,6 @@
 <?php
     $fields = get_fields();
+    // print_r($fields);
     $countSecoes = Array();
 
     foreach ( $fields as $key => $value ) {
