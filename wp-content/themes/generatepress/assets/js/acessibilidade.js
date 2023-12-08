@@ -1,3 +1,9 @@
+window.onload = function() {
+    if (localStorage.getItem("altoContraste") === 'true') {
+        altoContraste();
+    }
+}
+
 // Persiste o tamanho da fonte entre sessões
 const elemRoot = document.documentElement;
 const estiloComputado = window.getComputedStyle(elemRoot);
@@ -59,7 +65,11 @@ function scrolldiv(div) {
 }
 
 // Função alto contraste
-
 function altoContraste() {
-  document.documentElement.classList.toggle("alto_contraste_teste");
+    var contraste = document.body.classList.toggle('alto_contraste_teste');
+    return localStorage.setItem("altoContraste", contraste);
 }
+
+
+
+
