@@ -203,12 +203,31 @@ section .inside-section {
     } */
 }
 
-@media only screen and (max-width: 1210px) {
-    .container-pesquisa{
+@media only screen and (max-width: 1200px) {
+    /* .container-pesquisa{
         min-width: 90%;
     }
     .container-controle{
         min-width: 90%;
+    } */
+    .site-content{
+        min-width: 0px !important;
     }
-
+    #primary {
+        min-width: 0px;
+        width: 100%;
+        padding: 0%;
+    }
+    .sidebar{
+        display: none;
+    }
+    .container-cont{
+        min-width: 0px !important;
+    }
+    .container-cont{
+        display: block !important;
+    }
+    .barra-footer{
+        display: none;
+    }
 }

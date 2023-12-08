@@ -83,3 +83,9 @@
     color: rgb(250, 250, 250, 0.8);
     letter-spacing: 0.5px;
 }
+
+@media only screen and (max-width: 1200px) {
+    .container-cont{
+        min-width: 0px !important;
+    }
+}

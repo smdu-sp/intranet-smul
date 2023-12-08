@@ -152,9 +152,22 @@
 
 /* Media query */
 
-@media only screen and (max-width: 1210px) {
+@media only screen and (max-width: 1200px) {
     .container-controle{
-        min-width: 90%;
+        min-width: 95%;
     }
-
+    .container-acess-geral a{
+        font-size: 0.7em;
+    }
+    .controle-direita *{
+        font-size: 1em;
+    }
+    .funcoes-controle:nth-child(1){
+        margin-right: -3px;
+    }
+}
+@media only screen and (max-width: 600px){
+    .container-acess-gera{
+        display: none;
+    }
 }
