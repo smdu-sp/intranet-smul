@@ -12,7 +12,7 @@
         <ul class="controle-direita">
             <li><a onclick="tamanhoFonte(1)" class="funcoes-controle tm-font" data-tooltip="Aumentar fonte"><?= iconeSVG( 'acess-aumentar-fonte.svg' ) ?></a></li>
             <li><a onclick="tamanhoFonte(-1)" class="funcoes-controle tm-font" data-tooltip="Diminur fonte"><?= iconeSVG( 'acess-diminuir-fonte.svg' ) ?></a></li>
-            <li><a href="#" class="funcoes-controle" data-tooltip="Alto contraste"><?= iconeSVG( 'acess-alto-contraste.svg' ) ?><span class="text-header">Alto contraste</span></a></li>
+            <li><a onclick="altoContraste()" href="#" class="funcoes-controle" data-tooltip="Alto contraste"><?= iconeSVG( 'acess-alto-contraste.svg' ) ?><span class="text-header">Alto contraste</span></a></li>
             <li><a href="#" class="funcoes-controle" data-tooltip="Acessibilidade"><?= iconeSVG( 'acess-acessibilidade.svg' ) ?><span class="text-header">Acessibilidade</span></a></li>
             <li><a id="google_translate_element" class="funcoes-controle" data-tooltip="Idioma"><?= iconeSVG( 'acess-idioma.svg' ) ?><span id="google_translate_placeholder" class="text-header">Idioma</span></a></li>
         </ul>

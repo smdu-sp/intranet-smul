@@ -187,7 +187,7 @@ section .inside-section {
     padding: 0;
 }
 
-.conteudo-conteudo {`
+.conteudo-conteudo {
     height: 165px;
 }
 
@@ -198,9 +198,9 @@ section .inside-section {
 /* tira o botao nativo de voltar ao topo */
 
 @media only screen and (max-width: 768px) {
-        #menu-menu-cabecalho{
+        /* #menu-menu-cabecalho{
         display: none;
-    }
+    } */
 }
 
 @media only screen and (max-width: 1210px) {
