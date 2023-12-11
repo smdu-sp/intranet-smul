@@ -1,11 +1,11 @@
-window.onload = function() {
-    if (localStorage.getItem("altoContraste") === 'true') {
-        altoContraste();
-    }
-    var tamanhoFonte = localStorage.getItem("tamnho_fonte");
-    const elemRoot = document.documentElement;
-    elemRoot.style.fontSize = tamanhoFonte;
+function getItensLocalStorege() {
+  var tamanhoFonteAtual = localStorage.getItem("tamnho_fonte");
+  document.documentElement.style.fontSize = tamanhoFonteAtual;
+  if (localStorage.getItem("altoContraste") === "true") {
+    setTimeout(altoContraste, 1);
+  }
 }
+getItensLocalStorege();
 
 function tamanhoFonte(valor) {
   const elemRoot = document.documentElement;
@@ -26,7 +26,7 @@ function tamanhoFonte(valor) {
   ) {
     tamanhoFonteAtual += valor;
   }
-  localStorage.setItem("tamnho_fonte", tamanhoFonteAtual + 'px');
+  localStorage.setItem("tamnho_fonte", tamanhoFonteAtual + "px");
   return (elemRoot.style.fontSize = tamanhoFonteAtual + "px");
 }
 
@@ -39,10 +39,6 @@ function scrolldiv(div) {
 
 // Função alto contraste
 function altoContraste() {
-    var contraste = document.body.classList.toggle('alto_contraste_teste');
-    return localStorage.setItem("altoContraste", contraste);
+  var contraste = document.body.classList.toggle("alto_contraste_teste");
+  return localStorage.setItem("altoContraste", contraste);
 }
-
-
-
-
