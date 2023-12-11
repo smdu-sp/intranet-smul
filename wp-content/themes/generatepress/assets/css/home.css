@@ -191,6 +191,10 @@ section .inside-section {
     height: 165px;
 }
 
+#back-to-top{
+    display: none;
+}
+
 /* barra de pesquisa */
 
 /* Menu principal/home */
@@ -227,7 +231,7 @@ section .inside-section {
     .container-cont{
         display: block !important;
     }
-    .barra-footer{
-        display: none;
+    .site{
+        padding: 0 15px;
     }
 }
