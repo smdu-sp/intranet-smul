@@ -1,8 +1,10 @@
 function getItensLocalStorege() {
   var tamanhoFonteAtual = localStorage.getItem("tamnho_fonte");
+  
   document.documentElement.style.fontSize = tamanhoFonteAtual;
+
   if (localStorage.getItem("altoContraste") === "true") {
-    setTimeout(altoContraste, 1);
+    altoContraste();
   }
 }
 getItensLocalStorege();
