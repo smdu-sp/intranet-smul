@@ -2,34 +2,9 @@ window.onload = function() {
     if (localStorage.getItem("altoContraste") === 'true') {
         altoContraste();
     }
-}
-
-// Persiste o tamanho da fonte entre sessões
-const elemRoot = document.documentElement;
-const estiloComputado = window.getComputedStyle(elemRoot);
-const tamanhoFonteAtual = getCookie("fonte");
-elemRoot.style.fontSize = tamanhoFonteAtual + "px";
-
-function getCookie(nome) {
-  const nomeCookie = nome + "=";
-  const cookies = document.cookie.split(";");
-
-  for (let i = 0; i < cookies.length; i++) {
-    let cookie = cookies[i].trim();
-
-    if (cookie.indexOf(nomeCookie) === 0) {
-      return cookie.substring(nomeCookie.length, cookie.length);
-    }
-  }
-  // Tamanho padrão da fonte caso não exista cookie salvo
-  return "10";
-}
-
-function saveCookie(tamanhoFonte) {
-  const nome = "fonte";
-  const validade = "";
-  const local = "path=/";
-  document.cookie = nome + "=" + (tamanhoFonte || "") + validade + "; " + local;
+    var tamanhoFonte = localStorage.getItem("tamnho_fonte");
+    const elemRoot = document.documentElement;
+    elemRoot.style.fontSize = tamanhoFonte;
 }
 
 function tamanhoFonte(valor) {
@@ -51,9 +26,7 @@ function tamanhoFonte(valor) {
   ) {
     tamanhoFonteAtual += valor;
   }
-
-  saveCookie(tamanhoFonteAtual);
-
+  localStorage.setItem("tamnho_fonte", tamanhoFonteAtual + 'px');
   return (elemRoot.style.fontSize = tamanhoFonteAtual + "px");
 }
 
