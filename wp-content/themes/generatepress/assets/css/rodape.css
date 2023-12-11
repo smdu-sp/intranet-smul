@@ -13,7 +13,7 @@
     font-weight: bold;
     cursor: pointer;
     color: #0A3299 !important;
-    border-bottom: 1px solid #0A3299;
+    border-bottom: 1px solid #000000;
 }
 
 .text_back:hover {
