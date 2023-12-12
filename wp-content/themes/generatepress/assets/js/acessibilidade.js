@@ -1,13 +1,20 @@
-function getItensLocalStorege() {
-  var tamanhoFonteAtual = localStorage.getItem("tamnho_fonte");
-  
-  document.documentElement.style.fontSize = tamanhoFonteAtual;
+(function getItensLocalStorege() {
+  const tamanhoFonteAtual = localStorage.getItem("tamnho_fonte");
+  const alto_contraste = localStorage.getItem("altoContraste");
 
-  if (localStorage.getItem("altoContraste") === "true") {
-    altoContraste();
+  if (tamanhoFonteAtual === undefined) {
+    document.documentElement.style.fontSize = '10px';
+  } else{
+    document.documentElement.style.fontSize = tamanhoFonteAtual;
   }
-}
-getItensLocalStorege();
+   
+
+  if (altoContraste != undefined && 
+    alto_contraste === "true") {
+      altoContraste();
+  } 
+ 
+})();
 
 function tamanhoFonte(valor) {
   const elemRoot = document.documentElement;
