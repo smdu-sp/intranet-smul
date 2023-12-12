@@ -40,7 +40,6 @@
                             <li class="lista-sistemas-footer"><a target="_blank" href="https://www3.prefeitura.sp.gov.br/deolhonaobra/Forms/frmConsultaSlc.aspx" class="direct-link-footer" rel="noopener">De Olho na Obra</a></li>
                             <li class="lista-sistemas-footer"><a target="_blank" href="https://www.prefeitura.sp.gov.br/cidade/secretarias/fazenda/contaspublicas/index.php?p=27857" class="direct-link-footer" rel="noopener">Bens Patrimoniais</a></li>
                             <li class="lista-sistemas-footer"><a target="_blank" href="https://geosampa.prefeitura.sp.gov.br/" class="direct-link-footer" rel="noopener">GeoSampa</a></li>
-                            <li class="lista-sistemas-footer"><a target="_blank" href="#" class="direct-link-footer" rel="noopener">ABRIR CHAMADO</a></li>
                     </ul>
                 </div>
             </div>
