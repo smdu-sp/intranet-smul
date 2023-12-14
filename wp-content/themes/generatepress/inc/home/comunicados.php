@@ -24,8 +24,8 @@ if ( $existeComunicado ) { ?>
 
 $host = $_SERVER['HTTP_HOST'];
 if ($host !== 'localhost') {
-  wp_enqueue_script( 'vue-app', '/wp-content/themes/generatepress/assets/js/main.js' );
-  wp_enqueue_style( 'vue-app', '/wp-content/themes/generatepress/assets/css/main.css' );
+    wp_enqueue_script( 'vue-app', '/wp-content/themes/generatepress/assets/js/vue-app.js' );
+    wp_enqueue_style( 'vue-app', '/wp-content/themes/generatepress/assets/css/vue-app.css' );
 } else { ?>
-  <script type="module" src="http://localhost:5173/@vite/client"></script>
+    <script type="module" src="http://localhost:5173/@vite/client"></script>
 <?php }

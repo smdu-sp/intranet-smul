@@ -144,6 +144,10 @@ body{
 	margin-bottom: 20px;
 }
 
+.lista-sistemas a:hover, .lista-sistemas a:focus, .lista-sistemas a:active {
+    color: #fff;
+}
+
 @media only screen and (max-width: 1210px) {
 	#divBusca {
 		min-width: 90%;

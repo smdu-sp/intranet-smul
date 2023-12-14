@@ -32,16 +32,19 @@ foreach ($publicacoes as $objPublicacao) {
     <div class="container">
         <div class="row">
             <div class="col">
-                <div class="titulo">
-                    <h2>Arquivo <?= $labelPublicacao ?></h2>
-                    <?php 
-                        if (is_user_logged_in()) { ?>
-                            <div class="admin">
-                                <a href="/evento/?tipo=publicacoes" class="btn btn-primary">Editar</a>
-                            </div><?php
-                        } 
-                    ?>
+                <div class="section-title">
+                    <h2 class="sub-title-home"><?= $labelPublicacao ?></h2>
+                    <div class="linha">
+                        <span class="decoracao"></span>
+                    </div>
                 </div>
+                <?php 
+                    if (is_user_logged_in()) { ?>
+                        <div class="admin">
+                            <a href="/evento/?tipo=publicacoes" class="btn btn-primary">Editar</a>
+                        </div><?php
+                    } 
+                ?>
             </div>
         </div>
     </div>
@@ -62,7 +65,19 @@ foreach ($publicacoes as $objPublicacao) {
 .admin .btn {
     font-size: 1.6rem;
     padding: 5px 15px;
-    margin-bottom: 30px;
+    margin: 12px 0;
+}
+
+.data-publicacoes h3 {
+    font-size: 1.6rem;
+    margin: 12px 0;
+    font-weight: 700;
+}
+
+.links-publicacoes {
+    margin: 0;
+    list-style: none;
+    font-size: 1.4rem;
 }
 </style>
 
