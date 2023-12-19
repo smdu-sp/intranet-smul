@@ -1,58 +1,54 @@
-// Persiste o tamanho da fonte entre sessões
-const elemRoot = document.documentElement;
-const estiloComputado = window.getComputedStyle(elemRoot);
-const tamanhoFonteAtual = getCookie('fonte');
-elemRoot.style.fontSize = tamanhoFonteAtual + "px";
+(function getItensLocalStorege() {
+  const tamanhoFonteAtual = localStorage.getItem("tamnho_fonte");
+  const alto_contraste = localStorage.getItem("altoContraste");
 
-function getCookie(nome) {
-    const nomeCookie = nome + "=";
-    const cookies = document.cookie.split(';');
-    
-    for (let i = 0; i < cookies.length; i++) {
-        let cookie = cookies[i].trim();
-        
-        if (cookie.indexOf(nomeCookie) === 0) {
-            return cookie.substring(nomeCookie.length, cookie.length);
-        }
-}
-    // Tamanho padrão da fonte caso não exista cookie salvo
-    return "10";
-}
+  if (tamanhoFonteAtual === undefined) {
+    document.documentElement.style.fontSize = '10px';
+  } else{
+    document.documentElement.style.fontSize = tamanhoFonteAtual;
+  }
+   
 
-function saveCookie(tamanhoFonte) {
-    const nome = 'fonte';
-    const validade = '';
-    const local = 'path=/'; 
-    document.cookie = nome + "=" + (tamanhoFonte || "") + validade + "; " + local;
-}
+  if (altoContraste != undefined && 
+    alto_contraste === "true") {
+      altoContraste();
+  } 
+ 
+})();
 
-function tamanhoFonte(valor){
-    const elemRoot = document.documentElement;
-    const estiloComputado = window.getComputedStyle(elemRoot);
-    const tamanhoFonteRoot = estiloComputado.fontSize;
-    const tamanhoFonteMin = 5;
-    const tamanhoFonteMax = 20;
-    let tamanhoFonteAtual = parseFloat(tamanhoFonteRoot);
+function tamanhoFonte(valor) {
+  const elemRoot = document.documentElement;
+  const estiloComputado = window.getComputedStyle(elemRoot);
+  const tamanhoFonteRoot = estiloComputado.fontSize;
+  const tamanhoFonteMin = 5;
+  const tamanhoFonteMax = 20;
+  let tamanhoFonteAtual = parseFloat(tamanhoFonteRoot);
 
-    // Cancela a operação caso tamanhoFonte não seja definido em px
-    if ( ! tamanhoFonteRoot.includes('px')) {
-        return;
-    }
+  // Cancela a operação caso tamanhoFonte não seja definido em px
+  if (!tamanhoFonteRoot.includes("px")) {
+    return;
+  }
 
-    if ((valor > 0 && tamanhoFonteAtual < tamanhoFonteMax) || 
-        (valor < 0 && tamanhoFonteAtual > tamanhoFonteMin)
-    ) {
-        tamanhoFonteAtual += valor;
-    }
-
-    saveCookie(tamanhoFonteAtual);
-
-    return elemRoot.style.fontSize = tamanhoFonteAtual + "px";       
+  if (
+    (valor > 0 && tamanhoFonteAtual < tamanhoFonteMax) ||
+    (valor < 0 && tamanhoFonteAtual > tamanhoFonteMin)
+  ) {
+    tamanhoFonteAtual += valor;
+  }
+  localStorage.setItem("tamnho_fonte", tamanhoFonteAtual + "px");
+  return (elemRoot.style.fontSize = tamanhoFonteAtual + "px");
 }
 
 function scrolldiv(div) {
-    const elem = document.getElementById(div);
-    elem.scrollIntoView({
-        behavior: 'smooth'
-    });
+  const yOffset = -50; 
+  const element = document.getElementById(div);
+  const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+
+  window.scrollTo({top: y, behavior: 'smooth'});
+}
+
+// Função alto contraste
+function altoContraste() {
+  var contraste = document.body.classList.toggle("alto_contraste_teste");
+  return localStorage.setItem("altoContraste", contraste);
 }
