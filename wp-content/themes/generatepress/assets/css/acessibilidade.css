@@ -16,14 +16,16 @@
 }
 
 [data-tooltip]:hover:after {
-
     display: block;
-    
 }
 
 .text-header{
     margin-left: 5px;
     color: #fff;
+}
+
+.container-acess-geral a {
+    font-size: 12px;
 }
 
 #primary-menu{
@@ -156,18 +158,17 @@
     .container-controle{
         min-width: 95%;
     }
-    .container-acess-geral a{
-        font-size: 0.7em;
-    }
+
     .controle-direita *{
         font-size: 1em;
     }
+
     .funcoes-controle:nth-child(1){
         margin-right: -3px;
     }
 }
-@media only screen and (max-width: 600px){
-    .container-acess-gera{
+@media only screen and (max-width: 767px){
+    .container-acess-geral {
         display: none;
     }
 }

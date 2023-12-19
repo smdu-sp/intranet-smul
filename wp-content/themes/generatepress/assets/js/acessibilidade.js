@@ -1,36 +1,20 @@
-window.onload = function() {
-    if (localStorage.getItem("altoContraste") === 'true') {
-        altoContraste();
-    }
-}
+(function getItensLocalStorege() {
+  const tamanhoFonteAtual = localStorage.getItem("tamnho_fonte");
+  const alto_contraste = localStorage.getItem("altoContraste");
 
-// Persiste o tamanho da fonte entre sessões
-const elemRoot = document.documentElement;
-const estiloComputado = window.getComputedStyle(elemRoot);
-const tamanhoFonteAtual = getCookie("fonte");
-elemRoot.style.fontSize = tamanhoFonteAtual + "px";
-
-function getCookie(nome) {
-  const nomeCookie = nome + "=";
-  const cookies = document.cookie.split(";");
-
-  for (let i = 0; i < cookies.length; i++) {
-    let cookie = cookies[i].trim();
-
-    if (cookie.indexOf(nomeCookie) === 0) {
-      return cookie.substring(nomeCookie.length, cookie.length);
-    }
+  if (tamanhoFonteAtual === undefined) {
+    document.documentElement.style.fontSize = '10px';
+  } else{
+    document.documentElement.style.fontSize = tamanhoFonteAtual;
   }
-  // Tamanho padrão da fonte caso não exista cookie salvo
-  return "10";
-}
+   
 
-function saveCookie(tamanhoFonte) {
-  const nome = "fonte";
-  const validade = "";
-  const local = "path=/";
-  document.cookie = nome + "=" + (tamanhoFonte || "") + validade + "; " + local;
-}
+  if (altoContraste != undefined && 
+    alto_contraste === "true") {
+      altoContraste();
+  } 
+ 
+})();
 
 function tamanhoFonte(valor) {
   const elemRoot = document.documentElement;
@@ -51,25 +35,20 @@ function tamanhoFonte(valor) {
   ) {
     tamanhoFonteAtual += valor;
   }
-
-  saveCookie(tamanhoFonteAtual);
-
+  localStorage.setItem("tamnho_fonte", tamanhoFonteAtual + "px");
   return (elemRoot.style.fontSize = tamanhoFonteAtual + "px");
 }
 
 function scrolldiv(div) {
-  const elem = document.getElementById(div);
-  elem.scrollIntoView({
-    behavior: "smooth",
-  });
+  const yOffset = -50; 
+  const element = document.getElementById(div);
+  const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+
+  window.scrollTo({top: y, behavior: 'smooth'});
 }
 
 // Função alto contraste
 function altoContraste() {
-    var contraste = document.body.classList.toggle('alto_contraste_teste');
-    return localStorage.setItem("altoContraste", contraste);
+  var contraste = document.body.classList.toggle("alto_contraste_teste");
+  return localStorage.setItem("altoContraste", contraste);
 }
-
-
-
-

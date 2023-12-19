@@ -167,6 +167,24 @@ function carregar_estilos() {
 }
 
 function carregar_scripts() {
+	// App do Vue
+	$host = $_SERVER['HTTP_HOST'];
+	if($host === 'localhost') {
+		wp_register_script( 'vue-app', 'http://localhost:5173/src/main.js',  array( 'acf-input' ) );
+	
+		wp_enqueue_script(( 'vue-app' ));
+	
+		add_filter( 'script_loader_tag', 'script_module', 10, 3 );
+	
+		function script_module( $tag, $handle, $src ) {
+			if ( 'vue-app' === $handle ) {
+				$tag = '<script type="module" src="' . esc_url( $src ) . '"></script>';
+			}
+	
+			return $tag;
+		}
+	}
+	
 	wp_enqueue_script( 'acessibilidade', JSPATH . 'acessibilidade.js');
 	wp_enqueue_script( 'pesquisa', JSPATH . 'pesquisa.js');
 
@@ -187,3 +205,104 @@ function registrar_menus()
 }
 
 add_action( 'init', 'registrar_menus' );
+
+// Excerpt personalizados
+function custom_strip_all_tags( $text, $remove_breaks = false ) {
+	if ( is_null( $text ) ) {
+		return '';
+	}
+
+	if ( ! is_scalar( $text ) ) {
+		/*
+		 * To maintain consistency with pre-PHP 8 error levels,
+		 * trigger_error() is used to trigger an E_USER_WARNING,
+		 * rather than _doing_it_wrong(), which triggers an E_USER_NOTICE.
+		 */
+		trigger_error(
+			sprintf(
+				/* translators: 1: The function name, 2: The argument number, 3: The argument name, 4: The expected type, 5: The provided type. */
+				__( 'Warning: %1$s expects parameter %2$s (%3$s) to be a %4$s, %5$s given.' ),
+				__FUNCTION__,
+				'#1',
+				'$text',
+				'string',
+				gettype( $text )
+			),
+			E_USER_WARNING
+		);
+
+		return '';
+	}
+
+	// Preserva tags strong e br desejáveis
+	$text = str_replace("<strong><br></strong>", "<br>", $text);
+	$text = str_replace("<br>", "\n", $text);
+	$text = str_replace("<strong>", "tagstrong", $text);
+	$text = str_replace("</strong>", "endtagstrong", $text);
+	$text = preg_replace( '@<(script|style)[^>]*?>.*?</\\1>@si', '', $text );
+	$text = strip_tags( $text );
+
+	if ( $remove_breaks ) {
+		$text = preg_replace( '/[\r\n\t ]+/', ' ', $text );
+	}
+
+	// Reverte as tags preservadas
+	$text = str_replace("endtagstrong", "</strong>", $text);
+	$text = str_replace("tagstrong", "<strong>", $text);
+	$text = str_replace("\n", "<br>", $text);
+	// Para o resumo após o primeiro item, quando ocorre 2 quebras seguidas
+	$text = current( explode( '<br><br>', $text ) );
+	// Remove quebras de linha do começo da string
+	$text = remove_breaks_from_start( $text );
+
+	return trim( $text );
+}
+
+function custom_trim_words( $text, $num_words = 55, $more = null ) {
+	if ( null === $more ) {
+		$more = __( '&hellip;' );
+	}
+
+	$original_text = $text;
+	$text          = custom_strip_all_tags( $text );
+	$num_words     = (int) $num_words;
+
+	if ( str_starts_with( wp_get_word_count_type(), 'characters' ) && preg_match( '/^utf\-?8$/i', get_option( 'blog_charset' ) ) ) {
+		$text = trim( preg_replace( "/[\n\r\t ]+/", ' ', $text ), ' ' );
+		preg_match_all( '/./u', $text, $words_array );
+		$words_array = array_slice( $words_array[0], 0, $num_words + 1 );
+		$sep         = '';
+	} else {
+		$words_array = preg_split( "/[\n\r\t ]+/", $text, $num_words + 1, PREG_SPLIT_NO_EMPTY );
+		$sep         = ' ';
+	}
+
+	if ( count( $words_array ) > $num_words ) {
+		array_pop( $words_array );
+		$text = implode( $sep, $words_array );
+		$text = $text . $more;
+	} else {
+		$text = implode( $sep, $words_array );
+	}
+
+	/**
+	 * Filters the text content after words have been trimmed.
+	 *
+	 * @since 3.3.0
+	 *
+	 * @param string $text          The trimmed text.
+	 * @param int    $num_words     The number of words to trim the text to. Default 55.
+	 * @param string $more          An optional string to append to the end of the trimmed text, e.g. &hellip;.
+	 * @param string $original_text The text before it was trimmed.
+	 */
+	return apply_filters( 'wp_trim_words', $text, $num_words, $more, $original_text );
+}
+
+function remove_breaks_from_start( $text ) {
+	if ( strpos( $text, '<br>') === 0 ) {
+		$text = substr( $text, 4 );
+		return remove_breaks_from_start( $text );
+	} else {
+		return $text;
+	}
+}

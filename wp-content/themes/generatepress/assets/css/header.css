@@ -123,6 +123,31 @@ body{
 	width: 38px;
 }
 
+#wpadminbar a.ab-item span.display-name {
+	color: #f0f0f1;
+}
+
+#wpadminbar a.ab-item:hover span.display-name {
+	color: #72aee6;
+}
+
+.secao-home p {
+	margin-bottom: 0;
+}
+
+.secao-home .conteudo-galeria p {
+	margin-bottom: 30px;
+}
+
+#comunicados {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.lista-sistemas a:hover, .lista-sistemas a:focus, .lista-sistemas a:active {
+    color: #fff;
+}
+
 @media only screen and (max-width: 1210px) {
 	#divBusca {
 		min-width: 90%;

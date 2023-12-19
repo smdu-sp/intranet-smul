@@ -133,7 +133,7 @@ html{
     margin: 40px 0 60px;
 }
 
-.conteiner-papoUrbanoo{
+.container-materia{
     display: flex;
 }
 
@@ -187,10 +187,6 @@ section .inside-section {
     padding: 0;
 }
 
-.conteudo-conteudo {
-    height: 165px;
-}
-
 #back-to-top{
     display: none;
 }
@@ -200,12 +196,6 @@ section .inside-section {
 /* Menu principal/home */
 
 /* tira o botao nativo de voltar ao topo */
-
-@media only screen and (max-width: 768px) {
-        /* #menu-menu-cabecalho{
-        display: none;
-    } */
-}
 
 @media only screen and (max-width: 1200px) {
     /* .container-pesquisa{
@@ -233,5 +223,11 @@ section .inside-section {
     }
     .site{
         padding: 0 15px;
+    }
+}
+
+@media only screen and (max-width: 767px){
+    .site-header .header-image {
+        margin-top: 0;
     }
 }

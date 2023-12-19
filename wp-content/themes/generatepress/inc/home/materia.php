@@ -10,7 +10,7 @@
 <div>
 
 <a href="<?= $url ?>">
-    <div class="conteiner-papoUrbanoo" >
+    <div class="container-materia" >
         <div class="exp-img img-conteudo imagem-<?= $tipoSecao ?>">
             <img src="<?= $urlImagem ?>" alt="Capa de <?= $titulo ?>">
         </div>

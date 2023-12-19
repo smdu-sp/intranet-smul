@@ -4,7 +4,7 @@
 <div class="container-acess-geral">
     <div class="container-controle">
         <ul class="controle-esquerda">
-            <li class="funcoes-controle esquerda"><a class="zero" onclick="scrolldiv('ultimas-noticias')" data-tooltip="Ir para conteúdo" accesskey="1">Ir para conteúdo [1]</a></li>
+            <li class="funcoes-controle esquerda"><a class="zero" onclick="scrolldiv('content')" data-tooltip="Ir para conteúdo" accesskey="1">Ir para conteúdo [1]</a></li>
             <li class="funcoes-controle esquerda"><a onclick="scrolldiv('primary-menu')" data-tooltip="Ir para menu" accesskey="2">Ir para menu [2]</a></li>
             <li class="funcoes-controle esquerda"><a onclick="scrolldiv('footer')" data-tooltip="Ir para rodapé" accesskey="3">Ir para rodapé [3]</a></li>
         </ul>

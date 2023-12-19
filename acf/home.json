@@ -1,6 +1,6 @@
 [
     {
-        "key": "group_64b6bfbbac2ed",
+        "key": "group_656e9387b792b",
         "title": "Seções da Home",
         "fields": [
             {
@@ -79,15 +79,17 @@
                             "id": ""
                         },
                         "choices": {
-                            "conteudo": "Conteúdo",
-                            "galeria": "Galeria",
-                            "comunicados": "Comunicados"
+                            "midia": "SMUL na Mídia",
+                            "noticias": "Notícias SMUL",
+                            "comunicados": "Comunicados",
+                            "materia": "Matéria",
+                            "galeria": "Galeria"
                         },
                         "default_value": "",
-                        "return_format": "value",
+                        "return_format": "",
                         "allow_null": 0,
                         "other_choice": 0,
-                        "layout": "vertical",
+                        "layout": "",
                         "save_other_choice": 0
                     },
                     {
@@ -132,6 +134,23 @@
                                     "field": "field_64b6cba3fd98a",
                                     "operator": "==",
                                     "value": "1"
+                                },
+                                {
+                                    "field": "field_64b6c3febd4b8",
+                                    "operator": "==",
+                                    "value": "materia"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_64b6cba3fd98a",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_64b6c3febd4b8",
+                                    "operator": "==",
+                                    "value": "galeria"
                                 }
                             ]
                         ],
@@ -169,7 +188,19 @@
                                 {
                                     "field": "field_64b6c3febd4b8",
                                     "operator": "==",
-                                    "value": "conteudo"
+                                    "value": "noticias"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_64b6cba3fd98a",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_64b6c3febd4b8",
+                                    "operator": "==",
+                                    "value": "materia"
                                 }
                             ]
                         ],
@@ -198,6 +229,35 @@
                                     "field": "field_64b6cba3fd98a",
                                     "operator": "==",
                                     "value": "1"
+                                },
+                                {
+                                    "field": "field_64b6c3febd4b8",
+                                    "operator": "==",
+                                    "value": "noticias"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_64b6cba3fd98a",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_64b6c3febd4b8",
+                                    "operator": "==",
+                                    "value": "materia"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_64b6cba3fd98a",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_64b6c3febd4b8",
+                                    "operator": "==",
+                                    "value": "galeria"
                                 }
                             ]
                         ],
@@ -226,6 +286,47 @@
                                     "field": "field_64b6cba3fd98a",
                                     "operator": "==",
                                     "value": "1"
+                                },
+                                {
+                                    "field": "field_64b6c3febd4b8",
+                                    "operator": "==",
+                                    "value": "midia"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_64b6cba3fd98a",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_64b6c3febd4b8",
+                                    "operator": "==",
+                                    "value": "noticias"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_64b6cba3fd98a",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_64b6c3febd4b8",
+                                    "operator": "==",
+                                    "value": "materia"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_64b6cba3fd98a",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_64b6c3febd4b8",
+                                    "operator": "==",
+                                    "value": "galeria"
                                 }
                             ]
                         ],
@@ -257,7 +358,7 @@
                 "endpoint": 0
             },
             {
-                "key": "field_64b6cdbab075b",
+                "key": "field_656e9368b1b4a",
                 "label": "Seção 2",
                 "name": "secao_2",
                 "aria-label": "",
@@ -273,7 +374,7 @@
                 "layout": "block",
                 "sub_fields": [
                     {
-                        "key": "field_64b6cdbab075c",
+                        "key": "field_656e9368b1b4b",
                         "label": "Ativado",
                         "name": "ativado",
                         "aria-label": "",
@@ -293,7 +394,7 @@
                         "ui_off_text": ""
                     },
                     {
-                        "key": "field_64b6cdbab075d",
+                        "key": "field_656e9368b1b4c",
                         "label": "Tipo de Seção",
                         "name": "tipo_de_secao",
                         "aria-label": "",
@@ -303,7 +404,7 @@
                         "conditional_logic": [
                             [
                                 {
-                                    "field": "field_64b6cdbab075c",
+                                    "field": "field_656e9368b1b4b",
                                     "operator": "==",
                                     "value": "1"
                                 }
@@ -315,9 +416,11 @@
                             "id": ""
                         },
                         "choices": {
-                            "conteudo": "Conteúdo",
-                            "galeria": "Galeria",
-                            "comunicados": "Comunicados"
+                            "midia": "SMUL na Mídia",
+                            "noticias": "Notícias SMUL",
+                            "comunicados": "Comunicados",
+                            "materia": "Matéria",
+                            "galeria": "Galeria"
                         },
                         "default_value": "",
                         "return_format": "",
@@ -327,7 +430,7 @@
                         "save_other_choice": 0
                     },
                     {
-                        "key": "field_64b6cdbab075e",
+                        "key": "field_656e9368b1b4d",
                         "label": "Título",
                         "name": "titulo",
                         "aria-label": "",
@@ -337,7 +440,7 @@
                         "conditional_logic": [
                             [
                                 {
-                                    "field": "field_64b6cdbab075c",
+                                    "field": "field_656e9368b1b4b",
                                     "operator": "==",
                                     "value": "1"
                                 }
@@ -355,7 +458,7 @@
                         "append": ""
                     },
                     {
-                        "key": "field_64b6cdbab075f",
+                        "key": "field_656e9368b1b4e",
                         "label": "Imagem",
                         "name": "imagem",
                         "aria-label": "",
@@ -365,9 +468,26 @@
                         "conditional_logic": [
                             [
                                 {
-                                    "field": "field_64b6cdbab075c",
+                                    "field": "field_656e9368b1b4b",
                                     "operator": "==",
                                     "value": "1"
+                                },
+                                {
+                                    "field": "field_656e9368b1b4c",
+                                    "operator": "==",
+                                    "value": "materia"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656e9368b1b4b",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656e9368b1b4c",
+                                    "operator": "==",
+                                    "value": "galeria"
                                 }
                             ]
                         ],
@@ -388,7 +508,7 @@
                         "preview_size": "medium"
                     },
                     {
-                        "key": "field_64b6cdbab0760",
+                        "key": "field_656e9368b1b4f",
                         "label": "Subtítulo",
                         "name": "subtitulo",
                         "aria-label": "",
@@ -398,14 +518,26 @@
                         "conditional_logic": [
                             [
                                 {
-                                    "field": "field_64b6cdbab075c",
+                                    "field": "field_656e9368b1b4b",
                                     "operator": "==",
                                     "value": "1"
                                 },
                                 {
-                                    "field": "field_64b6cdbab075d",
+                                    "field": "field_656e9368b1b4c",
                                     "operator": "==",
-                                    "value": "conteudo"
+                                    "value": "noticias"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656e9368b1b4b",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656e9368b1b4c",
+                                    "operator": "==",
+                                    "value": "materia"
                                 }
                             ]
                         ],
@@ -421,7 +553,7 @@
                         "append": ""
                     },
                     {
-                        "key": "field_64b6cdbab0761",
+                        "key": "field_656e9368b1b50",
                         "label": "Texto",
                         "name": "texto",
                         "aria-label": "",
@@ -431,9 +563,38 @@
                         "conditional_logic": [
                             [
                                 {
-                                    "field": "field_64b6cdbab075c",
+                                    "field": "field_656e9368b1b4b",
                                     "operator": "==",
                                     "value": "1"
+                                },
+                                {
+                                    "field": "field_656e9368b1b4c",
+                                    "operator": "==",
+                                    "value": "noticias"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656e9368b1b4b",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656e9368b1b4c",
+                                    "operator": "==",
+                                    "value": "materia"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656e9368b1b4b",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656e9368b1b4c",
+                                    "operator": "==",
+                                    "value": "galeria"
                                 }
                             ]
                         ],
@@ -449,7 +610,7 @@
                         "new_lines": ""
                     },
                     {
-                        "key": "field_64b7ee4b86372",
+                        "key": "field_656e9368b1b51",
                         "label": "Link",
                         "name": "url",
                         "aria-label": "",
@@ -459,9 +620,50 @@
                         "conditional_logic": [
                             [
                                 {
-                                    "field": "field_64b6cdbab075c",
+                                    "field": "field_656e9368b1b4b",
                                     "operator": "==",
                                     "value": "1"
+                                },
+                                {
+                                    "field": "field_656e9368b1b4c",
+                                    "operator": "==",
+                                    "value": "midia"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656e9368b1b4b",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656e9368b1b4c",
+                                    "operator": "==",
+                                    "value": "noticias"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656e9368b1b4b",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656e9368b1b4c",
+                                    "operator": "==",
+                                    "value": "materia"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656e9368b1b4b",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656e9368b1b4c",
+                                    "operator": "==",
+                                    "value": "galeria"
                                 }
                             ]
                         ],
@@ -493,7 +695,7 @@
                 "endpoint": 0
             },
             {
-                "key": "field_64b6cdcbb0763",
+                "key": "field_656e9370b1b52",
                 "label": "Seção 3",
                 "name": "secao_3",
                 "aria-label": "",
@@ -509,7 +711,7 @@
                 "layout": "block",
                 "sub_fields": [
                     {
-                        "key": "field_64b6cdcbb0764",
+                        "key": "field_656e9370b1b53",
                         "label": "Ativado",
                         "name": "ativado",
                         "aria-label": "",
@@ -529,7 +731,7 @@
                         "ui_off_text": ""
                     },
                     {
-                        "key": "field_64b6cdcbb0765",
+                        "key": "field_656e9370b1b54",
                         "label": "Tipo de Seção",
                         "name": "tipo_de_secao",
                         "aria-label": "",
@@ -539,7 +741,7 @@
                         "conditional_logic": [
                             [
                                 {
-                                    "field": "field_64b6cdcbb0764",
+                                    "field": "field_656e9370b1b53",
                                     "operator": "==",
                                     "value": "1"
                                 }
@@ -551,9 +753,11 @@
                             "id": ""
                         },
                         "choices": {
-                            "conteudo": "Conteúdo",
-                            "galeria": "Galeria",
-                            "comunicados": "Comunicados"
+                            "midia": "SMUL na Mídia",
+                            "noticias": "Notícias SMUL",
+                            "comunicados": "Comunicados",
+                            "materia": "Matéria",
+                            "galeria": "Galeria"
                         },
                         "default_value": "",
                         "return_format": "",
@@ -563,7 +767,7 @@
                         "save_other_choice": 0
                     },
                     {
-                        "key": "field_64b6cdcbb0766",
+                        "key": "field_656e9370b1b55",
                         "label": "Título",
                         "name": "titulo",
                         "aria-label": "",
@@ -573,7 +777,7 @@
                         "conditional_logic": [
                             [
                                 {
-                                    "field": "field_64b6cdcbb0764",
+                                    "field": "field_656e9370b1b53",
                                     "operator": "==",
                                     "value": "1"
                                 }
@@ -591,7 +795,7 @@
                         "append": ""
                     },
                     {
-                        "key": "field_64b6cdcbb0767",
+                        "key": "field_656e9370b1b56",
                         "label": "Imagem",
                         "name": "imagem",
                         "aria-label": "",
@@ -601,9 +805,26 @@
                         "conditional_logic": [
                             [
                                 {
-                                    "field": "field_64b6cdcbb0764",
+                                    "field": "field_656e9370b1b53",
                                     "operator": "==",
                                     "value": "1"
+                                },
+                                {
+                                    "field": "field_656e9370b1b54",
+                                    "operator": "==",
+                                    "value": "materia"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656e9370b1b53",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656e9370b1b54",
+                                    "operator": "==",
+                                    "value": "galeria"
                                 }
                             ]
                         ],
@@ -624,7 +845,7 @@
                         "preview_size": "medium"
                     },
                     {
-                        "key": "field_64b6cdcbb0768",
+                        "key": "field_656e9370b1b57",
                         "label": "Subtítulo",
                         "name": "subtitulo",
                         "aria-label": "",
@@ -634,14 +855,26 @@
                         "conditional_logic": [
                             [
                                 {
-                                    "field": "field_64b6cdcbb0764",
+                                    "field": "field_656e9370b1b53",
                                     "operator": "==",
                                     "value": "1"
                                 },
                                 {
-                                    "field": "field_64b6cdcbb0765",
+                                    "field": "field_656e9370b1b54",
                                     "operator": "==",
-                                    "value": "conteudo"
+                                    "value": "noticias"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656e9370b1b53",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656e9370b1b54",
+                                    "operator": "==",
+                                    "value": "materia"
                                 }
                             ]
                         ],
@@ -657,7 +890,7 @@
                         "append": ""
                     },
                     {
-                        "key": "field_64b6cdcbb0769",
+                        "key": "field_656e9370b1b58",
                         "label": "Texto",
                         "name": "texto",
                         "aria-label": "",
@@ -667,9 +900,38 @@
                         "conditional_logic": [
                             [
                                 {
-                                    "field": "field_64b6cdcbb0764",
+                                    "field": "field_656e9370b1b53",
                                     "operator": "==",
                                     "value": "1"
+                                },
+                                {
+                                    "field": "field_656e9370b1b54",
+                                    "operator": "==",
+                                    "value": "noticias"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656e9370b1b53",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656e9370b1b54",
+                                    "operator": "==",
+                                    "value": "materia"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656e9370b1b53",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656e9370b1b54",
+                                    "operator": "==",
+                                    "value": "galeria"
                                 }
                             ]
                         ],
@@ -685,7 +947,7 @@
                         "new_lines": ""
                     },
                     {
-                        "key": "field_64b7ee8c86373",
+                        "key": "field_656e9370b1b59",
                         "label": "Link",
                         "name": "url",
                         "aria-label": "",
@@ -695,9 +957,50 @@
                         "conditional_logic": [
                             [
                                 {
-                                    "field": "field_64b6cdcbb0764",
+                                    "field": "field_656e9370b1b53",
                                     "operator": "==",
                                     "value": "1"
+                                },
+                                {
+                                    "field": "field_656e9370b1b54",
+                                    "operator": "==",
+                                    "value": "midia"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656e9370b1b53",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656e9370b1b54",
+                                    "operator": "==",
+                                    "value": "noticias"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656e9370b1b53",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656e9370b1b54",
+                                    "operator": "==",
+                                    "value": "materia"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656e9370b1b53",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656e9370b1b54",
+                                    "operator": "==",
+                                    "value": "galeria"
                                 }
                             ]
                         ],
@@ -729,7 +1032,7 @@
                 "endpoint": 0
             },
             {
-                "key": "field_64b6cdcfb076a",
+                "key": "field_656e9375b1b5a",
                 "label": "Seção 4",
                 "name": "secao_4",
                 "aria-label": "",
@@ -745,7 +1048,7 @@
                 "layout": "block",
                 "sub_fields": [
                     {
-                        "key": "field_64b6cdcfb076b",
+                        "key": "field_656e9375b1b5b",
                         "label": "Ativado",
                         "name": "ativado",
                         "aria-label": "",
@@ -765,7 +1068,7 @@
                         "ui_off_text": ""
                     },
                     {
-                        "key": "field_64b6cdcfb076c",
+                        "key": "field_656e9375b1b5c",
                         "label": "Tipo de Seção",
                         "name": "tipo_de_secao",
                         "aria-label": "",
@@ -775,7 +1078,7 @@
                         "conditional_logic": [
                             [
                                 {
-                                    "field": "field_64b6cdcfb076b",
+                                    "field": "field_656e9375b1b5b",
                                     "operator": "==",
                                     "value": "1"
                                 }
@@ -787,9 +1090,11 @@
                             "id": ""
                         },
                         "choices": {
-                            "conteudo": "Conteúdo",
-                            "galeria": "Galeria",
-                            "comunicados": "Comunicados"
+                            "midia": "SMUL na Mídia",
+                            "noticias": "Notícias SMUL",
+                            "comunicados": "Comunicados",
+                            "materia": "Matéria",
+                            "galeria": "Galeria"
                         },
                         "default_value": "",
                         "return_format": "",
@@ -799,7 +1104,7 @@
                         "save_other_choice": 0
                     },
                     {
-                        "key": "field_64b6cdcfb076d",
+                        "key": "field_656e9375b1b5d",
                         "label": "Título",
                         "name": "titulo",
                         "aria-label": "",
@@ -809,7 +1114,7 @@
                         "conditional_logic": [
                             [
                                 {
-                                    "field": "field_64b6cdcfb076b",
+                                    "field": "field_656e9375b1b5b",
                                     "operator": "==",
                                     "value": "1"
                                 }
@@ -827,7 +1132,7 @@
                         "append": ""
                     },
                     {
-                        "key": "field_64b6cdcfb076e",
+                        "key": "field_656e9375b1b5e",
                         "label": "Imagem",
                         "name": "imagem",
                         "aria-label": "",
@@ -837,9 +1142,26 @@
                         "conditional_logic": [
                             [
                                 {
-                                    "field": "field_64b6cdcfb076b",
+                                    "field": "field_656e9375b1b5b",
                                     "operator": "==",
                                     "value": "1"
+                                },
+                                {
+                                    "field": "field_656e9375b1b5c",
+                                    "operator": "==",
+                                    "value": "materia"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656e9375b1b5b",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656e9375b1b5c",
+                                    "operator": "==",
+                                    "value": "galeria"
                                 }
                             ]
                         ],
@@ -860,7 +1182,7 @@
                         "preview_size": "medium"
                     },
                     {
-                        "key": "field_64b6cdcfb076f",
+                        "key": "field_656e9375b1b5f",
                         "label": "Subtítulo",
                         "name": "subtitulo",
                         "aria-label": "",
@@ -870,14 +1192,26 @@
                         "conditional_logic": [
                             [
                                 {
-                                    "field": "field_64b6cdcfb076b",
+                                    "field": "field_656e9375b1b5b",
                                     "operator": "==",
                                     "value": "1"
                                 },
                                 {
-                                    "field": "field_64b6cdcfb076c",
+                                    "field": "field_656e9375b1b5c",
                                     "operator": "==",
-                                    "value": "conteudo"
+                                    "value": "noticias"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656e9375b1b5b",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656e9375b1b5c",
+                                    "operator": "==",
+                                    "value": "materia"
                                 }
                             ]
                         ],
@@ -893,7 +1227,7 @@
                         "append": ""
                     },
                     {
-                        "key": "field_64b6cdcfb0770",
+                        "key": "field_656e9375b1b60",
                         "label": "Texto",
                         "name": "texto",
                         "aria-label": "",
@@ -903,9 +1237,38 @@
                         "conditional_logic": [
                             [
                                 {
-                                    "field": "field_64b6cdcfb076b",
+                                    "field": "field_656e9375b1b5b",
                                     "operator": "==",
                                     "value": "1"
+                                },
+                                {
+                                    "field": "field_656e9375b1b5c",
+                                    "operator": "==",
+                                    "value": "noticias"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656e9375b1b5b",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656e9375b1b5c",
+                                    "operator": "==",
+                                    "value": "materia"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656e9375b1b5b",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656e9375b1b5c",
+                                    "operator": "==",
+                                    "value": "galeria"
                                 }
                             ]
                         ],
@@ -921,7 +1284,7 @@
                         "new_lines": ""
                     },
                     {
-                        "key": "field_64b7ef3186374",
+                        "key": "field_656e9375b1b61",
                         "label": "Link",
                         "name": "url",
                         "aria-label": "",
@@ -931,9 +1294,50 @@
                         "conditional_logic": [
                             [
                                 {
-                                    "field": "field_64b6cdcfb076b",
+                                    "field": "field_656e9375b1b5b",
                                     "operator": "==",
                                     "value": "1"
+                                },
+                                {
+                                    "field": "field_656e9375b1b5c",
+                                    "operator": "==",
+                                    "value": "midia"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656e9375b1b5b",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656e9375b1b5c",
+                                    "operator": "==",
+                                    "value": "noticias"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656e9375b1b5b",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656e9375b1b5c",
+                                    "operator": "==",
+                                    "value": "materia"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656e9375b1b5b",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656e9375b1b5c",
+                                    "operator": "==",
+                                    "value": "galeria"
                                 }
                             ]
                         ],
@@ -965,7 +1369,7 @@
                 "endpoint": 0
             },
             {
-                "key": "field_64b6cdd4b0771",
+                "key": "field_656e937ab1b62",
                 "label": "Seção 5",
                 "name": "secao_5",
                 "aria-label": "",
@@ -981,7 +1385,7 @@
                 "layout": "block",
                 "sub_fields": [
                     {
-                        "key": "field_64b6cdd4b0772",
+                        "key": "field_656e937ab1b63",
                         "label": "Ativado",
                         "name": "ativado",
                         "aria-label": "",
@@ -1001,7 +1405,7 @@
                         "ui_off_text": ""
                     },
                     {
-                        "key": "field_64b6cdd4b0773",
+                        "key": "field_656e937ab1b64",
                         "label": "Tipo de Seção",
                         "name": "tipo_de_secao",
                         "aria-label": "",
@@ -1011,7 +1415,7 @@
                         "conditional_logic": [
                             [
                                 {
-                                    "field": "field_64b6cdd4b0772",
+                                    "field": "field_656e937ab1b63",
                                     "operator": "==",
                                     "value": "1"
                                 }
@@ -1023,19 +1427,21 @@
                             "id": ""
                         },
                         "choices": {
-                            "conteudo": "Conteúdo",
-                            "galeria": "Galeria",
-                            "comunicados": "Comunicados"
+                            "midia": "SMUL na Mídia",
+                            "noticias": "Notícias SMUL",
+                            "comunicados": "Comunicados",
+                            "materia": "Matéria",
+                            "galeria": "Galeria"
                         },
                         "default_value": "",
-                        "return_format": "value",
+                        "return_format": "",
                         "allow_null": 0,
                         "other_choice": 0,
-                        "layout": "vertical",
+                        "layout": "",
                         "save_other_choice": 0
                     },
                     {
-                        "key": "field_64b6cdd4b0774",
+                        "key": "field_656e937ab1b65",
                         "label": "Título",
                         "name": "titulo",
                         "aria-label": "",
@@ -1045,7 +1451,7 @@
                         "conditional_logic": [
                             [
                                 {
-                                    "field": "field_64b6cdd4b0772",
+                                    "field": "field_656e937ab1b63",
                                     "operator": "==",
                                     "value": "1"
                                 }
@@ -1063,7 +1469,7 @@
                         "append": ""
                     },
                     {
-                        "key": "field_64b6cdd4b0775",
+                        "key": "field_656e937ab1b66",
                         "label": "Imagem",
                         "name": "imagem",
                         "aria-label": "",
@@ -1073,9 +1479,26 @@
                         "conditional_logic": [
                             [
                                 {
-                                    "field": "field_64b6cdd4b0772",
+                                    "field": "field_656e937ab1b63",
                                     "operator": "==",
                                     "value": "1"
+                                },
+                                {
+                                    "field": "field_656e937ab1b64",
+                                    "operator": "==",
+                                    "value": "materia"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656e937ab1b63",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656e937ab1b64",
+                                    "operator": "==",
+                                    "value": "galeria"
                                 }
                             ]
                         ],
@@ -1096,7 +1519,7 @@
                         "preview_size": "medium"
                     },
                     {
-                        "key": "field_64b6cdd4b0776",
+                        "key": "field_656e937ab1b67",
                         "label": "Subtítulo",
                         "name": "subtitulo",
                         "aria-label": "",
@@ -1106,14 +1529,26 @@
                         "conditional_logic": [
                             [
                                 {
-                                    "field": "field_64b6cdd4b0772",
+                                    "field": "field_656e937ab1b63",
                                     "operator": "==",
                                     "value": "1"
                                 },
                                 {
-                                    "field": "field_64b6cdd4b0773",
+                                    "field": "field_656e937ab1b64",
                                     "operator": "==",
-                                    "value": "conteudo"
+                                    "value": "noticias"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656e937ab1b63",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656e937ab1b64",
+                                    "operator": "==",
+                                    "value": "materia"
                                 }
                             ]
                         ],
@@ -1129,7 +1564,7 @@
                         "append": ""
                     },
                     {
-                        "key": "field_64b6cdd4b0777",
+                        "key": "field_656e937ab1b68",
                         "label": "Texto",
                         "name": "texto",
                         "aria-label": "",
@@ -1139,9 +1574,38 @@
                         "conditional_logic": [
                             [
                                 {
-                                    "field": "field_64b6cdd4b0772",
+                                    "field": "field_656e937ab1b63",
                                     "operator": "==",
                                     "value": "1"
+                                },
+                                {
+                                    "field": "field_656e937ab1b64",
+                                    "operator": "==",
+                                    "value": "noticias"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656e937ab1b63",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656e937ab1b64",
+                                    "operator": "==",
+                                    "value": "materia"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656e937ab1b63",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656e937ab1b64",
+                                    "operator": "==",
+                                    "value": "galeria"
                                 }
                             ]
                         ],
@@ -1157,7 +1621,7 @@
                         "new_lines": ""
                     },
                     {
-                        "key": "field_64b7ef4d86375",
+                        "key": "field_656e937ab1b69",
                         "label": "Link",
                         "name": "url",
                         "aria-label": "",
@@ -1167,9 +1631,387 @@
                         "conditional_logic": [
                             [
                                 {
-                                    "field": "field_64b6cdd4b0772",
+                                    "field": "field_656e937ab1b63",
                                     "operator": "==",
                                     "value": "1"
+                                },
+                                {
+                                    "field": "field_656e937ab1b64",
+                                    "operator": "==",
+                                    "value": "midia"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656e937ab1b63",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656e937ab1b64",
+                                    "operator": "==",
+                                    "value": "noticias"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656e937ab1b63",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656e937ab1b64",
+                                    "operator": "==",
+                                    "value": "materia"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656e937ab1b63",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656e937ab1b64",
+                                    "operator": "==",
+                                    "value": "galeria"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": ""
+                    }
+                ]
+            },
+            {
+                "key": "field_656e8f9167fce",
+                "label": "Seção 6",
+                "name": "",
+                "aria-label": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "left",
+                "endpoint": 0
+            },
+            {
+                "key": "field_656f7689b07c4",
+                "label": "Seção 6",
+                "name": "secao_6",
+                "aria-label": "",
+                "type": "group",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "block",
+                "sub_fields": [
+                    {
+                        "key": "field_656f7689b07c5",
+                        "label": "Ativado",
+                        "name": "ativado",
+                        "aria-label": "",
+                        "type": "true_false",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "message": "",
+                        "default_value": 0,
+                        "ui": 0,
+                        "ui_on_text": "",
+                        "ui_off_text": ""
+                    },
+                    {
+                        "key": "field_656f7689b07c6",
+                        "label": "Tipo de Seção",
+                        "name": "tipo_de_secao",
+                        "aria-label": "",
+                        "type": "radio",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_656f7689b07c5",
+                                    "operator": "==",
+                                    "value": "1"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "midia": "SMUL na Mídia",
+                            "noticias": "Notícias SMUL",
+                            "comunicados": "Comunicados",
+                            "materia": "Matéria",
+                            "galeria": "Galeria"
+                        },
+                        "default_value": "",
+                        "return_format": "value",
+                        "allow_null": 0,
+                        "other_choice": 0,
+                        "layout": "vertical",
+                        "save_other_choice": 0
+                    },
+                    {
+                        "key": "field_656f7689b07c7",
+                        "label": "Título",
+                        "name": "titulo",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_656f7689b07c5",
+                                    "operator": "==",
+                                    "value": "1"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": ""
+                    },
+                    {
+                        "key": "field_656f7689b07c8",
+                        "label": "Imagem",
+                        "name": "imagem",
+                        "aria-label": "",
+                        "type": "image",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_656f7689b07c5",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656f7689b07c6",
+                                    "operator": "==",
+                                    "value": "materia"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656f7689b07c5",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656f7689b07c6",
+                                    "operator": "==",
+                                    "value": "galeria"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "library": "all",
+                        "min_width": "",
+                        "min_height": "",
+                        "min_size": "",
+                        "max_width": "",
+                        "max_height": "",
+                        "max_size": "",
+                        "mime_types": "",
+                        "preview_size": "medium"
+                    },
+                    {
+                        "key": "field_656f7689b07c9",
+                        "label": "Subtítulo",
+                        "name": "subtitulo",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_656f7689b07c5",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656f7689b07c6",
+                                    "operator": "==",
+                                    "value": "noticias"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656f7689b07c5",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656f7689b07c6",
+                                    "operator": "==",
+                                    "value": "materia"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": ""
+                    },
+                    {
+                        "key": "field_656f7689b07ca",
+                        "label": "Texto",
+                        "name": "texto",
+                        "aria-label": "",
+                        "type": "textarea",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_656f7689b07c5",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656f7689b07c6",
+                                    "operator": "==",
+                                    "value": "noticias"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656f7689b07c5",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656f7689b07c6",
+                                    "operator": "==",
+                                    "value": "materia"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656f7689b07c5",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656f7689b07c6",
+                                    "operator": "==",
+                                    "value": "galeria"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "rows": "",
+                        "placeholder": "",
+                        "new_lines": ""
+                    },
+                    {
+                        "key": "field_656f7689b07cb",
+                        "label": "Link",
+                        "name": "url",
+                        "aria-label": "",
+                        "type": "url",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_656f7689b07c5",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656f7689b07c6",
+                                    "operator": "==",
+                                    "value": "midia"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656f7689b07c5",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656f7689b07c6",
+                                    "operator": "==",
+                                    "value": "noticias"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656f7689b07c5",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656f7689b07c6",
+                                    "operator": "==",
+                                    "value": "materia"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_656f7689b07c5",
+                                    "operator": "==",
+                                    "value": "1"
+                                },
+                                {
+                                    "field": "field_656f7689b07c6",
+                                    "operator": "==",
+                                    "value": "galeria"
                                 }
                             ]
                         ],
@@ -1187,9 +2029,9 @@
         "location": [
             [
                 {
-                    "param": "post_template",
+                    "param": "page",
                     "operator": "==",
-                    "value": "template-home.php"
+                    "value": "6857"
                 }
             ]
         ],
