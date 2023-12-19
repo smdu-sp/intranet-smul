@@ -187,21 +187,11 @@ section .inside-section {
     padding: 0;
 }
 
-.conteudo-conteudo {
-    height: 165px;
-}
-
 /* barra de pesquisa */
 
 /* Menu principal/home */
 
 /* tira o botao nativo de voltar ao topo */
-
-@media only screen and (max-width: 768px) {
-        /* #menu-menu-cabecalho{
-        display: none;
-    } */
-}
 
 @media only screen and (max-width: 1200px) {
     /* .container-pesquisa{

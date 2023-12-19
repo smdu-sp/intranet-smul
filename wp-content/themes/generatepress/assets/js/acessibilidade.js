@@ -40,10 +40,11 @@ function tamanhoFonte(valor) {
 }
 
 function scrolldiv(div) {
-  const elem = document.getElementById(div);
-  elem.scrollIntoView({
-    behavior: "smooth",
-  });
+  const yOffset = -50; 
+  const element = document.getElementById(div);
+  const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+
+  window.scrollTo({top: y, behavior: 'smooth'});
 }
 
 // Função alto contraste
