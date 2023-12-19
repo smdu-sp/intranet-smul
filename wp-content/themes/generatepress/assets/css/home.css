@@ -232,7 +232,7 @@ section .inside-section {
     }
 }
 
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 767px){
     .site-header .header-image {
         margin-top: 0;
     }
