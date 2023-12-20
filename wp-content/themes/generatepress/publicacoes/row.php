@@ -1,6 +1,6 @@
 <?php 
 
-$itemsPorLinha = 6;
+$itemsPorLinha = 4;
 
     if ($chave % $itemsPorLinha == 0) {
         $row = Array();

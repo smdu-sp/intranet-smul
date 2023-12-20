@@ -2,29 +2,22 @@
 
 global $wpdb;
 $tipoPublicacao = $_GET['tipo'];
+$totalPublicacoes = 0;
 
 $publicacoes = $wpdb->get_results($wpdb->prepare(
     "SELECT * FROM publicacoes
-    WHERE tipo_publicacao = %s
-    ORDER BY data_publicacao DESC;",
+    WHERE tipo = %s
+    ORDER BY data DESC;",
     $tipoPublicacao
 ));
 
 $labelPublicacao = $wpdb->get_var($wpdb->prepare(
-    "SELECT tipo_publicacao_label FROM publicacoes_tipos
-    WHERE tipo_publicacao = %s;",
+    "SELECT label FROM publicacoes_tipos
+    WHERE tipo = %s;",
     $tipoPublicacao
 ));
 
-foreach ($publicacoes as $objPublicacao) {
-    $links = $wpdb->get_results($wpdb->prepare(
-        "SELECT * FROM publicacoes_links
-        WHERE id_publicacao = %d",
-        $objPublicacao->id
-    ));
-
-    $objPublicacao->links = $links;
-}
+$numeroDeEdicoes = sizeof($publicacoes);
 
 ?>
 
