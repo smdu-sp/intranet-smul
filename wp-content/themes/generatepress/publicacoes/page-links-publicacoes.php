@@ -18,6 +18,16 @@ $labelPublicacao = $wpdb->get_var($wpdb->prepare(
     $tipoPublicacao
 ));
 
+foreach ($publicacoes as $objPublicacao) {
+  $links = $wpdb->get_results($wpdb->prepare(
+      "SELECT * FROM publicacoes_links
+      WHERE id_publicacao = %d",
+      $objPublicacao->id
+  ));
+
+  $objPublicacao->links = $links;
+}
+
 ?>
 
 <div id="publicacoes">
@@ -35,7 +45,7 @@ $labelPublicacao = $wpdb->get_var($wpdb->prepare(
                         <div class="admin">
                             <a href="/evento/?tipo=publicacoes" class="btn btn-primary">Editar</a>
                         </div><?php
-                    } 
+                    }
                 ?>
             </div>
         </div>
@@ -43,7 +53,7 @@ $labelPublicacao = $wpdb->get_var($wpdb->prepare(
     <div class="container">
         <?php 
             foreach ($publicacoes as $chave=>$publicacao) {
-                require "row.php";
+                require "links-single.php";
             }
         ?>
     </div>
@@ -70,6 +80,33 @@ $labelPublicacao = $wpdb->get_var($wpdb->prepare(
     margin: 0;
     list-style: none;
     font-size: 1.4rem;
+}
+
+.single-publicacao {
+    margin-bottom: 30px;
+}
+
+.single-publicacao h3 {
+    font-weight: 700;
+}
+
+.single-materias {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.single-materias ul {
+    margin: 10px 0;
+}
+
+.single-materias ul li {
+    list-style: none;
+    padding: 6px 0;
+}
+
+.single-materias a {
+    font-size: 1.6rem;
 }
 </style>
 
