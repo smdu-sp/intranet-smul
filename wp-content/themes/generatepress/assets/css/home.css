@@ -135,6 +135,10 @@ html{
 
 .container-materia{
     display: flex;
+    height: 165px;
+    min-height: 165px;
+    background-color: rgb(246, 246, 246);
+    margin: 20px 0;
 }
 
 .exp-img{
@@ -143,8 +147,7 @@ html{
     width: 1000px;
     justify-content: center;
     align-items: center;
-    margin: 20px 0;
-    
+    margin: 20px 0;    
 }
 
 .mediun-img img{
@@ -169,6 +172,17 @@ html{
 .img-conteudo {
     height: 165px;
     min-width: 270px;
+    max-width: 270px;
+    display: flex;
+}
+
+.img-conteudo, .conteudo-materia {
+    margin: 0;
+}
+
+.conteudo-materia {
+    max-height: 100%;
+    box-sizing: border-box;
 }
 
 .img-comunicados {

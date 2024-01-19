@@ -14,9 +14,9 @@
         <div class="exp-img img-conteudo imagem-<?= $tipoSecao ?>">
             <img src="<?= $urlImagem ?>" alt="Capa de <?= $titulo ?>">
         </div>
-            <div class="conteudo-<?= $tipoSecao ?> article">
-                <h3 class="sub-title"><?= $subtitulo ?></h3>
-                <p class="text"><?= $conteudo ?></p>
-            </div>
+        <div class="conteudo-<?= $tipoSecao ?> article">
+            <h3 class="sub-title"><?= $subtitulo ?></h3>
+            <p class="text"><?= $conteudo ?></p>
+        </div>
     </div>
 </a>
