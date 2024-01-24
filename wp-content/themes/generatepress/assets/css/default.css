@@ -1,3 +1,39 @@
+@font-face {
+    font-family: Roboto;
+    font-weight: 100;
+    src: url(/wp-content/themes/generatepress/assets/fonts/Roboto-Thin.ttf);
+}
+
+@font-face {
+    font-family: Roboto;
+    font-weight: 300;
+    src: url(/wp-content/themes/generatepress/assets/fonts/Roboto-Light.ttf);
+}
+
+@font-face {
+    font-family: Roboto;
+    font-weight: 400;
+    src: url(/wp-content/themes/generatepress/assets/fonts/Roboto-Regular.ttf);
+}
+
+@font-face {
+    font-family: Roboto;
+    font-weight: 500;
+    src: url(/wp-content/themes/generatepress/assets/fonts/Roboto-Medium.ttf);
+}
+
+@font-face {
+    font-family: Roboto;
+    font-weight: 700;
+    src: url(/wp-content/themes/generatepress/assets/fonts/Roboto-Bold.ttf);
+}
+
+@font-face {
+    font-family: Roboto;
+    font-weight: 900;
+    src: url(/wp-content/themes/generatepress/assets/fonts/Roboto-Black.ttf);
+}
+
 :root {
     font-size: 10px;
 }
@@ -33,4 +69,9 @@ h2, h2 a {
 
 .separate-containers article.type-page {
     margin-bottom: 60px;
+}
+
+figure.wp-block-gallery figcaption,
+figure.wp-block-gallery figcaption strong {
+    color: #fff;
 }

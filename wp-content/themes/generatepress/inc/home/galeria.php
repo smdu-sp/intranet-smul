@@ -9,7 +9,9 @@
 <div>
 
 <div class="exp-img-cheio img-galeria imagem-<?= $tipoSecao ?>">
-    <img src="<?= $urlImagem ?>" alt="Capa de <?= $titulo ?>">
+    <a  class="botao-<?= $tipoSecao ?> section-bnt" href="<?= $url ?>">
+        <img src="<?= $urlImagem ?>" alt="Capa de <?= $titulo ?>">
+    </a>
 </div>
     <div class="conteudo-<?= $tipoSecao ?> ">
         <p class="text"><?= $conteudo ?></p>

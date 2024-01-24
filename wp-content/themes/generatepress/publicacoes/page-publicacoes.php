@@ -40,7 +40,7 @@ $labelPublicacao = $wpdb->get_var($wpdb->prepare(
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container container-publicacoes">
         <?php 
             foreach ($publicacoes as $chave=>$publicacao) {
                 require "row.php";
@@ -70,6 +70,10 @@ $labelPublicacao = $wpdb->get_var($wpdb->prepare(
     margin: 0;
     list-style: none;
     font-size: 1.4rem;
+}
+
+.container-publicacoes .row {
+    margin-bottom: 60px;
 }
 </style>
 
