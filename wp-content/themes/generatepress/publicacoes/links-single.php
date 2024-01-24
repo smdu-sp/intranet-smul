@@ -7,7 +7,7 @@ if ($pagePublicacoes) {
 }
 
 ?>
-<div class="row single-publicacao" id="edicao-<?= $numeroDeEdicoes ?>">
+<div class="single-publicacao" id="edicao-<?= $numeroDeEdicoes ?>">
     <h3 class="titulo-publicacao"><?= $pagePublicacoes ? $tituloEdicao : '{{ publicacao.data }}' ?></h3>
     <div class="row">
         <div class="<?= $pagePublicacoes ? 'col-3' : '' ?>">
@@ -16,7 +16,7 @@ if ($pagePublicacoes) {
                     <img <?= $pagePublicacoes ? 'src="' . $publicacao->miniatura .'"' : ':src="publicacao.miniatura ? publicacao.miniatura : \'/assets/capa-publicacao.jpg\'"' ?> alt="Capa da edição"/>
                 </a>
                 <div class="data-publicacoes">
-                    <a href="/links-publicacoes#edicao-<?= $numeroDeEdicoes ?>">
+                    <a href="/index.php/publicacoes-edicoes#edicao-<?= $numeroDeEdicoes ?>">
                     </a>
                 </div>
             </div>

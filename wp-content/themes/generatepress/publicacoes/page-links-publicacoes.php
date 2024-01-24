@@ -108,6 +108,11 @@ foreach ($publicacoes as $objPublicacao) {
 .single-materias a {
     font-size: 1.6rem;
 }
-</style>
 
-<?php 
+.single-publicacao:target::before {
+    content: "";
+    display: block;
+    height: 60px;
+}
+
+</style>

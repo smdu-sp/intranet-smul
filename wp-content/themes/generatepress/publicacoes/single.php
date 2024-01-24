@@ -13,7 +13,7 @@ if ($pagePublicacoes) {
             <img <?= $pagePublicacoes ? 'src="' . $publicacao->miniatura .'"' : ':src="publicacao.miniatura ? publicacao.miniatura : \'/assets/capa-publicacao.jpg\'"' ?> alt="Capa da edição"/>
         </a>
         <div class="data-publicacoes">
-            <a href="/links-publicacoes?tipo=<?= $tipoPublicacao ?>#edicao-<?= $numeroDeEdicoes ?>">
+            <a href="/index.php/publicacoes-edicoes?tipo=<?= $tipoPublicacao ?>#edicao-<?= $numeroDeEdicoes ?>">
                 <h3><?= $pagePublicacoes ? $tituloEdicao : '{{ publicacao.data }}' ?></h3>
             </a>
         </div>
