@@ -7,20 +7,21 @@ if (isset($_POST['bnt_entrar'])) {
 	$user = $_POST['usuario'] . "@rede.sp";
 	$psw = $_POST['senha'];
 	$inicial = $_POST['usuario'];
-	$dn = "DC=rede,DC=sp";
+	$dn = "OU=Users,OU=SMUL,DC=rede,DC=sp";
 
 	$search = "samaccountname=" . $_POST['usuario'];  //"samaccountname=".$user; ou userprincipalname //
 
 	$ds = ldap_connect($server);
 	ldap_set_option($ds, LDAP_OPT_PROTOCOL_VERSION, 3); // Corrige problema com "ç"
     $r = @ldap_bind($ds, $user, $psw);
-	if ($r == 0) {
+	$sr = @ldap_search($ds, $dn, $search);
+	$data = @ldap_get_entries($ds, $sr);
+
+	if ($r == 0 || !$data) {
 		echo '<script> sessionStorage.setItem("erro", "erro_logn"); </script>';
 		include_once 'formulario/templates/login.php';
 	}
-	$sr = ldap_search($ds, $dn, $search);
-	$data = ldap_get_entries($ds, $sr);
-
+	
 	require_once 'conexoes/conexao.php';
 
 	mysqli_set_charset($conn, "utf8mb4");
