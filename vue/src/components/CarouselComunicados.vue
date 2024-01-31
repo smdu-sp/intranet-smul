@@ -52,13 +52,17 @@ axios
     background-color: transparent;
 }
 
+.carousel__prev--disabled,
+.carousel__next--disabled {
+    cursor: default;
+}
 
 </style>
 
 <template>
     <div class="container-carousel">
         <div class="carousel-comunicados">
-            <Carousel :items-to-show="1" :wrap-around="true" :i18n="{
+            <Carousel :items-to-show="1" :wrap-around="false" :i18n="{
                 'ariaNextSlide': 'Próximo comunicado',
                 'ariaPreviousSlide': 'Comunicado anterior',
                 'ariaNavigateToSlide': 'Pular para o comunicado {slideNumber}',

@@ -1,5 +1,6 @@
 <?php
 // Inicia conexão ao banco da lista de contatos
+header('Content-Type: application/json; charset=utf-8');
 include_once 'db-config.php';
 
 $contatos = array();
