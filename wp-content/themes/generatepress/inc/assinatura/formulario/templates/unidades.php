@@ -1,7 +1,7 @@
 <?php
 function getunidades(){
 
-    include '/opt/lampp/htdocs/intranet.SMUL.homolog/wp-content/themes/generatepress/inc/assinatura/conexoes/conexao.php';
+    include '../../conexoes/conexao.php';
 
     $sql = "SELECT unidades FROM unidades;";
 
