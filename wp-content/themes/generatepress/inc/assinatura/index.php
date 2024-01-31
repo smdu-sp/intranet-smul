@@ -1,6 +1,8 @@
 <?php
 if (isset($_POST['bnt_entrar'])) {
 
+	include_once 'conexoes/ldap-config.php';
+
 	$ID_Usuario = $_POST['usuario'];
 	$user = $_POST['usuario'] . "@rede.sp";
 	$psw = $_POST['senha'];
